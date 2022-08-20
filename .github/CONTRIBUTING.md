@@ -1,1 +1,1 @@
-# Contribute Responsibly
+# Contributing guide
