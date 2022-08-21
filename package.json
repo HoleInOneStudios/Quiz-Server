@@ -1,0 +1,33 @@
+{
+  "name": "samsat-quiz-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoleInOneStudios/samsat-quiz-app.git"
+  },
+  "keywords": [
+    "SAMSAT", "Quiz"
+  ],
+  "author": "HoleInOneGolfer (Benjamin Bowles)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HoleInOneStudios/samsat-quiz-app/issues"
+  },
+  "homepage": "https://github.com/HoleInOneStudios/samsat-quiz-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

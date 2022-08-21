@@ -5,11 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://127.0.0.1:3000/docs",
+            "webRoot": "${workspaceFolder}/docs"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome",
-            "url": "http://127.0.0.1:3000/docs/index.html",
-            "webRoot": "${workspaceFolder}"
+            "url": "http://127.0.0.1:3000/docs",
+            "webRoot": "${workspaceFolder}/docs"
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch Firefox",
+            "url": "http://127.0.0.1:3000/docs",
+            "webRoot": "${workspaceFolder}/docs"
         }
     ]
 }
