@@ -7,6 +7,13 @@
 	"settings": {
 		"cSpell.words": [
 			"SAMSAT"
-		]
+		],
+		"files.exclude": {
+			"**/node_modules": true,
+			"**/package-lock.json": true,
+			"**/SECURITY.md": true,
+			"**/LICENSE": true,
+			"**/.github": true,
+		}
 	}
 }
