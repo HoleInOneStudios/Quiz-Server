@@ -5,11 +5,11 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-let wb = XLSX.readFile(path.join(__dirname, './example/data.xlsx'));
+let wb = XLSX.readFile(path.join(__dirname, './data/data.xlsx'));
 
-fs.watch(path.join(__dirname, "./example/data.xlsx"), (eventType) => {
+fs.watch(path.join(__dirname, "./data/data.xlsx"), (eventType) => {
     if (eventType === "change") {
-        wb = XLSX.readFile(path.join(__dirname, './example/data.xlsx'));
+        wb = XLSX.readFile(path.join(__dirname, './data/data.xlsx'));
     }
 });
 
