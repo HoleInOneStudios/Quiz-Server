@@ -1,6 +1,14 @@
-<%- include('header.ejs')%>
-    <% for(var i = 1 ; i < JSON.parse(message).length ; i++) { %>
-            <p><%= JSON.stringify(JSON.parse(message)[i]) %></p>
-    <% } %>
+<!--<%- include('header.ejs')%>-->
+<!--    <% for(var i = 1 ; i < JSON.parse(message).length ; i++) { %>-->
+<!--            <p><%= JSON.stringify(JSON.parse(message)[i]) %></p>-->
+<!--    <% } %>-->
+    <script src="../js/quiz.js" defer></script>
+
+    <main id="root">
+        <answer-choice id="Choice_A" correct></answer-choice>
+        <answer-choice id="Choice_B"></answer-choice>
+        <answer-choice id="Choice_C"></answer-choice>
+        <answer-choice id="Choice_D"></answer-choice>
+    </main>
 </body>
 </html>
