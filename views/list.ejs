@@ -1,0 +1,13 @@
+<%- include('header.ejs')%>
+        <main id="root">
+            <h1>Quiz List</h1>
+            <ul>
+            <% for(var i = 0 ; i < sheets.length ; i++) { %>
+                <li>
+                    <a href="quiz/<%=sheets[i]%>"><%= sheets[i] %></a>
+                </li>
+            <% } %>
+            </ul>
+        </main>
+    </body>
+</html>

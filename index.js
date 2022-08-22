@@ -1,20 +1,35 @@
 const XLSX = require('xlsx');
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const PORT = 3000;
 
-const wb = XLSX.readFile(path.join(__dirname, './example/data.xlsx'));
-const xlData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], {header: 1});
+let wb = XLSX.readFile(path.join(__dirname, './example/data.xlsx'));
 
-console.log(xlData);
+fs.watch(path.join(__dirname, "./example/data.xlsx"), (eventType) => {
+    if (eventType === "change") {
+        wb = XLSX.readFile(path.join(__dirname, './example/data.xlsx'));
+    }
+});
 
-app.use(express.static(path.join(__dirname, 'public')));
+function getSheet(sheetName) {
+    return XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: ["Question", "A", "B", "C", "D", "Correct"] });
+}
+
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.get(`/quiz`, (req, res) => {
-    res.send(XLSX.utils.sheet_to_html(wb.Sheets[wb.SheetNames[0]]))
+app.get(`/quiz/:sheet`, (req, res) => {
+    res.render('main', {
+        title: 'Quiz',
+        message: JSON.stringify(getSheet(req.params.sheet))
+    })
+})
+
+app.get('/quiz', (req, res) => {
+    res.render('list', {sheets: wb.SheetNames})
 })
 
 app.listen(PORT, () => {
