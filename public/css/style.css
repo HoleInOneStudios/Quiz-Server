@@ -1,34 +1,74 @@
 html {
     text-align: center;
+
     margin: 0;
     padding: 0;
 }
 
+main {
+
+}
+
 question-text {
     display: block;
+
+    font-size: 10vh;
 }
 
 answer-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
 }
 
 answer-choice {
-    display: block;
-
-    border: solid;
-    border-radius: 1em;
+    font-size: 5vh;
 
     background-color: white;
 
-    margin: .5em;
-    padding: 1em;
+    
 
-    transition: all .2s ease-in-out;
+    padding: 3vh;
+    margin: 2vh;
+
+    transition: all .1s ease-in-out;
 }
 
-answer-choice:hover {
+.button {
+    border: solid;
+    border-radius: 10vh;
+
+    padding: 1vh;
+
+    transform: scale(1);
+}
+
+.button:hover {
+    transition: all .1 ease-in-out;
     transform: scale(1.1);
-    z-index: 1;
+}
+
+hint-button {
+    position: absolute;
+
+    bottom: 1vh;
+    left: 1vh;
+}
+
+next-button {
+    position: absolute;
+
+    bottom: 1vh;
+    right: 1vh;
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
 }

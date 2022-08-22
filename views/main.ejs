@@ -4,12 +4,19 @@
 
     <main id="root" onload="loadQuestion();">
         <question-text id="Question"></question-text>
+        
         <answer-container>
-            <answer-choice id="Choice_A" correct></answer-choice>
-            <answer-choice id="Choice_B"></answer-choice>
-            <answer-choice id="Choice_C"></answer-choice>
-            <answer-choice id="Choice_D"></answer-choice>
+            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_A" correct></answer-choice>
+            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_B"></answer-choice>
+            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_C"></answer-choice>
+            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_D"></answer-choice>
         </answer-container>
+
+        <hint-text id="Hint" class="hidden"></hint-text>
+        <hint-button class="button" onclick="hint_text.classList.toggle('hidden')">Hint!</hint-button>
+        
+        <next-button class="button" onclick="nextQuestion()">Next!</next-button>
+        <next-button class="" style="right: 20vh;" onclick="prevQuestion()">Previous!</next-button>
     </main>
 </body>
 </html>

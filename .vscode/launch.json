@@ -4,7 +4,7 @@
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
-            "url": "http://127.0.0.1:3000",
+            "url": "http://127.0.0.1:3000/quiz",
             "webRoot": "${workspaceFolder}"
         },
         {
@@ -12,14 +12,14 @@
             "request": "launch",
             "reAttach": true,
             "name": "Launch Firefox",
-            "url": "http://127.0.0.1:3000",
+            "url": "http://127.0.0.1:3000/quiz",
             "webRoot": "${workspaceFolder}"
         },
         {
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://127.0.0.1:3000",
+            "url": "http://127.0.0.1:3000/quiz",
             "webRoot": "${workspaceFolder}"
         }
     ]
