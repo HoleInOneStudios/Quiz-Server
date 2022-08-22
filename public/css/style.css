@@ -1,0 +1,34 @@
+html {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+question-text {
+    display: block;
+}
+
+answer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+answer-choice {
+    display: block;
+
+    border: solid;
+    border-radius: 1em;
+
+    background-color: white;
+
+    margin: .5em;
+    padding: 1em;
+
+    transition: all .2s ease-in-out;
+}
+
+answer-choice:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}

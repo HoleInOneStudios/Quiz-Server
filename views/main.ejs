@@ -1,14 +1,15 @@
-<!--<%- include('header.ejs')%>-->
-<!--    <% for(var i = 1 ; i < JSON.parse(message).length ; i++) { %>-->
-<!--            <p><%= JSON.stringify(JSON.parse(message)[i]) %></p>-->
-<!--    <% } %>-->
+<%- include('header.ejs')%>
     <script src="../js/quiz.js" defer></script>
+    <span id="sheetData" hidden><%=message%></span>
 
-    <main id="root">
-        <answer-choice id="Choice_A" correct></answer-choice>
-        <answer-choice id="Choice_B"></answer-choice>
-        <answer-choice id="Choice_C"></answer-choice>
-        <answer-choice id="Choice_D"></answer-choice>
+    <main id="root" onload="loadQuestion();">
+        <question-text id="Question"></question-text>
+        <answer-container>
+            <answer-choice id="Choice_A" correct></answer-choice>
+            <answer-choice id="Choice_B"></answer-choice>
+            <answer-choice id="Choice_C"></answer-choice>
+            <answer-choice id="Choice_D"></answer-choice>
+        </answer-container>
     </main>
 </body>
 </html>
