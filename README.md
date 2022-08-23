@@ -5,10 +5,10 @@
 | Name            | Description            | Element Type       |
 | --------------- | ---------------------- | ------------------ |
 | Question        | Question string        | `custom-QUESTION`  |
-| 1               | Answer choice 1        | `custom-ANSWER`   |
-| 2               | Answer choice 2        | `custom-ANSWER`   |
-| 3               | Answer choice 3        | `custom-ANSWER`   |
-| 4               | Answer choice 4        | `custom-ANSWER`   |
+| 1               | Answer choice 1        | `custom-ANSWER`    |
+| 2               | Answer choice 2        | `custom-ANSWER`    |
+| 3               | Answer choice 3        | `custom-ANSWER`    |
+| 4               | Answer choice 4        | `custom-ANSWER`    |
 | Correct         | Correct answer choice  |
 | Hint            | Hint string            | `custom-HINT_TEXT` |
 |                 |                        |
