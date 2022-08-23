@@ -29,7 +29,7 @@ function loadQuestionDOM() {
 
     HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION]["Hint"];
 
-    
+
 }
 
 function NEXT() {
@@ -38,7 +38,7 @@ function NEXT() {
         loadQuestionDOM();
         updateQuestion();
     }
-    
+
 }
 
 function PREV() {
@@ -75,7 +75,7 @@ function updateQuestion() {
 }
 
 function updateScore() {
-    SCORE_TEXT.innerText = `Score: ${getScore()}/${SHEET_DATA.length} \n ${parseInt(getScore()/SHEET_DATA.length*100)}%`;
+    SCORE_TEXT.innerText = `Score: ${getScore()}/${SHEET_DATA.length} \n ${parseInt(getScore() / SHEET_DATA.length * 100)}%`;
 }
 
 function getScore() {
