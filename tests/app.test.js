@@ -1,6 +1,8 @@
 describe('App', () => {
 
-    it.todo('tests');
+    it('Dummy Test', () => {
+        expect(true).toEqual(true);
+    });
 
 
 })
