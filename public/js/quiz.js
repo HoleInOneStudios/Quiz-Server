@@ -11,8 +11,8 @@ const PREV_BUTTON = document.getElementById("PREV");
 const SCORE_TEXT = document.getElementById('SCORE_TEXT');
 
 // data
-SHEET_DATA = JSON.parse(document.getElementById("SHEET_DATA").innerText); SHEET_DATA.shift();
-CURRENT_QUESTION = 0;
+var SHEET_DATA = JSON.parse(document.getElementById("SHEET_DATA").innerText); SHEET_DATA.shift();
+var CURRENT_QUESTION = 0;
 
 /* ================================================================ */
 

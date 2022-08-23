@@ -1,7 +1,10 @@
 {
     "typeAcquisition": {
         "include": [
-            "jest"
+            "jest",
+            "ejs",
+            "express",
+            "xlsx"
         ]
     }
 }
