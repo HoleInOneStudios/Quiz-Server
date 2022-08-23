@@ -1,19 +1,9 @@
-customElements.define('answer-choice', class extends HTMLElement {
-    
-});
-customElements.define('answer-container', class extends HTMLElement {
-
-});
-customElements.define('question-choice', class extends HTMLElement {
-        
-});
-
-customElements.define('hint-button', class extends HTMLElement {
-
-});
-customElements.define('hint-text', class extends HTMLElement {
-
-});
-customElements.define('next-button', class extends HTMLElement {
-
-});
+customElements.define('custom-QUESTION', class extends HTMLElement {});
+customElements.define('custom-CHOICES', class extends HTMLElement {});
+customElements.define('custom-ANSWER', class extends HTMLElement {});
+customElements.define('custom-HINT', class extends HTMLElement {});
+customElements.define('custom-HINT_TEXT', class extends HTMLElement {});
+customElements.define('custom-HINT_TOGGLE', class extends HTMLElement {});
+customElements.define('custom-CONTROL', class extends HTMLElement {});
+customElements.define('custom-NEXT_BUTTON', class extends HTMLElement {});
+customElements.define('custom-PREV_BUTTON', class extends HTMLElement {});

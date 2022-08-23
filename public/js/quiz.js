@@ -1,116 +1,64 @@
-const root = document.getElementById("root");
+/* Variables */
 
-const choices = [];
+// DOM Elements
+const ROOT = document.getElementById("ROOT");
+const CHOICES = Array.from(document.getElementsByTagName("custom-ANSWER"));
+const QUESTION = document.getElementById("QUESTION");
+const HINT_TOGGLE = document.getElementById("HINT_TOGGLE");
+const HINT_TEXT = document.getElementById("HINT_TEXT");
+const NEXT_BUTTON = document.getElementById("NEXT");
+const PREV_BUTTON = document.getElementById("PREV");
 
-choices.push(document.getElementById("Choice_A"));
-choices.push(document.getElementById("Choice_B"));
-choices.push(document.getElementById("Choice_C"));
-choices.push(document.getElementById("Choice_D"));
+// data
+SHEET_DATA = JSON.parse(document.getElementById("SHEET_DATA").innerText); SHEET_DATA.shift();
+CURRENT_QUESTION = 0;
 
-const Question = document.getElementById("Question");
+/* ================================================================ */
 
-const sheet_data = JSON.parse(document.getElementById("sheetData").innerText);
-sheet_data.shift();
+/* Functions */
 
-const hint_text = document.getElementById("Hint");
+function loadQuestionDOM() {
+    QUESTION.innerText = SHEET_DATA[CURRENT_QUESTION]["Question"];
+    for (let i = 0; i < CHOICES.length; i++) {
+        CHOICES[i].innerText = SHEET_DATA[CURRENT_QUESTION][i + 1];
+    }
+    CHOICES[SHEET_DATA[CURRENT_QUESTION]["Correct"] - 1].setAttribute('correct', true);
 
-var currentQuestion = 0;
-
-root.onload = loadQuestion();
-
-function loadQuestion() {
-    Question.innerText = sheet_data[currentQuestion]["Question"];
-
-    choices[0].innerText = sheet_data[currentQuestion]["A"];
-    choices[0].setAttribute("correct", sheet_data[currentQuestion]["Correct"] - 1 == 0);
-
-    choices[1].innerText = sheet_data[currentQuestion]["B"];
-    choices[1].setAttribute("correct", sheet_data[currentQuestion]["Correct"] - 1 == 1);
-
-    choices[2].innerText = sheet_data[currentQuestion]["C"];
-    choices[2].setAttribute("correct", sheet_data[currentQuestion]["Correct"] - 1 == 2);
-
-    choices[3].innerText = sheet_data[currentQuestion]["D"];
-    choices[3].setAttribute("correct", sheet_data[currentQuestion]["Correct"] - 1 == 3);
-
-    hint_text.innerText = sheet_data[currentQuestion]["Hint"];
-
+    HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION]["Hint"];
 }
 
-function nextQuestion() {
-    if (currentQuestion >= sheet_data.length - 1) {
-        return console.log(getResults());
+function NEXT() {
+    if (CURRENT_QUESTION < SHEET_DATA.length - 1) {
+        CURRENT_QUESTION++;
+        loadQuestionDOM();
+        updateQuestion();
     }
-    else
-    {
-        currentQuestion++;
-    }
-    loadQuestion();
-    updateQuestion();
-
-}
-
-function prevQuestion() {
     
-    if (currentQuestion <= 0) {
-        return console.log("First Question");
-    }
-    else
-    {
-        currentQuestion--;
-    }
-    loadQuestion();
-    updateQuestion();
-
 }
 
-function submitAnswer(event) {
-    console.log(event.target.getAttribute('correct'));
-    
-    if (event.target.getAttribute('correct') == "true" && !sheet_data[currentQuestion]["Answered"]) {
-        sheet_data[currentQuestion]["Answered"] = true;
-        sheet_data[currentQuestion]["Selection"] = event.target;
+function PREV() {
+    if (CURRENT_QUESTION > 0) {
+        CURRENT_QUESTION--;
+        loadQuestionDOM();
+        updateQuestion();
     }
-    else if (!sheet_data[currentQuestion]["Answered"])
-    {
-        sheet_data[currentQuestion]["Answered"] = true;
-        sheet_data[currentQuestion]["Selection"] = event.target;
+}
+
+function Answer(e) {
+    if (!SHEET_DATA[CURRENT_QUESTION]["Answered"]) {
+        SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] = e.target.id;
+        SHEET_DATA[CURRENT_QUESTION]["Answered"] = true;
+        console.log(e.target.id);
+        updateQuestion();
     }
-
-    updateQuestion();
-
-    console.log(sheet_data);
 }
 
 function updateQuestion() {
-    choices.forEach(choice => {
-        choice.classList.remove("correct");
-        choice.classList.remove("incorrect");
-    });
-    if (sheet_data[currentQuestion]["Answered"]) {
-        if (sheet_data[currentQuestion]["Selection"].getAttribute("correct") == "true") {
-            sheet_data[currentQuestion]["Selection"].classList.add("correct");
-        }
-        else {
-            sheet_data[currentQuestion]["Selection"].classList.add("incorrect");
-            //show correct answer
-            choices.forEach(choice => {
-                if (choice.getAttribute("correct") == "true") {
-                    choice.classList.add("correct");
-                }
-            });
+    if (SHEET_DATA[CURRENT_QUESTION]["Answered"]) {
+        if (SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] === SHEET_DATA[CURRENT_QUESTION]["Correct"]) {
+            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"]].innerText = "Correct";
+        } else {
+            console.log(2)
         }
     }
-}
-
-function getResults() {
-    score = 0;
-    sheet_data.forEach(question => {
-        if (question["Answered"]) {
-            if (question["Selection"].getAttribute("correct") == "true") {
-                score++;
-            }
-        }
-    });
-    return `You got ${score} out of ${sheet_data.length} questions correct`;
 }

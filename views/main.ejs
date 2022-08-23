@@ -1,22 +1,27 @@
 <%- include('header.ejs')%>
-    <script src="../js/quiz.js" defer></script>
-    <span id="sheetData" hidden><%=message%></span>
+<body onload="loadQuestionDOM()">
+    <script src="../js/quiz.js" defer async></script>
+    <span id="SHEET_DATA" hidden><%=message%></span>
 
-    <main id="root" onload="loadQuestion();">
-        <question-text id="Question"></question-text>
-        
-        <answer-container>
-            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_A" correct></answer-choice>
-            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_B"></answer-choice>
-            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_C"></answer-choice>
-            <answer-choice onclick="submitAnswer(event)" class="button" id="Choice_D"></answer-choice>
-        </answer-container>
+    <MAIN id="ROOT">
+        <custom-QUESTION id="QUESTION"></custom-QUESTION>
 
-        <hint-text id="Hint" class="hidden"></hint-text>
-        <hint-button class="button" onclick="hint_text.classList.toggle('hidden')">Hint!</hint-button>
-        
-        <next-button class="button" onclick="nextQuestion()">Next!</next-button>
-        <next-button class="" style="right: 20vh;" onclick="prevQuestion()">Previous!</next-button>
-    </main>
+        <custom-CHOICES>
+            <custom-ANSWER onclick="Answer(event)" id="1"></custom-ANSWER>
+            <custom-ANSWER onclick="Answer(event)" id="2"></custom-ANSWER>
+            <custom-ANSWER onclick="Answer(event)" id="3"></custom-ANSWER>
+            <custom-ANSWER onclick="Answer(event)" id="4"></custom-ANSWER>
+        </custom-CHOICES>
+
+        <custom-HINT>
+            <custom-TEXT id="HINT_TEXT"></custom-TEXT>
+            <custom-TOGGLE id="HINT_TOGGLE"></custom-TOGGLE>
+        </custom-HINT>
+
+        <custom-CONTROL>
+            <custom-NEXT id="NEXT" onclick="NEXT();">NEXT</custom-NEXT>
+            <custom-BACK id="BACK" onclick="PREV();">BACK</BACK>
+        </custom-CONTROL>
+    </MAIN>
 </body>
 </html>

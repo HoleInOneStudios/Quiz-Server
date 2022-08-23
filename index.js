@@ -14,7 +14,7 @@ fs.watch(path.join(__dirname, "./data/data.xlsx"), (eventType) => {
 });
 
 function getSheet(sheetName) {
-    return XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: ["Question", "A", "B", "C", "D", "Correct", "Hint"] });
+    return XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: ["Question", "1", "2", "3", "4", "Correct", "Hint"] });
 }
 
 app.use(express.static('public'));
