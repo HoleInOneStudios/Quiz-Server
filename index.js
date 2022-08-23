@@ -2,8 +2,11 @@ const XLSX = require('xlsx');
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
-const app = express();
+const http = require('http');
 const PORT = 3000;
+
+const app = express();
+const server = http.createServer(app);
 
 let wb = XLSX.readFile(path.join(__dirname, './data/data.xlsx'));
 
@@ -18,6 +21,7 @@ function getSheet(sheetName) {
 }
 
 app.use(express.static('public'));
+app.set('port', PORT);
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
@@ -32,6 +36,6 @@ app.get('/quiz', (req, res) => {
     res.render('list', {sheets: wb.SheetNames})
 })
 
-app.listen(PORT, () => {
+server.listen(PORT, 'localhost', () => {
     console.log(`Server is running on port ${PORT}`);
 })
