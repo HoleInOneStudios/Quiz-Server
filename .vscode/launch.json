@@ -1,26 +1,57 @@
 {
     "configurations": [
         {
-            "name": "Launch Edge",
+            "name": "DEV - Launch Edge",
             "request": "launch",
             "type": "msedge",
             "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: dev"
         },
         {
+            "name": "DEV - Launch Firefox",
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "name": "Launch Firefox",
             "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: dev"
         },
         {
-            "name": "Launch Chrome",
+            "name": "DEV - Launch Chrome",
             "request": "launch",
             "type": "chrome",
             "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: dev"
+        },
+
+
+
+        {
+            "name": "Release - Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://127.0.0.1:3000/quiz",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: start"
+        },
+        {
+            "name": "Release - Launch Firefox",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://127.0.0.1:3000/quiz",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: start"
+        },
+        {
+            "name": "Release - Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://127.0.0.1:3000/quiz",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm: start"
         }
     ]
 }
