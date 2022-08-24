@@ -19,8 +19,12 @@ var CURRENT_QUESTION = 0;
 /* Functions */
 
 function loadQuestionDOM() {
-    updateScore();
+    if (!HINT_TEXT.classList.contains('hidden')) {
+        toggleHint();
+    }
 
+    updateScore();
+    
     QUESTION.innerText = SHEET_DATA[CURRENT_QUESTION]["Question"];
     for (let i = 0; i < CHOICES.length; i++) {
         CHOICES[i].innerText = SHEET_DATA[CURRENT_QUESTION][i + 1];

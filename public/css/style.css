@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'FW';
+    src: url('../font/Frostys Winterland.ttf');
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -7,6 +12,8 @@ html {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10+ */
     user-select: none;
+
+    font-family: 'FW';
 }
 
 main {
@@ -46,7 +53,7 @@ custom-HINT_TEXT {
     padding: 3vh;
     margin: 1vh;
 
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 }
 
 custom-HINT_TOGGLE {
