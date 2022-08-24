@@ -17,7 +17,7 @@
 
 ## Custom Elements
 
-Defined in `../js/elements.js`
+Defined in [../elements/js](./public/js/elements.js)
 
 > `custom-question`
 

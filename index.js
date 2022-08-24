@@ -53,7 +53,7 @@ app.get('/quiz', (req, res) => {
 /* ================================================================ */
 /* Server */
 
-app.listen(PORT, 'localhost', () => {
+server.listen(PORT, 'localhost', () => {
     console.log(server.address())
     console.log(`Server is running on port ${PORT}`);
 })
