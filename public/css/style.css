@@ -66,7 +66,7 @@ custom-CONTROL {
     right: 5vh;
 }
 
-custom-NEXT {s
+custom-NEXT {
 
 }
 
@@ -97,6 +97,8 @@ custom-RESET {
     border-radius: 1vh;
 
     font-size: 5vh;
+
+    background-color: #fff;
 
     padding: 3vh;
     margin: 1vh;
