@@ -45,6 +45,8 @@ custom-HINT_TEXT {
     
     padding: 3vh;
     margin: 1vh;
+
+    transition: all 0.5s ease;
 }
 
 custom-HINT_TOGGLE {
@@ -80,7 +82,7 @@ custom-RESET {
 }
 
 .hidden {
-    display: none;
+    opacity: 0%;
 }
 
 .button {
