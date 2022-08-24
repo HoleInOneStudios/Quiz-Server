@@ -30,7 +30,9 @@ fs.watch(path.join(__dirname, "./data/data.xlsx"), (eventType) => {
     }
 });
 
-app.use(express.static('public'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('port', PORT);
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -54,6 +56,7 @@ app.get('/quiz', (req, res) => {
 
 /* Server */
 
-server.listen(PORT, 'localhost', () => {
+app.listen(PORT, 'localhost', () => {
+    console.log(server.address())
     console.log(`Server is running on port ${PORT}`);
 })

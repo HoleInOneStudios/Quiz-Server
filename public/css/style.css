@@ -38,10 +38,17 @@ custom-HINT {
 }
 
 custom-HINT_TEXT {
+    border: solid;
+    border-radius: 1vh;
 
+    font-size: 5vh;
+    
+    padding: 3vh;
+    margin: 1vh;
 }
 
 custom-HINT_TOGGLE {
+
 }
 
 custom-CONTROL {
@@ -50,10 +57,12 @@ custom-CONTROL {
     right: 5vh;
 }
 
-custom-NEXT {
+custom-NEXT {s
+
 }
 
 custom-BACK {
+
 }
 
 custom-SCORE_TEXT {
@@ -82,4 +91,11 @@ custom-RESET {
 
     padding: 3vh;
     margin: 1vh;
+
+    transition: all .25s ease;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1vh 1vh rgba(0, 0, 0, 0.25);
 }
