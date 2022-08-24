@@ -1,5 +1,5 @@
-- name: NodeJS Create Release
-  uses: gregoranders/nodejs-create-release@v0.0.18
+name: 'NodeJS Create Release'
+uses: gregoranders/nodejs-create-release@v0.0.18
   with:
     tag: 
     name: # optional
