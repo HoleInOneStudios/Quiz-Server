@@ -108,3 +108,11 @@ custom-RESET {
     transform: scale(1.1);
     box-shadow: 0 0 1vh 1vh rgba(0, 0, 0, 0.25);
 }
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}

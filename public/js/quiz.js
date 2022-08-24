@@ -66,12 +66,22 @@ function Answer(e) {
 }
 
 function updateQuestion() {
+    CHOICES.forEach(choice => {
+        choice.classList.remove('correct');
+        choice.classList.remove('incorrect');
+    });
+
     if (SHEET_DATA[CURRENT_QUESTION]["Answered"]) {
         if (parseInt(SHEET_DATA[CURRENT_QUESTION]["Selected Answer"]) === SHEET_DATA[CURRENT_QUESTION]["Correct"]) {
-            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].innerText = "Correct";
+            //CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].innerText = "Correct";
+
+            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].classList.add('correct');
         } else {
-            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].innerText = "Incorrect";
-            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Correct"] - 1].innerText = "Correct";
+            //CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].innerText = "Incorrect";
+            //CHOICES[SHEET_DATA[CURRENT_QUESTION]["Correct"] - 1].innerText = "Correct";
+
+            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Selected Answer"] - 1].classList.add('incorrect');
+            CHOICES[SHEET_DATA[CURRENT_QUESTION]["Correct"] - 1].classList.add('correct');
         }
     }
 
