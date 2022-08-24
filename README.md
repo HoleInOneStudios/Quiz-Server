@@ -22,14 +22,19 @@ Defined in `../js/elements.js`
 > `custom-question`
 
 > `custom-choices`
+>
 > `custom-answer`
 
 >`custom-hint`
+>
 > `custom-hint_text`
+>
 > `custom-hint_toggle`
 
 > `custom-control`
+>
 > `custom-next`
+>
 > `custom-prev`
 
 > `custom-score_text`
