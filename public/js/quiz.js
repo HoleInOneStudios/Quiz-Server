@@ -1,3 +1,4 @@
+/* ================================================================ */
 /* Variables */
 
 // DOM Elements
@@ -12,10 +13,11 @@ const SCORE_TEXT = document.getElementById('SCORE_TEXT');
 
 // data
 var SHEET_DATA = JSON.parse(document.getElementById("SHEET_DATA").innerText); SHEET_DATA.shift();
+
+// question control
 var CURRENT_QUESTION = 0;
 
 /* ================================================================ */
-
 /* Functions */
 
 function loadQuestionDOM() {
@@ -110,3 +112,5 @@ function reset() {
     loadQuestionDOM();
     updateQuestion();
 }
+
+/* ================================================================ */

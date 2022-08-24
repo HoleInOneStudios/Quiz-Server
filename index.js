@@ -1,3 +1,4 @@
+/* ================================================================ */
 /* Variables */
 
 const XLSX = require('xlsx');
@@ -13,7 +14,6 @@ const server = http.createServer(app);
 let wb = XLSX.readFile(path.join(__dirname, './data/data.xlsx'));
 
 /* ================================================================ */
-
 /* Functions */
 
 function getSheet(sheetName) {
@@ -21,7 +21,6 @@ function getSheet(sheetName) {
 }
 
 /* ================================================================ */
-
 /* Setup */
 
 fs.watch(path.join(__dirname, "./data/data.xlsx"), (eventType) => {
@@ -38,7 +37,6 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 /* ================================================================ */
-
 /* Routes */
 
 app.get(`/quiz/:sheet`, (req, res) => {
@@ -53,7 +51,6 @@ app.get('/quiz', (req, res) => {
 })
 
 /* ================================================================ */
-
 /* Server */
 
 app.listen(PORT, 'localhost', () => {
