@@ -11,5 +11,3 @@ const custom_element_directives = [
     customElements.define('custom-score_text', class extends HTMLElement { }),
     customElements.define('custom-reset', class extends HTMLElement { })
 ];
-
-export { custom_element_directives };

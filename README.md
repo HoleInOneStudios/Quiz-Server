@@ -2,22 +2,25 @@
 
 ## Quiz Question
 
-| Name            | Description            | Element Type       |
-| --------------- | ---------------------- | ------------------ |
-| Question        | Question string        | `custom-question`  |
-| 1               | Answer choice 1        | `custom-answer`    |
-| 2               | Answer choice 2        | `custom-answer`    |
-| 3               | Answer choice 3        | `custom-answer`    |
-| 4               | Answer choice 4        | `custom-answer`    |
+Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a different quiz. The first row is the header row and is ignored in the quiz.
+`Answered` and `Selected Answer` are not to be included in the excel file. They are generated during the quiz.
+
+| Name            | Description            |
+| --------------- | ---------------------- |
+| Question        | Question string        |
+| 1               | Answer choice 1        |
+| 2               | Answer choice 2        |
+| 3               | Answer choice 3        |
+| 4               | Answer choice 4        |
 | Correct         | Correct answer choice  |
-| Hint            | Hint string            | `custom-hint_text` |
+| Hint            | Hint string            |
 |                 |                        |
 | Answered        | answered true or false |
 | Selected Answer | answer choice chosen   |
 
 ## Custom Elements
 
-Defined in [../elements/js](./public/js/elements.js)
+Defined in [../elements/js](./public/js/elements.js). These elements don't do anything special. They just make the `.ejs' files more readable.
 
 > `custom-question`
 

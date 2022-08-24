@@ -35,7 +35,7 @@ custom-ANSWER {
     padding: 5vh !important;
     margin: 2vh !important;
 
-    font-size: 10vh !important;
+    font-size: calc(100% + 3vh) !important;
 }
 
 custom-HINT {
