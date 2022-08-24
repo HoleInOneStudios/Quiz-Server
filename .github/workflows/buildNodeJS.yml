@@ -1,0 +1,9 @@
+- name: NodeJS Create Release
+  uses: gregoranders/nodejs-create-release@v0.0.18
+  with:
+    tag: 
+    name: # optional
+    body: # optional
+    draft: # optional, default is true
+    prerelease: # optional
+    target: # optional, default is master
