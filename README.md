@@ -1,5 +1,11 @@
 # ![alt](public/images/icon.png) Quiz-Server
 
+[![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")    [![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=npm)](https://www.npmjs.com/package/quiz-server "Go to NPM repo")
+
+[![stars - Quiz-Server](https://img.shields.io/github/stars/HoleInOneStudios/Quiz-Server?style=social)](https://github.com.HoleInOneStudios/Quiz-Server)    [![forks - Quiz-Server](https://img.shields.io/github/forks/HoleInOneStudios/Quiz-Server?style=social)](https://github.com/HoleInOneStudios/Quiz-Server)    ![maintained - yes](https://img.shields.io/badge/maintained-yes-blue)   [![contributions - welcome](https://img.shields.io/badge/contributions-welcome-blue)](/.github/CONTRIBUTING.md "Go to contributions doc")
+
+[![Made with Node.js](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")    [![Made with JavaScript](https://img.shields.io/badge/Made_with-JavaScript-blue?logo=javascript&logoColor=white)](https://www.javascript.com/ "Go to JavaScript homepage")
+
 ## Quiz Questions
 
 Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a different quiz. The first row is the header row and is ignored in the quiz. `Answered` and `Selected Answer` are not to be included in the excel file. They are generated during the quiz.
