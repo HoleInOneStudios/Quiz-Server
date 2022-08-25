@@ -17,6 +17,9 @@
 		},
 		"files.associations": {
 			"**.ejs": "html"
+		},
+		"material-icon-theme.folders.associations": {
+			"wiki": "docs"
 		}
 	}
 }
