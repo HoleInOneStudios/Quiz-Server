@@ -1,5 +1,5 @@
 {
-  "name": "samsat-quiz-app",
+  "name": "quiz-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,17 +8,18 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
+  "bin": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HoleInOneStudios/samsat-quiz-app.git"
+    "url": "git+https://github.com/HoleInOneStudios/Quiz-Server.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "HoleInOneStudios",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HoleInOneStudios/samsat-quiz-app/issues"
+    "url": "https://github.com/HoleInOneStudios/Quiz-Server/issues"
   },
-  "homepage": "https://github.com/HoleInOneStudios/samsat-quiz-app#readme",
+  "homepage": "https://github.com/HoleInOneStudios/Quiz-Server#readme",
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
