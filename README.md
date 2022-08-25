@@ -1,9 +1,8 @@
-# samsat-quiz-app
+# ![alt](public/images/icon.png) Quiz-Server
 
-## Quiz Question
+## Quiz Questions
 
-Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a different quiz. The first row is the header row and is ignored in the quiz.
-`Answered` and `Selected Answer` are not to be included in the excel file. They are generated during the quiz.
+Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a different quiz. The first row is the header row and is ignored in the quiz. `Answered` and `Selected Answer` are not to be included in the excel file. They are generated during the quiz.
 
 | Name            | Description            |
 | --------------- | ---------------------- |
@@ -20,7 +19,7 @@ Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a differen
 
 ## Custom Elements
 
-Defined in [../elements/js](./public/js/elements.js). These elements don't do anything special. They just make the `.ejs' files more readable.
+Defined in [../elements/js](./public/js/elements.js). These elements don't do anything special. They just make the `.ejs' files more readable easier to maintain.
 
 > `custom-question`
 
@@ -28,7 +27,7 @@ Defined in [../elements/js](./public/js/elements.js). These elements don't do an
 >
 > `custom-answer`
 
->`custom-hint`
+> `custom-hint`
 >
 > `custom-hint_text`
 >
