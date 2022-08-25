@@ -1,14 +1,15 @@
 <%- include('header.ejs')%>
-<body>
-        <main id="root">
-            <h1>Quiz List</h1>
+    <body>
+        <main id="root" style="text-align: left;">
+            <h1 style="font-size: 5vh;">Quiz List</h1>
             <ul>
             <% for(var i = 0 ; i < sheets.length ; i++) { %>
                 <li>
-                    <a href="quiz/<%=sheets[i]%>"><%= sheets[i] %></a>
+                    <a style="font-size: 5vh;" href="<%=sheets[i]%>"><%= sheets[i] %></a>
                 </li>
             <% } %>
             </ul>
         </main>
+        <%- include('footer.ejs')%>
     </body>
 </html>

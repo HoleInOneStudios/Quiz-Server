@@ -1,7 +1,11 @@
+/* Imports */
+
 @font-face {
     font-family: 'FW';
-    src: url('../font/Frostys Winterland.ttf');
+    src: url('../font/militeck_r.ttf');
 }
+
+/* HTML Element Styles */
 
 html {
     margin: 0;
@@ -20,6 +24,21 @@ main {
     margin: 7vh;
 }
 
+body {
+    margin: 0;
+}
+
+footer {
+    position: absolute;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    bottom: 0;
+    width: 100%;
+
+    background-color: #f5f5f5;
+}
+
+/* Custom Element Styles */
 
 custom-QUESTION {
     font-size: 10vh;
@@ -87,6 +106,8 @@ custom-RESET {
     top: 2vh;
     left: 2vh;
 }
+
+/* Class Styles */
 
 .hidden {
     opacity: 0%;
