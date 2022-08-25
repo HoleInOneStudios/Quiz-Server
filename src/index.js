@@ -2,7 +2,7 @@
 /* Variables */
 
 
-const fm = require('./src/fm');
+const fm = require('./fm');
 
 //const fs = require('fs'); 
 //const XLSX = require('xlsx');
@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 fm.WatchFile();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.set('port', PORT);
 app.set('view engine', 'ejs');

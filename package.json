@@ -2,13 +2,14 @@
   "name": "quiz-server",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
+    "build": "webpack"
   },
-  "bin": "./index.js",
+  "bin": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HoleInOneStudios/Quiz-Server.git"
