@@ -1,5 +1,5 @@
 documentation:
-  - 'wiki/**'
+  - 'docs/**'
   - '*.md'
 
 views:
