@@ -7,7 +7,6 @@
     "test": "jest",
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js",
-    "build": "webpack"
   },
   "bin": "./src/index.js",
   "repository": {

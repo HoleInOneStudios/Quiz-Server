@@ -23,6 +23,10 @@
 
 ![maintained - yes](https://img.shields.io/badge/maintained-yes-blue)
 
+## Workflow Runs
+
+[![CodeQL](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/codeql-analysis.yml) [![Greetings](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/greetings.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/greetings.yml)  [![Labeler](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/label.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/label.yml)    [![Mark stale issues and pull requests](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/stale.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/stale.yml)
+
 ## Made With
 
 [![Made with Node.js](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")    [![Made with JavaScript](https://img.shields.io/badge/Made_with-JavaScript-blue?logo=javascript&logoColor=white)](https://www.javascript.com/ "Go to JavaScript homepage")
@@ -46,7 +50,7 @@ Edit questions in [./data/data.xlsx](./data/data.xlsx). Each sheet is a differen
 
 ## Custom Elements
 
-Defined in [../elements/js](./public/js/elements.js). These elements don't do anything special. They just make the `.ejs' files more readable easier to maintain.
+Defined in [../elements/js](./public/js/elements.js). These elements don't do anything special. They inherit a basic HTML Element. It just makes the `.ejs' files more readable easier to maintain.
 
 > `custom-question`
 
