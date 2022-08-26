@@ -5,8 +5,6 @@
 [![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")
 [![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=npm)](https://www.npmjs.com/package/quiz-server "Go to NPM repo")
 
-s
-
 ## Project Stats
 
 [![stars - Quiz-Server](https://img.shields.io/github/stars/HoleInOneStudios/Quiz-Server?style=social)](https://github.com.HoleInOneStudios/Quiz-Server)    [![forks - Quiz-Server](https://img.shields.io/github/forks/HoleInOneStudios/Quiz-Server?style=social)](https://github.com/HoleInOneStudios/Quiz-Server)
@@ -31,4 +29,3 @@ s
 ## Made With
 
 [![Made with Node.js](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")    [![Made with JavaScript](https://img.shields.io/badge/Made_with-JavaScript-blue?logo=javascript&logoColor=white)](https://www.javascript.com/ "Go to JavaScript homepage")
-
