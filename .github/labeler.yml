@@ -1,0 +1,29 @@
+public:
+  - any: ['public/**', 'data/**']
+    label: Public
+    description: Public
+    color: #00ff00
+  
+ejs:
+  - any: ['views/**']
+    label: EJS
+    description: EJS
+    color: #ff0000
+    
+src:
+  - any: ['src/**']
+    label: Source
+    description: Source
+    color: #0000ff
+    
+github:
+  - any: ['.github/**']
+    label: GitHub
+    description: GitHub
+    color: #ffff00
+    
+vscode:
+  - any: ['.vscode/**']
+    label: VSCode
+    description: VSCode
+    color: #00ffff

@@ -10,10 +10,10 @@
 		],
 		"files.exclude": {
 			"**/node_modules": true,
-			"**/package-lock.json": true,
-			"**/SECURITY.md": true,
-			"**/LICENSE": true,
-			"**/.github": true,
+			"**/package-lock.json": false,
+			"**/SECURITY.md": false,
+			"**/LICENSE": false,
+			"**/.github": false,
 		},
 		"files.associations": {
 			"**.ejs": "html"
