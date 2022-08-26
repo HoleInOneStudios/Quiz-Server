@@ -27,3 +27,9 @@ vscode:
     label: VSCode
     description: VSCode
     color: #00ffff
+
+wiki:
+  - any: ['wiki/**', 'README.md']
+    label: Wiki
+    description: Wiki
+    color: #ffff00
