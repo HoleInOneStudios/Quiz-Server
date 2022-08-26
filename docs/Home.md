@@ -1,3 +1,5 @@
-# Home
+<style>
+    text-align: center;
+</style>
 
-Welcome to the Quiz-Server wiki!
+# ![Logo](./reference/icon.png) Home
