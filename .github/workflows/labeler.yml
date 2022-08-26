@@ -5,9 +5,22 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Labeler
+name: 'Labeler: Issues and Pull Requests'
 on: 
-  [pull_request]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+      - closed
+    
+  issues:
+    types:
+      - opened
+      - reopened
+      - edited
+      - closed
 
 
 jobs:
