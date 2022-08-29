@@ -21,9 +21,6 @@
 		"material-icon-theme.folders.associations": {
 			"wiki": "docs",
 			"reference": "docs"
-		},
-		"githubPullRequests.ignoredPullRequestBranches": [
-			"main"
-		]
+		}
 	}
 }
