@@ -1,0 +1,55 @@
+documentation:
+  - 'docs/**'
+  - '*.md'
+
+views:
+  - 'views/**'
+  - '*.ejs'
+
+src:
+  - 'src/**'
+  - '*.js'
+
+css:
+  - 'css/**'
+  - '*.css'
+
+js:
+  - 'js/**'
+  - '*.js'
+
+images:
+  - 'images/**'
+  - '*.png'
+  - '*.jpg'
+  - '*.jpeg'
+  - '*.gif'
+  - '*.svg'
+
+font:
+  - 'font/**'
+  - '*.ttf'
+  - '*.otf'
+  - '*.woff'
+  - '*.woff2'
+  - '*.eot'
+
+github:
+  - 'github/**'
+  - '*.yml'
+  - '*.yaml'
+  - '*.json'
+
+vscode:
+  - 'vscode/**'
+  - '*.code-workspace'
+
+test:
+  - 'tests/**'
+  - '*.test.js'
+
+data:
+  - 'data/**'
+
+public:
+  - 'public/**'

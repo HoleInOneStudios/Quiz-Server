@@ -10,9 +10,9 @@
 		],
 		"files.exclude": {
 			"**/node_modules": true,
-			"**/package-lock.json": false,
-			"**/SECURITY.md": false,
-			"**/LICENSE": false,
+			"**/package-lock.json": true,
+			"**/SECURITY.md": true,
+			"**/LICENSE": true,
 			"**/.github": false,
 		},
 		"files.associations": {
