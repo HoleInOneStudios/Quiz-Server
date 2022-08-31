@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { builtinModules } = require('module');
 
-const FILE_PATH = path.join(__dirname, '../data/data.xlsx');
+const FILE_PATH = path.join(__dirname, '../public/data/data.xlsx');
 
 var WB = XLSX.readFile(FILE_PATH);
 
