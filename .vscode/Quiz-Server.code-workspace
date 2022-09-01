@@ -1,26 +1,27 @@
 {
 	"folders": [
 		{
+			"name": "All",
 			"path": ".."
+		},
+		{
+			"name": "Source",
+			"path": "../src"
+		},
+		{
+			"name": "Documentation",
+			"path": "../docs"
+		},
+		{
+			"name": "VSCode",
+			"path": "../.vscode"
+		},
+		{
+			"name": "Github",
+			"path": "../.github"
 		}
 	],
 	"settings": {
-		"cSpell.words": [
-			"SAMSAT"
-		],
-		"files.exclude": {
-			"**/node_modules": true,
-			"**/package-lock.json": true,
-			"**/SECURITY.md": true,
-			"**/LICENSE": true,
-			"**/.github": false,
-		},
-		"files.associations": {
-			"**.ejs": "html"
-		},
-		"material-icon-theme.folders.associations": {
-			"wiki": "docs",
-			"reference": "docs"
-		}
+		
 	}
 }

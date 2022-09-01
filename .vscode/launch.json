@@ -1,26 +1,5 @@
 {
     "configurations": [
-        {
-            "name": "Launch Edge",
-            "request": "launch",
-            "type": "msedge",
-            "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Launch Firefox",
-            "type": "firefox",
-            "request": "launch",
-            "reAttach": true,
-            "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Launch Chrome",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://127.0.0.1:3000/quiz",
-            "webRoot": "${workspaceFolder}"
-        }
+        
     ]
 }
