@@ -39,6 +39,9 @@
 		"material-icon-theme.files.associations": {
 			"www": "javascript"
 		},
+		"material-icon-theme.folders.associations": {
+			"reference": "docs",
+		},
 		"workbench.colorCustomizations": {},
 		"workbench.colorTheme": "Default Dark+"
 	},
