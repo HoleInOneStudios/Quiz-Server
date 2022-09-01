@@ -1,0 +1,25 @@
+{
+  "name": "Quiz-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoleInOneStudios/Quiz-Server.git"
+  },
+  "keywords": [],
+  "author": "HoleInOneGolfer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HoleInOneStudios/Quiz-Server/issues"
+  },
+  "homepage": "https://github.com/HoleInOneStudios/Quiz-Server#readme"
+}

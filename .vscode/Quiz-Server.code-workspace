@@ -22,6 +22,51 @@
 		}
 	],
 	"settings": {
-		
+		"files.exclude": {},
+		"files.associations": {
+			"*.ejs": "html"
+		},
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true,
+			"source.organizeImports": true
+		},
+		"editor.quickSuggestions": {
+			"other": "on",
+			"comments": "on",
+			"strings": "on"
+		},
+		"workbench.colorCustomizations": {},
+		"workbench.colorTheme": "Default Dark+"
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"type": "npm",
+				"script": "start",
+				"problemMatcher": [],
+				"label": "npm: start",
+				"detail": "node app.js"
+			},
+			{
+				"type": "npm",
+				"script": "dev",
+				"problemMatcher": [],
+				"label": "npm: dev",
+				"detail": "nodemon app.js"
+			},
+			{
+				"type": "npm",
+				"script": "test",
+				"group": "test",
+				"problemMatcher": [],
+				"label": "npm: test",
+				"detail": "jest"
+			}
+		]
+	},
+	"launch": {
+		"configurations": [],
+		"compounds": []
 	}
 }
