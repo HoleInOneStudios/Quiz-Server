@@ -25,7 +25,7 @@
 		"files.exclude": {},
 		"files.associations": {
 			"*.ejs": "html",
-			"*www": "javascript"
+			"**/bin/**": "javascript"
 		},
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true,
