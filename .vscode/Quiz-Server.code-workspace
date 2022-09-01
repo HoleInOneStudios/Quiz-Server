@@ -24,7 +24,8 @@
 	"settings": {
 		"files.exclude": {},
 		"files.associations": {
-			"*.ejs": "html"
+			"*.ejs": "html",
+			"*www": "javascript"
 		},
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true,
@@ -34,6 +35,9 @@
 			"other": "on",
 			"comments": "on",
 			"strings": "on"
+		},
+		"material-icon-theme.files.associations": {
+			"www": "javascript"
 		},
 		"workbench.colorCustomizations": {},
 		"workbench.colorTheme": "Default Dark+"
@@ -46,14 +50,14 @@
 				"script": "start",
 				"problemMatcher": [],
 				"label": "npm: start",
-				"detail": "node app.js"
+				"detail": "node ./src/bin/www"
 			},
 			{
 				"type": "npm",
 				"script": "dev",
 				"problemMatcher": [],
 				"label": "npm: dev",
-				"detail": "nodemon app.js"
+				"detail": "nodemon ./src/bin/www"
 			},
 			{
 				"type": "npm",
