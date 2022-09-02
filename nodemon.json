@@ -6,8 +6,6 @@
         "**.ejs",
         "**.md",
         "**.json",
-        "**.xlsx",
-        "**/test",
-        "**/public"
+        "**.xlsx"
     ]
 }

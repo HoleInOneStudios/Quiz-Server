@@ -5,7 +5,9 @@ var fm = require('../bin/getData');
 
 /* GET quiz page */
 router.get('/:quiz', function (req, res) {
-    res.render('quiz', { message: fm.GetSheet(req.params.quiz) });
+    var a = fm.GetSheet(req.params.quiz);
+    a.shift();
+    res.render('quiz', { message: a });
 });
 
 module.exports = router;

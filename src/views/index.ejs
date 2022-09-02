@@ -1,15 +1,16 @@
 <%- include('header.ejs')%>
-    <body>
-        <main id="root">
-            <h1>Quiz List</h1>
-            <ul>
-            <% for(var i = 0 ; i < message.length ; i++) { %>
-                <li>
-                    <a href="<%=message[i]%>"><%= message[i] %></a>
-                </li>
-            <% } %>
-            </ul>
-        </main>
-        <%- include('footer.ejs')%>
-    </body>
+
+<body>
+    <main id="root">
+        <img src="./images/icon.png" alt="Quiz Server Logo" />
+        <h1>Quiz List</h1>
+        <% for(var i = 0 ; i < message.length ; i++) { %>
+        <p>
+            <a href="<%=message[i]%>"><%= message[i] %></a>
+        </p>
+        <% } %>
+    </main>
+    <%- include('footer.ejs')%>
+</body>
+
 </html>
