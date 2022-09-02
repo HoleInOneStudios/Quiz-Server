@@ -24,7 +24,7 @@ html {
 }
 
 main {
-    margin: 1%;
+    margin: 0;
 }
 
 body {
@@ -41,4 +41,12 @@ footer {
     text-align: center;
 
     background-color: #f5f5f5;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }

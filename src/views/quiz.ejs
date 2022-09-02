@@ -4,6 +4,21 @@
     <main id="root">
         <span id="data" style="display: none;"><%= JSON.stringify(message) %></span>
 
+        <quiz>
+            <quiz-navigation>
+                <quiz-restart></quiz-restart>
+                <quiz-back></quiz-back>
+                <quiz-next></quiz-next>
+            </quiz-navigation>
+
+            <quiz-question>
+                <quiz-question-text></quiz-question-text>
+                <quiz-question-answer answer1></quiz-question-answer>
+                <quiz-question-answer answer2></quiz-question-answer>
+                <quiz-question-answer answer3></quiz-question-answer>
+                <quiz-question-answer answer4></quiz-question-answer>
+            </quiz-question>
+        </quiz>
 
     </main>
 </body>
