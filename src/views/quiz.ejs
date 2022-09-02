@@ -2,9 +2,14 @@
 
 <body>
     <main id="root">
-        <span id="data" style="display: none;"><%= JSON.stringify(message) %></span>
+        <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
 
         <quiz>
+            <quiz-info>
+                <quiz-score></quiz-score>
+                <quiz-status></quiz-status>
+            </quiz-info>
+
             <quiz-navigation>
                 <quiz-restart></quiz-restart>
                 <quiz-back></quiz-back>
@@ -13,12 +18,14 @@
 
             <quiz-question>
                 <quiz-question-text></quiz-question-text>
-                <quiz-question-answer answer1></quiz-question-answer>
-                <quiz-question-answer answer2></quiz-question-answer>
-                <quiz-question-answer answer3></quiz-question-answer>
-                <quiz-question-answer answer4></quiz-question-answer>
+                <quiz-answer answer1></quiz-answer>
+                <quiz-answer answer2></quiz-answer>
+                <quiz-answer answer3></quiz-answer>
+                <quiz-answer answer4></quiz-answer>
             </quiz-question>
         </quiz>
 
     </main>
+
+    <script src="./javascripts/quiz.js"></script>
 </body>

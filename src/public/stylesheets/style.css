@@ -50,3 +50,21 @@ footer {
         'GRAD' 0,
         'opsz' 48
 }
+
+quiz-info {
+    position: absolute;
+    top: 0;
+
+    font-size: x-large;
+
+    display: flex;
+    flex-direction: column;
+}
+
+quiz-navigation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    font-size: xx-large;
+}
