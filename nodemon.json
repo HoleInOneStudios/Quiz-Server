@@ -1,11 +1,11 @@
 {
-    "verbose": true,
-    "ignore": [
-        "**.md",
-        "**.css",
-        "**.ejs",
-        "**.md",
-        "**.json",
-        "**.xlsx"
-    ]
+  "verbose": true,
+  "ignore": [
+    "**.md",
+    "**.css",
+    "**.ejs",
+    "**.md",
+    "**.json",
+    "**.xlsx"
+  ]
 }
