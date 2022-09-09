@@ -1,4 +1,6 @@
-# ![Logo](./reference/icon.png)    Quiz-Server-Wiki
+![Logo](./reference/icon.png)
+
+# Quiz-Server-Wiki
 
 [Home](Home.md)
 
