@@ -3,7 +3,7 @@ name: Wiki Bi-Directional Sync
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - "docs/**"
   repository_dispatch:
