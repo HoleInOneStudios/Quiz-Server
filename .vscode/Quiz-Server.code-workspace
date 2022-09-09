@@ -22,10 +22,16 @@
 		}
 	],
 	"settings": {
-		"files.exclude": {},
+		"files.exclude": {
+			"**/.github": true,
+			"**/.vscode": true,
+			"**/docs": true,
+			"**/src": true,
+			"**/node_modules": true
+		},
 		"files.associations": {
 			"*.ejs": "html",
-			"**/bin/**": "javascript"
+			"**/bin": "javascript"
 		},
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true,
@@ -43,7 +49,9 @@
 			"reference": "docs",
 		},
 		"workbench.colorCustomizations": {},
-		"workbench.colorTheme": "Default Dark+"
+		"workbench.preferredDarkColorTheme": "GitHub Dark",
+		"workbench.preferredLightColorTheme": "GitHub Light",
+		"cSpell.words": []
 	},
 	"tasks": {
 		"version": "2.0.0",
