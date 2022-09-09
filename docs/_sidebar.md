@@ -2,12 +2,12 @@
 
 # Quiz-Server-Wiki
 
-[Home](Home.md)
+[Home](./Home.md)
 
-[Background](Background.md)
+[Background](./Background.md)
 
-[Badge](Badge.md)
+[Badge](./Badge.md)
 
-[Data](Data.md)
+[Data](./Data.md)
 
-[Elements](Elements.md)
+[Elements](./Elements.md)
