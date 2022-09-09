@@ -1,0 +1,38 @@
+<%- include("header.ejs")%>
+
+<body>
+    <main id="root">
+        <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
+
+        <quiz-container>
+            <quiz-info>
+                <quiz-score></quiz-score>
+                <quiz-status></quiz-status>
+            </quiz-info>
+
+            <quiz-navigation>
+                <quiz-restart></quiz-restart>
+                <quiz-back></quiz-back>
+                <quiz-next></quiz-next>
+            </quiz-navigation>
+
+            <quiz-hint>
+                <quiz-hint-toggle></quiz-hint-toggle>
+                <quiz-hint-text></quiz-hint-text>
+            </quiz-hint>
+
+            <quiz-question>
+                <quiz-question-text></quiz-question-text>
+                <quiz-answer-container>
+                    <quiz-answer answer="1"></quiz-answer>
+                    <quiz-answer answer="2"></quiz-answer>
+                    <quiz-answer answer="3"></quiz-answer>
+                    <quiz-answer answer="4"></quiz-answer>
+                </quiz-answer-container>
+            </quiz-question>
+        </quiz-container>
+
+    </main>
+
+    <script src="./javascripts/quiz.js"></script>
+</body>

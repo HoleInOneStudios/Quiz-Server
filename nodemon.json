@@ -1,7 +1,11 @@
 {
     "verbose": true,
     "ignore": [
-        "public/**",
-        "views/**"
+        "**.md",
+        "**.css",
+        "**.ejs",
+        "**.md",
+        "**.json",
+        "**.xlsx"
     ]
 }
