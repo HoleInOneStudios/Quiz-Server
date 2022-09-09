@@ -50,7 +50,7 @@ function loadAnswers() {
         updateAnswers();
 
 
-        answer.addEventListener('click', (event) => {
+        answer.addEventListener('click', async (event) => {
             if (SHEET_DATA[CURRENT_QUESTION]["answered"] != true) {
                 SHEET_DATA[CURRENT_QUESTION]["answered"] = true;
                 SHEET_DATA[CURRENT_QUESTION]["selected"] = parseInt(answer.getAttribute('answer'));

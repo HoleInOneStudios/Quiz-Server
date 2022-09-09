@@ -12,12 +12,11 @@ class Next extends QuizNav {
 
         this.innerHTML = 'navigate_next';
 
-        this.onclick = (event) => {
+        this.onclick = async (event) => {
             //console.log(event);
 
             if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
                 CURRENT_QUESTION++;
-
                 update();
             }
         }
@@ -29,12 +28,11 @@ class Back extends QuizNav {
 
         this.innerHTML = 'navigate_before';
 
-        this.onclick = (event) => {
+        this.onclick = async (event) => {
             //console.log(event);
 
             if (CURRENT_QUESTION > 0) {
                 CURRENT_QUESTION--;
-
                 update();
             }
         }
@@ -46,8 +44,10 @@ class Restart extends QuizNav {
 
         this.innerHTML = 'replay';
 
-        this.onclick = (event) => {
+        this.onclick = async (event) => {
             //console.log(event);
+
+            await new Promise(r => setTimeout(r, 500));
 
             restart();
             update();
@@ -93,7 +93,6 @@ class Answer extends HTMLElement {
         super();
     }
 }
-
 class HintText extends HTMLElement {
     constructor () {
         super();
