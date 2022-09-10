@@ -1,5 +1,3 @@
-# Background
-
 ## Reference Material
 
 ![Photo](reference/20220820_115745.jpg)
