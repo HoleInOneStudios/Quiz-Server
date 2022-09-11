@@ -1,13 +1,10 @@
-const request = require('supertest');
+const supertest = require('supertest');
 const app = require('../../app');
+const requestWithSupertest = supertest(app);
 
 describe('Test the routes', () => {
-    test('\"/\" reachable', done => {
-        request(app)
-            .get('/')
-            .then(response => {
-                expect(response.statusCode).toBe(200);
-                done();
-            });
+    it('GET /', async () => {
+        const res = await requestWithSupertest.get('/');
+        expect(res.statusCode).toBe(200);
     });
 });

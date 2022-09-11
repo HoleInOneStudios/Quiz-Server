@@ -3,6 +3,7 @@ class QuizNav extends HTMLElement {
     constructor () {
         super();
 
+        this.tabIndex = 0;
         this.classList.add('material-symbols-outlined');
     }
 }
@@ -20,6 +21,14 @@ class Next extends QuizNav {
                 update();
             }
         }
+        this.addEventListener('keydown', async (event) => {
+            if (event.key == 'Enter') {
+                if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+                    CURRENT_QUESTION++;
+                    update();
+                }
+            }
+        });
     }
 }
 class Back extends QuizNav {
@@ -36,6 +45,24 @@ class Back extends QuizNav {
                 update();
             }
         }
+
+        this.addEventListener('keydown', async (event) => {
+            if (event.key == 'Enter') {
+                if (CURRENT_QUESTION > 0) {
+                    CURRENT_QUESTION--;
+                    update();
+                }
+            }
+        });
+
+        if (HINT_SHOWING) {
+            HINT_SHOWING = false;
+        }
+        else {
+            HINT_SHOWING = true;
+        }
+
+        updateHint();
     }
 }
 class Restart extends QuizNav {
@@ -52,6 +79,15 @@ class Restart extends QuizNav {
             restart();
             update();
         }
+
+        this.addEventListener('keydown', async (event) => {
+            if (event.key == 'Enter') {
+                await new Promise(r => setTimeout(r, 500));
+
+                restart();
+                update();
+            }
+        });
     }
 }
 class Hint extends QuizNav {
@@ -59,6 +95,7 @@ class Hint extends QuizNav {
         super();
 
         this.innerHTML = 'question_mark';
+        this.tabIndex = 0;
 
         this.onclick = (event) => {
             //console.log(event);
@@ -72,6 +109,18 @@ class Hint extends QuizNav {
 
             updateHint();
         }
+        this.addEventListener('keydown', async (event) => {
+            if (event.key == 'Enter') {
+                if (HINT_SHOWING) {
+                    HINT_SHOWING = false;
+                }
+                else {
+                    HINT_SHOWING = true;
+                }
+
+                updateHint();
+            }
+        });
     }
 }
 
@@ -91,6 +140,8 @@ class AnswerContainer extends HTMLElement {
 class Answer extends HTMLElement {
     constructor () {
         super();
+
+        this.tabIndex = 0;
     }
 }
 class HintText extends HTMLElement {

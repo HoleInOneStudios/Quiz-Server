@@ -51,22 +51,31 @@ function loadAnswers() {
 
 
         answer.addEventListener('click', async (event) => {
-            if (SHEET_DATA[CURRENT_QUESTION]["answered"] != true) {
-                SHEET_DATA[CURRENT_QUESTION]["answered"] = true;
-                SHEET_DATA[CURRENT_QUESTION]["selected"] = parseInt(answer.getAttribute('answer'));
-
-                if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
-                    SCORE++;
-                }
-
-                console.log(SHEET_DATA[CURRENT_QUESTION]);
+            setupAnswerEvents(answer);
+        });
+        answer.addEventListener('keydown', async (event) => {
+            if (event.key == 'Enter') {
+                setupAnswerEvents(answer);
             }
-            else {
-                console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION]["selected"]);
-            }
-            update();
         });
     });
+}
+
+function setupAnswerEvents(answer) {
+    if (SHEET_DATA[CURRENT_QUESTION]["answered"] != true) {
+        SHEET_DATA[CURRENT_QUESTION]["answered"] = true;
+        SHEET_DATA[CURRENT_QUESTION]["selected"] = parseInt(answer.getAttribute('answer'));
+
+        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+            SCORE++;
+        }
+
+        console.log(SHEET_DATA[CURRENT_QUESTION]);
+    }
+    else {
+        console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION]["selected"]);
+    }
+    update();
 }
 
 function updateAnswers() {

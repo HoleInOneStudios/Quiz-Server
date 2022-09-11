@@ -80,6 +80,28 @@ footer {
     display: none;
 }
 
+* {
+    transition: all 0.5s ease;
+}
+
+quiz-answer:focus,
+quiz-navigation>*:focus,
+quiz-hint-toggle:focus {
+    filter: brightness(1.2);
+}
+
+quiz-answer:focus-visible,
+quiz-navigation>*:focus-visible,
+quiz-hint-toggle:focus-visible {
+    outline: solid;
+}
+
+quiz-answer:hover,
+quiz-navigation>*:hover,
+quiz-hint-toggle:hover {
+    filter: brightness(1.2);
+}
+
 /* Custom Elements */
 
 quiz-question {
@@ -118,10 +140,6 @@ quiz-answer {
     background-color: var(--unselected-answer-color);
 }
 
-quiz-answer:hover {
-    filter: brightness(1.2);
-}
-
 quiz-navigation {
     z-index: 1;
 
@@ -138,10 +156,6 @@ quiz-navigation>* {
     background-color: var(--unselected-answer-color);
 
     padding: 2vh;
-}
-
-quiz-navigation>*:hover {
-    filter: brightness(1.2);
 }
 
 quiz-info {
@@ -181,10 +195,6 @@ quiz-hint-toggle {
     background-color: var(--unselected-answer-color);
 
     padding: 2vh;
-}
-
-quiz-hint-toggle:hover {
-    filter: brightness(1.2);
 }
 
 quiz-hint-text {

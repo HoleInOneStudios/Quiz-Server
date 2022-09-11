@@ -1,35 +1,35 @@
 <%- include("header.ejs")%>
 
 <body>
-    <main id="root">
+    <main id="root" title="main">
         <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
 
-        <quiz-container>
-            <quiz-info>
-                <quiz-score></quiz-score>
-                <quiz-status></quiz-status>
+        <quiz-container title="all quiz elements container">
+            <quiz-info title="quiz info container">
+                <quiz-score title="quiz score percent"></quiz-score>
+                <quiz-status title="quiz question currently on"></quiz-status>
             </quiz-info>
 
-            <quiz-navigation>
-                <quiz-restart></quiz-restart>
-                <quiz-back></quiz-back>
-                <quiz-next></quiz-next>
-            </quiz-navigation>
-
-            <quiz-hint>
-                <quiz-hint-toggle></quiz-hint-toggle>
-                <quiz-hint-text></quiz-hint-text>
-            </quiz-hint>
-
-            <quiz-question>
-                <quiz-question-text></quiz-question-text>
-                <quiz-answer-container>
-                    <quiz-answer answer="1"></quiz-answer>
-                    <quiz-answer answer="2"></quiz-answer>
-                    <quiz-answer answer="3"></quiz-answer>
-                    <quiz-answer answer="4"></quiz-answer>
+            <quiz-question title="quiz question and answers">
+                <quiz-question-text title="quiz question text container"></quiz-question-text>
+                <quiz-answer-container title="quiz answer choices">
+                    <quiz-answer answer="1" title="answer choice 1"></quiz-answer>
+                    <quiz-answer answer="2" title="answer choice 2"></quiz-answer>
+                    <quiz-answer answer="3" title="answer choice 3"></quiz-answer>
+                    <quiz-answer answer="4" title="answer choice 4"></quiz-answer>
                 </quiz-answer-container>
             </quiz-question>
+
+            <quiz-hint title="quiz hint element container">
+                <quiz-hint-toggle title="quiz hint toggle"></quiz-hint-toggle>
+                <quiz-hint-text title="quiz hint text"></quiz-hint-text>
+            </quiz-hint>
+
+            <quiz-navigation title="quiz navigation button container">
+                <quiz-restart title="restart quiz button"></quiz-restart>
+                <quiz-back title="back question button"></quiz-back>
+                <quiz-next title="next question button"></quiz-next>
+            </quiz-navigation>
         </quiz-container>
 
     </main>
