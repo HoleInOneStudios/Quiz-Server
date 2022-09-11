@@ -21,6 +21,7 @@ class Next extends QuizNav {
                 update();
             }
         }
+        this.addEventListener('keyup', async (event) => { });
         this.addEventListener('keydown', async (event) => {
             if (event.key == 'Enter') {
                 if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
@@ -45,7 +46,7 @@ class Back extends QuizNav {
                 update();
             }
         }
-
+        this.addEventListener('keyup', async (event) => { });
         this.addEventListener('keydown', async (event) => {
             if (event.key == 'Enter') {
                 if (CURRENT_QUESTION > 0) {
@@ -79,7 +80,7 @@ class Restart extends QuizNav {
             restart();
             update();
         }
-
+        this.addEventListener('keyup', async (event) => { });
         this.addEventListener('keydown', async (event) => {
             if (event.key == 'Enter') {
                 await new Promise(r => setTimeout(r, 500));
@@ -121,6 +122,8 @@ class Hint extends QuizNav {
                 updateHint();
             }
         });
+        this.addEventListener('keyup', async (event) => { });
+
     }
 }
 
@@ -156,17 +159,14 @@ class HintText extends HTMLElement {
 customElements.define('quiz-next', Next);
 customElements.define('quiz-back', Back);
 customElements.define('quiz-restart', Restart);
-
 customElements.define('quiz-container', class extends HTMLElement { });
 customElements.define('quiz-question', class extends HTMLElement { });
 customElements.define('quiz-question-text', Question);
 customElements.define('quiz-answer-container', AnswerContainer)
 customElements.define('quiz-answer', Answer);
-
 customElements.define('quiz-info', class extends HTMLElement { });
 customElements.define('quiz-score', class extends HTMLElement { });
 customElements.define('quiz-status', class extends HTMLElement { });
-
 customElements.define('quiz-hint', class extends HTMLElement { });
 customElements.define('quiz-hint-toggle', class extends Hint { });
 customElements.define('quiz-hint-text', class extends HintText { });

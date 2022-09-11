@@ -58,6 +58,7 @@ function loadAnswers() {
                 setupAnswerEvents(answer);
             }
         });
+        answer.addEventListener('keyup', async (event) => { });
     });
 }
 
