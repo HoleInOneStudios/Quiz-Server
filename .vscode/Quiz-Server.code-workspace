@@ -48,6 +48,7 @@
 		"material-icon-theme.folders.associations": {
 			"reference": "docs",
 		},
+		"material-icon-theme.folders.color": "#90a4ae",
 		"workbench.colorCustomizations": {},
 		"workbench.preferredDarkColorTheme": "GitHub Dark",
 		"workbench.preferredLightColorTheme": "GitHub Light",
