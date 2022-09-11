@@ -7,7 +7,7 @@
 [![stars - Quiz-Server](https://img.shields.io/github/stars/HoleInOneStudios/Quiz-Server?style=social)](https://github.com.HoleInOneStudios/Quiz-Server)    [![forks - Quiz-Server](https://img.shields.io/github/forks/HoleInOneStudios/Quiz-Server?style=social)](https://github.com/HoleInOneStudios/Quiz-Server)
 ![GitHub issues](https://img.shields.io/github/issues/HoleInOneStudios/Quiz-Server) ![GitHub pull requests](https://img.shields.io/github/issues-pr/HoleInOneStudios/Quiz-Server)
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HoleInOneStudios/Quiz-Server)    ![GitHub repo file count](https://img.shields.io/github/directory-file-count/HoleInOneStudios/Quiz-Server)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HoleInOneStudios/Quiz-Server)    ![GitHub repo file count](https://img.shields.io/github/directory-file-count/HoleInOneStudios/Quiz-Server)  [![Wiki](https://img.shields.io/badge/Wiki-blue.svg?style=square)](https://github.com/HoleInOneStudios/Quiz-Server/wiki)
 
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/HoleInOneStudios/Quiz-Server)    ![GitHub last commit](https://img.shields.io/github/last-commit/HoleInOneStudios/Quiz-Server)
 

@@ -1,3 +1,3 @@
-# ![Logo](./docs/reference/icon.png)    Quiz-Server
+# ![Logo](./docs/reference/icon.png)    Quiz Server
 
-Click to access the [Docs](https://github.com/HoleInOneStudios/Quiz-Server/wiki)
+[![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")    [![Wiki](https://img.shields.io/badge/Wiki-blue.svg?style=square)](https://github.com/HoleInOneStudios/Quiz-Server/wiki)    [![license - MIT](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT "Go to MIT license")  ![GitHub issues](https://img.shields.io/github/issues/HoleInOneStudios/Quiz-Server) ![GitHub pull requests](https://img.shields.io/github/issues-pr/HoleInOneStudios/Quiz-Server)    [![stars - Quiz-Server](https://img.shields.io/github/stars/HoleInOneStudios/Quiz-Server?style=social)](https://github.com.HoleInOneStudios/Quiz-Server)    [![forks - Quiz-Server](https://img.shields.io/github/forks/HoleInOneStudios/Quiz-Server?style=social)](https://github.com/HoleInOneStudios/Quiz-Server)
