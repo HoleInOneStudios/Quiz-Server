@@ -1,0 +1,17 @@
+{
+    "name": "Quiz Server App",
+    "short_name": "Quiz",
+    "description": "",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "landscape",
+    "background_color": "#4c4849",
+    "theme_color": "#4c4849",
+    "icons": [
+        {
+            "src": "./images/icon.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
