@@ -30,5 +30,8 @@
     "nodemon": "^2.0.19",
     "supertest": "^6.2.4",
     "xlsx": "^0.18.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2"
   }
 }

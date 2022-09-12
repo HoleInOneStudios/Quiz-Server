@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
+
 var fm = require('../bin/getData');
 
 fm.WatchFile();
@@ -22,7 +24,7 @@ app.set('port', port);
  * Get hostname from environment and store in express
  */
 
-var hostname = process.env.HOST || 'localhost';
+var hostname = process.env.HOST_NAME || 'localhost';
 
 /**
  * Create HTTP server.

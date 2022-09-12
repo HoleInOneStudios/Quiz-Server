@@ -3,7 +3,7 @@
     "short_name": "Quiz",
     "description": "",
     "start_url": "/",
-    "display": "standalone",
+    "display": "fullscreen",
     "orientation": "landscape",
     "background_color": "#4c4849",
     "theme_color": "#4c4849",
