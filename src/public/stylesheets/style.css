@@ -103,6 +103,13 @@ quiz-hint-toggle:hover {
 }
 
 /* Custom Elements */
+quiz-question-text {
+    border-radius: 20%;
+
+    background-color: var(--unselected-answer-color);
+
+    opacity: 0.75;
+}
 
 quiz-question {
     margin: auto;
@@ -169,6 +176,12 @@ quiz-info {
 
     display: flex;
     flex-direction: column;
+
+    border-radius: 20%;
+
+    background-color: var(--unselected-answer-color);
+
+    opacity: 0.75;
 }
 
 quiz-score {
@@ -199,4 +212,13 @@ quiz-hint-toggle {
 
 quiz-hint-text {
     font-size: 5vh;
+
+    border-radius: 20%;
+
+    background-color: var(--unselected-answer-color);
+
+    opacity: 0.5;
+
+    padding-left: 2vh;
+    padding-right: 2vh;
 }

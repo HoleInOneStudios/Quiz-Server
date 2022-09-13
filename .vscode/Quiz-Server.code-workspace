@@ -47,12 +47,21 @@
 		},
 		"material-icon-theme.folders.associations": {
 			"reference": "docs",
+			"backgrounds": "images"
+		},
+		"editor.fontFamily": "Operator Mono",
+		"editor.fontLigatures": true,
+		"editor.lineHeight": 24,
+		"editor.tokenColorCustomizations": {
+			"comments": "#FF9000",
 		},
 		"material-icon-theme.folders.color": "#90a4ae",
 		"workbench.colorCustomizations": {},
 		"workbench.preferredDarkColorTheme": "GitHub Dark",
 		"workbench.preferredLightColorTheme": "GitHub Light",
-		"cSpell.words": []
+		"cSpell.words": [
+			"msedge"
+		]
 	},
 	"tasks": {
 		"version": "2.0.0",
