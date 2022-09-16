@@ -4,8 +4,9 @@
 
 ### Sheet inside workbook
 
-| Question | 1   | 2   | 3   | 4   | Correct | Hint |
-| -------- | --- | --- | --- | --- | ------- | ---- |
+| Question | 1   | 2   | 3   | 4   | Correct | Hint | Background (Default is `space_bg.jpg`         |
+| -------- | --- | --- | --- | --- | ------- | ---- | --------------------------------------------- |
+|          |     |     |     |     |         |      | Name of image in`./public/images/backgrounds` |
 
 ## Example in Repository
 
