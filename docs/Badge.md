@@ -1,7 +1,6 @@
 ## Links to the Project
 
 [![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")
-![npm](https://img.shields.io/npm/v/@holeinonestudios/quiz-app)
 
 ## Project Stats
 

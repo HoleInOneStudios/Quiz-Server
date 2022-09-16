@@ -2,12 +2,19 @@
 
 # Quiz-Server-Wiki
 
-[Home](./Home)
-
-[Background](./Background)
-
-[Badge](./Badge)
-
-[Data](./Data)
-
-[Elements](./Elements)
+* [Home](./Home)
+* [References](./Background)
+  * [Product Reference Photos](./Background#product-reference-photos)
+  * [Figma Project](./Background#figma-project)
+* [Badges](./Badge)
+  * [Links To Project](./Badge#links-to-the-project)
+  * [Project Stats](./Badge#project-stats)
+  * [Workflow Runs](./Badge#workflow-runs)
+  * [Made With](./Badge#made-with)
+* [Data](./Data)
+  * [Spreadsheet Template](./Data#spreadsheet-template)
+    * [Sheet Inside Workbook](./Data#sheet-inside-workbook)
+  * [Example In Repository](./Data#example-in-repository)
+* [Elements](./Elements)
+  * [Custom Elements](./Elements#custom-elements)
+  * [Custom Element Layout](./Elements#custom-element-layout)
