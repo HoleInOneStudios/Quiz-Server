@@ -1,7 +1,21 @@
 <%- include("header.ejs")%>
 
+<link rel="preload" href="/images/backgrounds/space_bg.jpg" as="image" crossorigin="anonymous" />
+
+
+<% for (var i = 0; i < message.length; i++) { %>
+<% if (message[i].Background) { %>
+<link rel="preload" href="/images/backgrounds/<%=message[i].Background%>" as="image" crossorigin="anonymous" />
+<% } %>
+<% } %>
+
+
+
+
+</head>
+
 <body>
-    <main id="root" title="main">
+    <main id=" root" title="main">
         <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
 
         <quiz-container title="all quiz elements container">

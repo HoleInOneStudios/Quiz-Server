@@ -4,6 +4,7 @@ var ANSWER_ELEMENTS = [...document.getElementsByTagName('quiz-answer')];
 var QUIZ_SCORE_ELEMENT = document.getElementsByTagName('quiz-score')[0];
 var QUIZ_STATUS_ELEMENT = document.getElementsByTagName('quiz-status')[0];
 var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
+var MAIN = document.getElementsByTagName('main')[0];
 
 var CURRENT_QUESTION = 0;
 var TOTAL_QUESTIONS = SHEET_DATA.length;
@@ -35,7 +36,13 @@ function updateHint() {
 }
 
 function updateQuestion() {
-    QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION]["Question"];
+    if (SHEET_DATA[CURRENT_QUESTION].Background) {
+        MAIN.style.backgroundImage = `url(${SHEET_DATA[CURRENT_QUESTION].Background})`;
+    }
+    else {
+        MAIN.style.backgroundImage = 'url(./images/backgrounds/space_bg.jpg)';
+    }
+    QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
 
     updateHint();
@@ -63,9 +70,9 @@ function loadAnswers() {
 }
 
 function setupAnswerEvents(answer) {
-    if (SHEET_DATA[CURRENT_QUESTION]["answered"] != true) {
-        SHEET_DATA[CURRENT_QUESTION]["answered"] = true;
-        SHEET_DATA[CURRENT_QUESTION]["selected"] = parseInt(answer.getAttribute('answer'));
+    if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
+        SHEET_DATA[CURRENT_QUESTION].answered = true;
+        SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
 
         if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
             SCORE++;
@@ -74,13 +81,13 @@ function setupAnswerEvents(answer) {
         console.log(SHEET_DATA[CURRENT_QUESTION]);
     }
     else {
-        console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION]["selected"]);
+        console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION].selected);
     }
     update();
 }
 
 function updateAnswers() {
-    if (SHEET_DATA[CURRENT_QUESTION]["answered"]) {
+    if (SHEET_DATA[CURRENT_QUESTION].answered) {
         ANSWER_ELEMENTS[SHEET_DATA[CURRENT_QUESTION].Correct - 1].classList.add('correct');
         if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
 
