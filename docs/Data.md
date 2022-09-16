@@ -9,4 +9,4 @@
 
 ## Example in Repository
 
-[data/data.xlsx](./blob/master/src/data/data.xlsx)
+[data/data.xlsx](./blob/main/src/data/data.xlsx)
