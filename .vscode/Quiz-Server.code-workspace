@@ -49,6 +49,7 @@
 			"reference": "docs",
 			"backgrounds": "images"
 		},
+		"editor.wordWrap": "off",
 		"editor.fontFamily": "Operator Mono",
 		"editor.fontLigatures": true,
 		"editor.lineHeight": 24,
