@@ -52,6 +52,10 @@
 		"editor.fontFamily": "Operator Mono",
 		"editor.fontLigatures": true,
 		"editor.lineHeight": 24,
+		"terminal.integrated.fontFamily": "monospace",
+		"terminal.integrated.fontSize": 14,
+		"terminal.integrated.lineHeight": 1.5,
+		"terminal.integrated.letterSpacing": 0,
 		"editor.tokenColorCustomizations": {
 			"comments": "#FF9000",
 		},
