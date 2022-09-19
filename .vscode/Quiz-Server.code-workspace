@@ -65,7 +65,8 @@
 		"workbench.preferredDarkColorTheme": "GitHub Dark",
 		"workbench.preferredLightColorTheme": "GitHub Light",
 		"cSpell.words": [
-			"msedge"
+			"msedge",
+			"SAMSAT"
 		]
 	},
 	"tasks": {
