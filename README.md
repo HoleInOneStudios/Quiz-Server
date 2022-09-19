@@ -36,7 +36,7 @@
         * [x] hint display
         * [ ] hint display speech bubble
       * [ ] Audio
-        * [ ] aduio sounds
+        * [ ] audio sounds
         * [ ] audio toggle
       * [ ] SAMSAT logo
   * [x] Background images
