@@ -15,8 +15,31 @@
 ### Milestones
 
 * [ ] Re-Create to specifications of the [Photos](#photos)
-  * [ ] Load quizzes from spreadsheet
-  * [ ] ...
+  * [x] Load quizzes from spreadsheet
+  * [x] Runs on a single server
+  * [ ] IOS Compatible
+  * [ ] Quiz
+    * [ ] Quiz Title
+    * [x] questions
+    * [x] 4 answers
+    * [x] answer Feedback
+    * [x] HUD
+      * [x] score display
+      * [x] current question out of total questions display
+      * [x] Navigation
+        * [x] next question button
+        * [x] previous question button
+        * [x] restart quiz button
+      * [ ] Hint
+        * [x] hint toggle button
+        * [ ] hint toggle button image
+        * [x] hint display
+        * [ ] hint display speech bubble
+      * [ ] Audio
+        * [ ] aduio sounds
+        * [ ] audio toggle
+      * [ ] SAMSAT logo
+  * [x] Background images
 
 ### Photos
 
