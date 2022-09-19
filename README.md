@@ -14,7 +14,9 @@
 
 ### Milestones
 
-* [ ] Milestone 1
+* [ ] Re-Create to specifications of the [Photos](#photos)
+  * [ ] Load quizzes from spreadsheet
+  * [ ] ...
 
 ### Photos
 
