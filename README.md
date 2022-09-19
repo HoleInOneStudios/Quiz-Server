@@ -65,6 +65,7 @@
 | `quiz-back`             |
 | `quiz-restart`          |
 | `quiz-container`        |
+| `quiz-title`            |
 | `quiz-question`         |
 | `quiz-question-text`    |
 | `quiz-answer-container` |

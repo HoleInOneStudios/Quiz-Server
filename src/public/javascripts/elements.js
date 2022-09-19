@@ -160,6 +160,7 @@ customElements.define('quiz-next', Next);
 customElements.define('quiz-back', Back);
 customElements.define('quiz-restart', Restart);
 customElements.define('quiz-container', class extends HTMLElement { });
+customElements.define('quiz-title', class extends HTMLElement { });
 customElements.define('quiz-question', class extends HTMLElement { });
 customElements.define('quiz-question-text', Question);
 customElements.define('quiz-answer-container', AnswerContainer)

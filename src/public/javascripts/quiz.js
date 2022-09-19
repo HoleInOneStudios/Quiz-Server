@@ -37,7 +37,7 @@ function updateHint() {
 
 function updateQuestion() {
     if (SHEET_DATA[CURRENT_QUESTION].Background) {
-        MAIN.style.backgroundImage = `url(${SHEET_DATA[CURRENT_QUESTION].Background})`;
+        MAIN.style.backgroundImage = `url(${SHEET_DATA[CURRENT_QUESTION].Background}) `;
     }
     else {
         MAIN.style.backgroundImage = 'url(./images/backgrounds/space_bg.jpg)';
