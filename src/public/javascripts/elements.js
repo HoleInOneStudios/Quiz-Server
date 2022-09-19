@@ -95,7 +95,6 @@ class Hint extends QuizNav {
     constructor () {
         super();
 
-        this.innerHTML = 'question_mark';
         this.tabIndex = 0;
 
         this.onclick = (event) => {

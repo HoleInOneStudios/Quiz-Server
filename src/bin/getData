@@ -6,7 +6,7 @@ const FILE_PATH = path.join(__dirname, '../data/data.xlsx');
 
 var WB = XLSX.readFile(FILE_PATH);
 
-const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "Background"]) => {
+const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "HintImage", "BackgroundImage"]) => {
     var a = XLSX.utils.sheet_to_json(XLSX.readFile(FILE_PATH).Sheets[sheetName], { header: headers });
     return a;
 }

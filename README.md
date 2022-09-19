@@ -19,7 +19,7 @@
   * [x] Runs on a single server
   * [ ] IOS Compatible
   * [ ] Quiz
-    * [ ] Quiz Title
+    * [x] Quiz Title
     * [x] questions
     * [x] 4 answers
     * [x] answer Feedback
@@ -32,7 +32,7 @@
         * [x] restart quiz button
       * [ ] Hint
         * [x] hint toggle button
-        * [ ] hint toggle button image
+        * [x] hint toggle button image
         * [x] hint display
         * [ ] hint display speech bubble
       * [ ] Audio

@@ -1,11 +1,18 @@
 <%- include("header.ejs")%>
 
 <link rel="preload" href="/images/backgrounds/space_bg.jpg" as="image" crossorigin="anonymous" />
+<link rel="preload" href="/images/backgrounds/hint.jpg" as="image" crossorigin="anonymous" />
 
 
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].Background) { %>
-<link rel="preload" href="/images/backgrounds/<%=message[i].Background%>" as="image" crossorigin="anonymous" />
+<link rel="preload" href="/images/backgrounds/<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
+<% } %>
+<% } %>
+
+<% for (var i = 0; i < message.length; i++) { %>
+<% if (message[i].Background) { %>
+<link rel="preload" href="/images/backgrounds/<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
@@ -36,6 +43,8 @@
             </quiz-question>
 
             <quiz-hint title="quiz hint element container">
+                <p style="margin: 0; background-color: var(--background-secondary); font-size: 1ch;">Press me for a
+                    hint</p>
                 <quiz-hint-toggle title="quiz hint toggle"></quiz-hint-toggle>
                 <quiz-hint-text title="quiz hint text"></quiz-hint-text>
             </quiz-hint>

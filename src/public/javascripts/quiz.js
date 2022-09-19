@@ -3,6 +3,7 @@ var QUESTION_ELEMENT = document.getElementsByTagName('quiz-question-text')[0];
 var ANSWER_ELEMENTS = [...document.getElementsByTagName('quiz-answer')];
 var QUIZ_SCORE_ELEMENT = document.getElementsByTagName('quiz-score')[0];
 var QUIZ_STATUS_ELEMENT = document.getElementsByTagName('quiz-status')[0];
+var QUIZ_HINT_TOGGLE = document.getElementsByTagName('quiz-hint-toggle')[0];
 var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
 var MAIN = document.getElementsByTagName('main')[0];
 
@@ -36,12 +37,9 @@ function updateHint() {
 }
 
 function updateQuestion() {
-    if (SHEET_DATA[CURRENT_QUESTION].Background) {
-        MAIN.style.backgroundImage = `url(${SHEET_DATA[CURRENT_QUESTION].Background}) `;
-    }
-    else {
-        MAIN.style.backgroundImage = 'url(./images/backgrounds/space_bg.jpg)';
-    }
+    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/space_bg.jpg)';
+    console.log(MAIN.style.backgroundImage);
+    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/backgrounds/hint.jpg)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
 

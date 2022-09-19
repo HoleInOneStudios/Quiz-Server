@@ -210,11 +210,12 @@ quiz-hint {
 }
 
 quiz-hint-toggle {
-    border-radius: 100%;
+    width: 15vh;
+    height: 15vh;
 
     background-color: var(--unselected-answer-color);
 
-    padding: 2vh;
+    background-size: contain;
 }
 
 quiz-hint-text {
