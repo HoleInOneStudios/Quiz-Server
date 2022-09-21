@@ -9,7 +9,7 @@
     --background-main: #fff;
     --background-secondary: #c6c6c6;
 
-    --text-color: #0f1031;
+    --text-color: #000;
     --link-color: #299;
 
     --unselected-answer-color: #ccc;
@@ -25,7 +25,6 @@ html {
 
     text-align: center;
     font-family: 'Sigmar One';
-    font-size: large;
 
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -83,7 +82,11 @@ footer {
 }
 
 * {
-    transition: all 0.5s ease;
+    /* transition: all 0.5s ease; */
+}
+
+quiz-container {
+    font-size: 2vw;
 }
 
 quiz-answer:focus,
@@ -115,11 +118,11 @@ quiz-title {
 }
 
 quiz-title {
-    font-size: 5vw;
+    /* font-size: 5vw; */
 }
 
 quiz-question {
-    margin: auto;
+    margin: 10vw;
 
     position: absolute;
     top: 0;
@@ -132,10 +135,10 @@ quiz-question {
     justify-content: center;
     align-items: center;
 
-    width: 80vw;
-    height: 40vh;
+    width: auto 80vw;
+    height: auto 40vh;
 
-    font-size: 10vh;
+    /* font-size: 10vh; */
 
     z-index: 0;
 }
@@ -143,10 +146,13 @@ quiz-question {
 quiz-answer-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: auto;
 }
 
 quiz-answer {
     border-radius: 3vh;
+    /* font-size: .75em; */
+    width: auto;
 
     margin: 1vh;
     padding: 2vh;
@@ -192,11 +198,11 @@ quiz-info {
 }
 
 quiz-score {
-    font-size: 7vh;
+    /* font-size: 7vh; */
 }
 
 quiz-status {
-    font-size: 3vh;
+    /* font-size: 3vh; */
 }
 
 quiz-hint {
@@ -219,10 +225,12 @@ quiz-hint-toggle {
 }
 
 quiz-hint-text {
-    font-size: 5vh;
-
+    font-size: x-large;
+    position: absolute;
+    bottom: 0;
     border-radius: 20%;
 
+    width: max-content;
     background-color: var(--unselected-answer-color);
 
     opacity: 0.5;

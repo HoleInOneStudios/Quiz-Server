@@ -38,7 +38,7 @@ function updateHint() {
 
 function updateQuestion() {
     MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/space_bg.jpg)';
-    console.log(MAIN.style.backgroundImage);
+    //console.log(MAIN.style.backgroundImage);
     QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/backgrounds/hint.jpg)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
@@ -49,21 +49,26 @@ function updateQuestion() {
 
 function loadAnswers() {
     ANSWER_ELEMENTS.forEach((answer, index) => {
-        answer.innerText = SHEET_DATA[CURRENT_QUESTION][(index + 1)];
+        if (SHEET_DATA[CURRENT_QUESTION][(index + 1).toString()] == undefined) {
+            answer.style.display = 'none';
+        } else {
+            answer.style.display = 'block';
+            answer.innerText = SHEET_DATA[CURRENT_QUESTION][(index + 1)];
 
-        answer.classList.remove('correct', 'incorrect');
-        updateAnswers();
+            answer.classList.remove('correct', 'incorrect');
+            updateAnswers();
 
 
-        answer.addEventListener('click', async (event) => {
-            setupAnswerEvents(answer);
-        });
-        answer.addEventListener('keydown', async (event) => {
-            if (event.key == 'Enter') {
+            answer.addEventListener('click', async (event) => {
                 setupAnswerEvents(answer);
-            }
-        });
-        answer.addEventListener('keyup', async (event) => { });
+            });
+            answer.addEventListener('keydown', async (event) => {
+                if (event.key == 'Enter') {
+                    setupAnswerEvents(answer);
+                }
+            });
+            answer.addEventListener('keyup', async (event) => { });
+        }
     });
 }
 
