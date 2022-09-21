@@ -47,7 +47,8 @@
 		},
 		"material-icon-theme.folders.associations": {
 			"reference": "docs",
-			"backgrounds": "images"
+			"backgrounds": "images",
+			"hint_people": "images"
 		},
 		"editor.wordWrap": "off",
 		"editor.fontFamily": "Operator Mono",

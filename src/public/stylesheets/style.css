@@ -221,7 +221,7 @@ quiz-hint-toggle {
 
     background-color: var(--unselected-answer-color);
 
-    background-size: contain;
+    background-size: cover;
 }
 
 quiz-hint-text {

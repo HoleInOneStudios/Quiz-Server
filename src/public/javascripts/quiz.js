@@ -39,7 +39,7 @@ function updateHint() {
 function updateQuestion() {
     MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/space_bg.jpg)';
     //console.log(MAIN.style.backgroundImage);
-    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/backgrounds/hint.jpg)';
+    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
 
@@ -82,6 +82,13 @@ function setupAnswerEvents(answer) {
         }
 
         console.log(SHEET_DATA[CURRENT_QUESTION]);
+
+        setTimeout(() => {
+            if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+                CURRENT_QUESTION++;
+                update();
+            }
+        }, 1000);
     }
     else {
         console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION].selected);

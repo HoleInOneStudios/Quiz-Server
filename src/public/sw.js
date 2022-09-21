@@ -5,7 +5,7 @@ const filesToCache = [
     '../../views/',
     '../stylesheets/',
     '../javascripts/',
-    '../images/'
+    '../images/.'
 ]
 
 // Install Service Worker
