@@ -1,4 +1,4 @@
-var SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
+var SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText); // Hidden Element that stores the parsed text of the sheet data for the quiz
 var QUESTION_ELEMENT = document.getElementsByTagName('quiz-question-text')[0];
 var ANSWER_ELEMENTS = [...document.getElementsByTagName('quiz-answer')];
 var QUIZ_SCORE_ELEMENT = document.getElementsByTagName('quiz-score')[0];

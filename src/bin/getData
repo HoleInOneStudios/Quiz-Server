@@ -2,21 +2,41 @@ const XLSX = require('xlsx');
 const path = require('path');
 const fs = require('fs');
 
+/**
+ * File `path` of data spreadsheet with quiz questions.
+ * @type {string}
+ */
 const FILE_PATH = path.join(__dirname, '../data/data.xlsx');
 
+/**
+ * Workbook object from `FILE_PATH`
+ */
 var WB = XLSX.readFile(FILE_PATH);
 
+/**
+ * Read data from `sheetName` in `WB` and return it as an array of objects.
+ * @param {string} sheetName Name of sheet in workbook you want to get data from.
+ * @param {string[]} headers Array of headers in the order they appear in the sheet.
+ * @returns {string[]} Array containing data from `sheetName` from `WB`
+ */
 const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "HintImage", "BackgroundImage"]) => {
     var a = XLSX.utils.sheet_to_json(XLSX.readFile(FILE_PATH).Sheets[sheetName], { header: headers });
     a.Correct = 1;
     return a;
 }
 
+/**
+ * Updates `WB` with new data from `FILE_PATH`
+ */
 const updateFile = () => {
     WB = XLSX.readFile(FILE_PATH);
     console.log("File updated");
 }
 
+/**
+ * Watch the file at `FILE_PATH` for changes and update `WB` when changes are detected.
+ * @param {string} file File path to watch and read from.
+ */
 const WatchFile = (file = FILE_PATH) => {
     fs.watch(file, (eventType) => {
         if (eventType === "change") {
