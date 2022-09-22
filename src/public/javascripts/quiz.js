@@ -63,12 +63,10 @@ function loadAnswers() {
 
 
             answer.addEventListener('click', async (event) => {
-                answer.removeEventListener('click', async (event) => { });
                 setupAnswerEvents(answer);
             });
             answer.addEventListener('keydown', async (event) => {
                 if (event.key == 'Enter') {
-                    answer.removeEventListener('click', async (event) => { });
                     setupAnswerEvents(answer);
                 }
             });
