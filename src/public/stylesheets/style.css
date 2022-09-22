@@ -92,7 +92,7 @@ quiz-container {
 quiz-answer:focus,
 quiz-navigation>*:focus,
 quiz-hint-toggle:focus {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
 }
 
 quiz-answer:focus-visible,
@@ -104,7 +104,7 @@ quiz-hint-toggle:focus-visible {
 quiz-answer:hover,
 quiz-navigation>*:hover,
 quiz-hint-toggle:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
 }
 
 /* Custom Elements */
@@ -237,4 +237,18 @@ quiz-hint-text {
 
     padding-left: 2vh;
     padding-right: 2vh;
+}
+
+quiz-finish {
+    position: fixed;
+
+    background-color: var(--unselected-answer-color);
+    border: solid;
+
+    margin: auto;
+    padding: 2vh;
+
+    opacity: 0.75;
+
+    z-index: 1;
 }

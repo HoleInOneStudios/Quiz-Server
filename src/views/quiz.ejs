@@ -54,6 +54,12 @@
                 <quiz-back title="back question button"></quiz-back>
                 <quiz-next title="next question button"></quiz-next>
             </quiz-navigation>
+
+            <quiz-finish class="hidden">
+                <h2>Congratulations</h2>
+                <p>You have completed the quiz with a score of <span id="quiz-finish"></span></p>
+                <button onclick="restart();">Restart</button>
+            </quiz-finish>
         </quiz-container>
 
     </main>

@@ -6,6 +6,8 @@ var QUIZ_STATUS_ELEMENT = document.getElementsByTagName('quiz-status')[0];
 var QUIZ_HINT_TOGGLE = document.getElementsByTagName('quiz-hint-toggle')[0];
 var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
 var MAIN = document.getElementsByTagName('main')[0];
+var QUIZ_FINISH_TEXT = document.getElementById('quiz-finish');
+var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
 
 var CURRENT_QUESTION = 0;
 var TOTAL_QUESTIONS = SHEET_DATA.length;
@@ -17,6 +19,7 @@ function restart() {
     CURRENT_QUESTION = 0;
     SCORE = 0;
     SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
+    QUIZ_FINISH.classList = 'hidden';
 }
 
 function update() {
@@ -60,10 +63,12 @@ function loadAnswers() {
 
 
             answer.addEventListener('click', async (event) => {
+                answer.removeEventListener('click', async (event) => { });
                 setupAnswerEvents(answer);
             });
             answer.addEventListener('keydown', async (event) => {
                 if (event.key == 'Enter') {
+                    answer.removeEventListener('click', async (event) => { });
                     setupAnswerEvents(answer);
                 }
             });
@@ -81,19 +86,27 @@ function setupAnswerEvents(answer) {
             SCORE++;
         }
 
-        console.log(SHEET_DATA[CURRENT_QUESTION]);
-
         setTimeout(() => {
             if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
                 CURRENT_QUESTION++;
                 update();
             }
         }, 1000);
+        update();
     }
     else {
+        update();
         console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION].selected);
     }
-    update();
+
+    if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+        QUIZ_FINISH.classList = '';
+        QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}!`;
+        setTimeout(() => {
+            restart();
+            update();
+        }, 5000);
+    }
 }
 
 function updateAnswers() {
