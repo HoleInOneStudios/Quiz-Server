@@ -20,6 +20,8 @@ function restart() {
     SCORE = 0;
     SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
     QUIZ_FINISH.classList = 'hidden';
+
+    update();
 }
 
 function update() {
@@ -60,22 +62,12 @@ function loadAnswers() {
 
             answer.classList.remove('correct', 'incorrect');
             updateAnswers();
-
-
-            answer.addEventListener('click', async (event) => {
-                setupAnswerEvents(answer);
-            });
-            answer.addEventListener('keydown', async (event) => {
-                if (event.key == 'Enter') {
-                    setupAnswerEvents(answer);
-                }
-            });
-            answer.addEventListener('keyup', async (event) => { });
         }
     });
 }
 
-function setupAnswerEvents(answer) {
+async function checkAnswers(answer) {
+    console.log(1)
     if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
@@ -83,28 +75,43 @@ function setupAnswerEvents(answer) {
         if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
             SCORE++;
         }
-
-        setTimeout(() => {
-            if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-                CURRENT_QUESTION++;
-                update();
-            }
-        }, 1000);
-        update();
-    }
-    else {
-        update();
-        console.log('already answered: ' + SHEET_DATA[CURRENT_QUESTION].selected);
+        await updateAnswers();
     }
 
-    if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
-        QUIZ_FINISH.classList = '';
-        QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}!`;
-        setTimeout(() => {
-            restart();
-            update();
-        }, 5000);
+    await setTimeout(async () => {
+        if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+            CURRENT_QUESTION += 1;
+        }
+        else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+            QUIZ_FINISH.classList = '';
+            QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}!`;
+        }
+        update();
+    }, 500);
+}
+
+async function setupAnswerEvents(answer) {
+    console.log(1)
+    if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
+        SHEET_DATA[CURRENT_QUESTION].answered = true;
+        SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
+
+        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+            SCORE++;
+        }
+        await updateAnswers();
     }
+
+    await setTimeout(async () => {
+        if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+            CURRENT_QUESTION += 1;
+        }
+        else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+            QUIZ_FINISH.classList = '';
+            QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}!`;
+        }
+        update();
+    }, 500);
 }
 
 function updateAnswers() {
