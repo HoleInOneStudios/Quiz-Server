@@ -15,7 +15,8 @@
 ### Milestones
 
 * [ ] Re-Create to specifications of the [Photos](#photos)
-  * [ ] Load quizzes from spreadsheet
+  * [x] Load quizzes from spreadsheet
+    * [ ] Hot updating of spreadsheet
   * [x] Runs on a single server
   * [ ] IOS Compatible
   * [ ] Quiz
