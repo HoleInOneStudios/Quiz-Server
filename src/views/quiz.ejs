@@ -22,6 +22,14 @@
 </head>
 
 <body>
+    <div style="display: none;">
+        <audio id="correct_Audio" controls>
+            <source src="/audio/notification-sound-7062.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="incorrect_Audio" controls>
+            <source src="/audio/playernocanselect-37979.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     <main id=" root" title="main">
         <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
 

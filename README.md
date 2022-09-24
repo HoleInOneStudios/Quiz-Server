@@ -37,7 +37,7 @@
         * [x] hint display
         * [ ] hint display speech bubble
       * [ ] Audio
-        * [ ] audio sounds
+        * [x] audio sounds
         * [ ] audio toggle
   * [x] Background images
 

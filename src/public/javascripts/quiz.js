@@ -9,6 +9,10 @@ var MAIN = document.getElementsByTagName('main')[0];
 var QUIZ_FINISH_TEXT = document.getElementById('quiz-finish');
 var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
 
+var AUDIO_CORRECT = document.getElementById('correct_Audio');
+var AUDIO_INCORRECT = document.getElementById('incorrect_Audio');
+console.log(AUDIO_CORRECT, AUDIO_INCORRECT);
+
 var CURRENT_QUESTION = 0;
 var TOTAL_QUESTIONS = SHEET_DATA.length;
 var MAX_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
@@ -73,7 +77,11 @@ async function checkAnswers(answer) {
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
 
         if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+            AUDIO_CORRECT.play();
             SCORE++;
+        }
+        else {
+            AUDIO_INCORRECT.play();
         }
         await updateAnswers();
     }
