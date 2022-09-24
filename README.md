@@ -39,7 +39,6 @@
       * [ ] Audio
         * [ ] audio sounds
         * [ ] audio toggle
-      * [ ] SAMSAT logo
   * [x] Background images
 
 ### Photos
