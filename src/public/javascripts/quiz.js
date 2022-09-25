@@ -77,10 +77,12 @@ async function checkAnswers(answer) {
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
 
         if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+            AUDIO_CORRECT.currentTime = 0;
             AUDIO_CORRECT.play();
             SCORE++;
         }
         else {
+            AUDIO_INCORRECT.currentTime = 0;
             AUDIO_INCORRECT.play();
         }
         await updateAnswers();
