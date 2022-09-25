@@ -171,3 +171,4 @@ customElements.define('quiz-hint', class extends HTMLElement { });
 customElements.define('quiz-hint-toggle', class extends Hint { });
 customElements.define('quiz-hint-text', class extends HintText { });
 customElements.define('quiz-finish', class extends HTMLElement { });
+customElements.define('quiz-audio-toggle', class extends HTMLElement { });

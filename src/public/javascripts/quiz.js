@@ -11,6 +11,7 @@ var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
 
 var AUDIO_CORRECT = document.getElementById('correct_Audio');
 var AUDIO_INCORRECT = document.getElementById('incorrect_Audio');
+var AUDIO_TOGGLE = document.getElementsByTagName('quiz-audio-toggle')[0];
 console.log(AUDIO_CORRECT, AUDIO_INCORRECT);
 
 var CURRENT_QUESTION = 0;
@@ -18,6 +19,7 @@ var TOTAL_QUESTIONS = SHEET_DATA.length;
 var MAX_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
 var SCORE = 0;
 var HINT_SHOWING = false;
+var AUDIO_ON = true;
 
 function restart() {
     CURRENT_QUESTION = 0;
@@ -76,14 +78,16 @@ async function checkAnswers(answer) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
 
-        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
-            AUDIO_CORRECT.currentTime = 0;
-            AUDIO_CORRECT.play();
-            SCORE++;
-        }
-        else {
-            AUDIO_INCORRECT.currentTime = 0;
-            AUDIO_INCORRECT.play();
+        if (AUDIO_ON) {
+            if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+                AUDIO_CORRECT.currentTime = 0;
+                AUDIO_CORRECT.play();
+                SCORE++;
+            }
+            else {
+                AUDIO_INCORRECT.currentTime = 0;
+                AUDIO_INCORRECT.play();
+            }
         }
         await updateAnswers();
     }
@@ -133,5 +137,16 @@ function updateAnswers() {
         else {
             ANSWER_ELEMENTS[SHEET_DATA[CURRENT_QUESTION].selected - 1].classList.add('incorrect');
         }
+    }
+}
+
+function toggleAudio() {
+    AUDIO_ON = !AUDIO_ON;
+
+    if (AUDIO_ON) {
+        AUDIO_TOGGLE.innerHTML = 'volume_up';
+    }
+    else if (!AUDIO_ON) {
+        AUDIO_TOGGLE.innerHTML = 'volume_off';
     }
 }

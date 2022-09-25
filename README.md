@@ -36,9 +36,12 @@
         * [x] hint toggle button image
         * [x] hint display
         * [ ] hint display speech bubble
-      * [ ] Audio
-        * [x] audio sounds
-        * [ ] audio toggle
+      * [x] Audio
+        * [ ] audio sounds
+          * [x] Correct
+          * [x] Incorrect
+          * [ ] Quiz Finished
+        * [x] audio toggle
   * [x] Background images
 
 ### Photos
