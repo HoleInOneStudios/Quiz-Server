@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var fm = require('../bin/getData');
+fm.WatchFile();
 
 /* GET home page */
 router.get('/', function (req, res) {
