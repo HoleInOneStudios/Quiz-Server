@@ -24,4 +24,15 @@
 
     <link rel="shortcut icon" href="./images/icon.svg" type="image/x-icon">
 
+    <script>
+      //clear cookies
+      window.addEventListener('load', () => {
+        document.cookie = "";
+      })
+
+      window.addEventListener('beforeunload', () => {
+        document.cookie = "";
+      });
+    </script>
+
     <script src="./javascripts/elements.js" defer></script>
