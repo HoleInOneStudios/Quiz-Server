@@ -19,8 +19,10 @@ var WB = XLSX.readFile(FILE_PATH);
  * @param {string[]} headers Array of headers in the order they appear in the sheet.
  * @returns {string[]} Array containing data from `sheetName` from `WB`
  */
-const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "HintImage", "BackgroundImage"]) => {
+const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "Hint_Image", "Background_Image"]) => {
+    updateFile();
     var a = XLSX.utils.sheet_to_json(XLSX.readFile(FILE_PATH).Sheets[sheetName], { header: headers });
+
     a.Correct = 1;
     return a;
 }
@@ -43,6 +45,7 @@ const WatchFile = (file = FILE_PATH) => {
             updateFile();
 
             console.log(`${file} has been changed`);
+
         }
     })
 };

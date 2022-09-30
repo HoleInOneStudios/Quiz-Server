@@ -1,18 +1,18 @@
 <%- include("header.ejs")%>
 
 <link rel="preload" href="/images/backgrounds/space_bg.jpg" as="image" crossorigin="anonymous" />
-<link rel="preload" href="/images/hint_people/Hint Person Placeholder.png" as="image" crossorigin="anonymous" />
+<link rel="preload" href="/images/hint_people/Hint-Person-Placeholder.png" as="image" crossorigin="anonymous" />
 
 
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].Background) { %>
-<link rel="preload" href="/images/backgrounds/<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
+<link rel="preload" href="<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].HintImage) { %>
-<link rel="preload" href="/images/hint_people/<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
+<link rel="preload" href="<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 

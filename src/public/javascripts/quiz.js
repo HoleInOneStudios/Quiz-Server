@@ -1,4 +1,4 @@
-var SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText); // Hidden Element that stores the parsed text of the sheet data for the quiz
+var SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
 var QUESTION_ELEMENT = document.getElementsByTagName('quiz-question-text')[0];
 var ANSWER_ELEMENTS = [...document.getElementsByTagName('quiz-answer')];
 var QUIZ_SCORE_ELEMENT = document.getElementsByTagName('quiz-score')[0];
@@ -8,11 +8,9 @@ var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
 var MAIN = document.getElementsByTagName('main')[0];
 var QUIZ_FINISH_TEXT = document.getElementById('quiz-finish');
 var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
-
 var AUDIO_CORRECT = document.getElementById('correct_Audio');
 var AUDIO_INCORRECT = document.getElementById('incorrect_Audio');
 var AUDIO_TOGGLE = document.getElementsByTagName('quiz-audio-toggle')[0];
-console.log(AUDIO_CORRECT, AUDIO_INCORRECT);
 
 var CURRENT_QUESTION = 0;
 var TOTAL_QUESTIONS = SHEET_DATA.length;
@@ -48,7 +46,7 @@ function updateHint() {
 }
 
 function updateQuestion() {
-    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/space_bg.jpg)';
+    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/space_bg.jpg)';
     //console.log(MAIN.style.backgroundImage);
     QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
@@ -92,16 +90,16 @@ async function checkAnswers(answer) {
         await updateAnswers();
     }
 
-    await setTimeout(async () => {
-        if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-            CURRENT_QUESTION += 1;
-        }
-        else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
-            QUIZ_FINISH.classList = '';
-            QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS} correct!`;
-        }
-        update();
-    }, 500);
+    // await setTimeout(async () => {
+    //     if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+    //         CURRENT_QUESTION += 1;
+    //     }
+    //     else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+    //         QUIZ_FINISH.classList = '';
+    //         QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS} correct!`;
+    //     }
+    //     update();
+    // }, 500);
 }
 
 async function setupAnswerEvents(answer) {

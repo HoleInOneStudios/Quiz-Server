@@ -17,17 +17,25 @@ class Next extends QuizNav {
             //console.log(event);
 
             if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-                CURRENT_QUESTION++;
-                update();
+                CURRENT_QUESTION += 1;
             }
+            else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+                QUIZ_FINISH.classList = '';
+                QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS} correct!`;
+            }
+            update();
         }
         this.addEventListener('keyup', async (event) => { });
         this.addEventListener('keydown', async (event) => {
             if (event.key == 'Enter') {
                 if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-                    CURRENT_QUESTION++;
-                    update();
+                    CURRENT_QUESTION += 1;
                 }
+                else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+                    QUIZ_FINISH.classList = '';
+                    QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS} correct!`;
+                }
+                update();
             }
         });
     }
