@@ -30,11 +30,11 @@
             <source src="/audio/playernocanselect-37979.mp3" type="audio/mpeg">
         </audio>
     </div>
-    <main id=" root" title="main">
+    <main id=" root" title="main" class="contrast-bg">
         <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
 
         <quiz-container title="all quiz elements container">
-            <quiz-title><%= title%></quiz-title>
+            <quiz-title class="contrast-el"><%= title%></quiz-title>
             <quiz-info title="quiz info container">
                 <quiz-score title="quiz score percent"></quiz-score>
                 <quiz-status title="quiz question currently on"></quiz-status>

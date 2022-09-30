@@ -32,7 +32,7 @@ const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct
  */
 const updateFile = () => {
     WB = XLSX.readFile(FILE_PATH);
-    console.log("File updated");
+    //console.log("File updated");
 }
 
 /**
@@ -44,8 +44,7 @@ const WatchFile = (file = FILE_PATH) => {
         if (eventType === "change") {
             updateFile();
 
-            console.log(`${file} has been changed`);
-
+            //console.log(`${file} has been changed`);
         }
     })
 };
