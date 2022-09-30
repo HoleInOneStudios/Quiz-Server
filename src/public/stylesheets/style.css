@@ -237,7 +237,10 @@ quiz-hint-text {
     bottom: 0;
     border-radius: 20%;
 
-    width: max-content;
+    height: 90%;
+    width: 200%;
+
+    word-wrap: break-word;
     background-color: var(--unselected-answer-color);
 
     opacity: 0.5;
