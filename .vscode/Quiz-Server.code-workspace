@@ -46,9 +46,10 @@
 			"www": "javascript"
 		},
 		"material-icon-theme.folders.associations": {
-			"reference": "docs",
 			"backgrounds": "images",
-			"hint_people": "images"
+			"hint_people": "images",
+			"reference": "images",
+			"tutorials": "video"
 		},
 		"editor.wordWrap": "off",
 		"editor.fontFamily": "Operator Mono",

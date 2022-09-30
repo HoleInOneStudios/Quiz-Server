@@ -42,7 +42,11 @@
           * [x] Incorrect
           * [ ] Quiz Finished
         * [x] audio toggle
-  * [x] Background images
+    * [x] Background images
+* [ ] Tutorial Videos
+  * [ ] How to make a quiz?
+  * [ ] How to install?
+  * [ ] How to run?
 
 ### Photos
 
@@ -90,3 +94,5 @@
 | Question | 1   | 2   | 3   | 4   | Correct | Hint | Background (Default is `space_bg.jpg`)        |
 | -------- | --- | --- | --- | --- | ------- | ---- | --------------------------------------------- |
 |          |     |     |     |     |         |      | Name of image in`./public/images/backgrounds` |
+
+## Tutorials
