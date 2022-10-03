@@ -1,15 +1,18 @@
 <%- include("header.ejs")%>
 
+
+<!--Preload Default Background Image-->
 <link rel="preload" href="/images/backgrounds/space_bg.jpg" as="image" crossorigin="anonymous" />
-<link rel="preload" href="/images/hint_people/Hint-Person-Placeholder.png" as="image" crossorigin="anonymous" />
-
-
+<!--Preload Background Images-->
 <% for (var i = 0; i < message.length; i++) { %>
-<% if (message[i].Background) { %>
+<% if (message[i].BackgroundImage) { %>
 <link rel="preload" href="<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
+<!--Preload Default Hint Image-->
+<link rel="preload" href="/images/hint_people/Hint-Person-Placeholder.png" as="image" crossorigin="anonymous" />
+<!--Preload Hint Images-->
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].HintImage) { %>
 <link rel="preload" href="<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
