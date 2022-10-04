@@ -14,12 +14,12 @@
 
 ### Milestones
 
-* [ ] Re-Create to specifications of the [Photos](#photos)
+* [x] Re-Create to specifications of the [Photos](#photos)
   * [x] Load quizzes from spreadsheet
-    * [ ] Hot updating of spreadsheet
+    * [x] Hot updating of spreadsheet
   * [x] Runs on a single server
-  * [ ] IOS Compatible
-  * [ ] Quiz
+  * [x] IOS Compatible
+  * [x] Quiz
     * [x] Quiz Title
     * [x] questions
     * [x] 4 answers
@@ -31,16 +31,16 @@
         * [x] next question button
         * [x] previous question button
         * [x] restart quiz button
-      * [ ] Hint
+      * [x] Hint
         * [x] hint toggle button
         * [x] hint toggle button image
         * [x] hint display
-        * [ ] hint display speech bubble
+        * [x] hint display speech bubble
       * [x] Audio
-        * [ ] audio sounds
+        * [x] audio sounds
           * [x] Correct
           * [x] Incorrect
-          * [ ] Quiz Finished
+          * [x] Quiz Finished
         * [x] audio toggle
     * [x] Background images
 * [ ] Tutorial Videos
