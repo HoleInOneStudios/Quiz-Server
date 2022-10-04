@@ -15,14 +15,14 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = process.env.port || '8080';
+var port = process.env.PORT || '8080';
 app.set('port', port);
 
 /** 
  * Get hostname from environment and store in express
  */
 
-var hostname = process.env.host || 'localhost';
+var hostname = process.env.HOST || 'localhost';
 
 /**
  * Create HTTP server.
