@@ -56,6 +56,7 @@
 		"editor.fontFamily": "Operator Mono",
 		"editor.fontLigatures": true,
 		"editor.lineHeight": 24,
+		"npm.autoDetect": "on",
 		"terminal.integrated.fontFamily": "monospace",
 		"terminal.integrated.fontSize": 14,
 		"terminal.integrated.lineHeight": 1.5,
@@ -70,7 +71,15 @@
 		"cSpell.words": [
 			"msedge",
 			"SAMSAT"
-		]
+		],
+		"zenMode.centerLayout": false,
+		"zenMode.fullScreen": true,
+		"zenMode.hideActivityBar": false,
+		"zenMode.hideTabs": false,
+		"zenMode.hideStatusBar": true,
+		"zenMode.hideLineNumbers": false,
+		"zenMode.silentNotifications": true,
+		"zenMode.restore": true
 	},
 	"tasks": {
 		"version": "2.0.0",

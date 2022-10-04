@@ -35,7 +35,7 @@ describe('Files', () => {
     });
     it('GET Views', async () => {
         expect(fs.existsSync(path.join(__dirname, "../views"))).toBe(true);
-    })
+    });
 });
 
 afterAll(() => {
