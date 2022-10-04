@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require('dotenv').config();
-
 var fm = require('../bin/getData');
 
 fm.WatchFile();
@@ -17,14 +15,14 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = process.env.PORT || '80';
+var port = '80';
 app.set('port', port);
 
 /** 
  * Get hostname from environment and store in express
  */
 
-var hostname = process.env.HOST_NAME || 'localhost';
+var hostname = '127.0.0.1';
 
 /**
  * Create HTTP server.
