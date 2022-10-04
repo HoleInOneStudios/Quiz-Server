@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test:jest": "jest --verbose",
+    "test:e2e": "cypress open",
     "start": "node ./src/bin/www",
     "dev": "nodemon ./src/bin/www"
   },

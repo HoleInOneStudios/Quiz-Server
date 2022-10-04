@@ -43,7 +43,8 @@
 			"strings": "on"
 		},
 		"material-icon-theme.files.associations": {
-			"www": "javascript"
+			"www": "javascript",
+			"jest-puppeteer.config.js": "jest"
 		},
 		"material-icon-theme.folders.associations": {
 			"backgrounds": "images",
