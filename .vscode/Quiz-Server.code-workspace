@@ -99,30 +99,7 @@
 		]
 	},
 	"launch": {
-		"configurations": [
-			{
-				"name": "Launch Chrome",
-				"request": "launch",
-				"type": "chrome",
-				"url": "http://localhost:80",
-				"webRoot": "${workspaceFolder:All}",
-			},
-			{
-				"name": "Launch Edge",
-				"request": "launch",
-				"type": "msedge",
-				"url": "http://127.0.0.1:80",
-				"webRoot": "${workspaceFolder:All}",
-			},
-			{
-				"type": "firefox",
-				"request": "launch",
-				"reAttach": true,
-				"name": "Launch Firefox",
-				"url": "http://127.0.0.1:80",
-				"webRoot": "${workspaceFolder:All}",
-			}
-		],
+		"configurations": [],
 		"compounds": []
 	},
 }
