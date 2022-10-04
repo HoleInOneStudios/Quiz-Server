@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var fm = require('../bin/getData');
-fm.WatchFile();
+//fm.WatchFile();
 
 /* GET quiz page */
 router.get('/:quiz', function (req, res) {

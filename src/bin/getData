@@ -39,15 +39,19 @@ const updateFile = () => {
  * Watch the file at `FILE_PATH` for changes and update `WB` when changes are detected.
  * @param {string} file File path to watch and read from.
  */
-const WatchFile = (file = FILE_PATH) => {
-    fs.watch(file, (eventType) => {
-        if (eventType === "change") {
-            updateFile();
+const WatchFile = fs.watch(FILE_PATH, (eventType) => {
+    if (eventType === "change") {
+        updateFile();
+    }
+})
 
-            //console.log(`${file} has been changed`);
-        }
-    })
-};
+/**
+ * remove watcher from `FILE_PATH`
+ * @param file File path to watch and read from.
+ */
+const UnWatchFile = () => {
+    WatchFile.close();
+}
 
 module.exports.FILE_PATH = FILE_PATH;
 module.exports.WB = WB;
@@ -55,11 +59,13 @@ module.exports.WB = WB;
 module.exports.GetSheet = GetSheet;
 module.exports.WatchFile = WatchFile;
 module.exports.updateFile = updateFile;
+module.exports.UnWatchFile = UnWatchFile;
 
 module.exports = {
     FILE_PATH,
     WB,
 
+    UnWatchFile,
     GetSheet,
     WatchFile,
     updateFile
