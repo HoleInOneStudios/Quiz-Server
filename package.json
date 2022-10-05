@@ -2,7 +2,8 @@
   "name": "@holeinonestudios/quiz-app",
   "version": "2.0.1",
   "description": "",
-  "main": "app.js",
+  "bin": "./src/bin/www",
+  "main": "./src/bin/www",
   "directories": {
     "doc": "docs"
   },
