@@ -1,4 +1,6 @@
-# ![Logo](./docs/reference/icon.png)    Quiz Server
+![Logo](./docs/reference/icon.png)
+
+# Quiz Server
 
 [![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")
 ![GitHub issues](https://img.shields.io/github/issues/HoleInOneStudios/Quiz-Server)
@@ -10,45 +12,55 @@
 [![Made with Node.js](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")
 [![Made with JavaScript](https://img.shields.io/badge/Made_with-JavaScript-blue?logo=javascript&logoColor=white)](https://www.javascript.com/ "Go to JavaScript homepage")
 
-## Product Example
+## Table of Contents
 
-### Milestones
+- [Quiz Server](#quiz-server)
+  - [Table of Contents](#table-of-contents)
+  - [Milestones](#milestones)
+  - [Photos](#photos)
+  - [Layout](#layout)
+  - [Custom Elements](#custom-elements)
+  - [Data](#data)
+  - [Sheet Table Template](#sheet-table-template)
+  - [Tutorials](#tutorials)
 
-* [x] Re-Create to specifications of the [Photos](#photos)
-  * [x] Load quizzes from spreadsheet
-    * [x] Hot updating of spreadsheet
-  * [x] Runs on a single server
-  * [x] IOS Compatible
-  * [x] Quiz
-    * [x] Quiz Title
-    * [x] questions
-    * [x] 4 answers
-    * [x] answer Feedback
-    * [x] HUD
-      * [x] score display
-      * [x] current question out of total questions display
-      * [x] Navigation
-        * [x] next question button
-        * [x] previous question button
-        * [x] restart quiz button
-      * [x] Hint
-        * [x] hint toggle button
-        * [x] hint toggle button image
-        * [x] hint display
-        * [x] hint display speech bubble
-      * [x] Audio
-        * [x] audio sounds
-          * [x] Correct
-          * [x] Incorrect
-          * [x] Quiz Finished
-        * [x] audio toggle
-    * [x] Background images
-* [ ] Tutorial Videos
-  * [ ] How to make a quiz?
-  * [ ] How to install?
-  * [ ] How to run?
+## Milestones
 
-### Photos
+- [x] Re-Create to specifications of the [Photos](#photos)
+  - [x] Load quizzes from spreadsheet
+    - [x] Hot updating of spreadsheet
+  - [x] Runs on a single server
+  - [x] IOS Compatible
+  - [x] Quiz
+    - [x] Quiz Title
+    - [x] questions
+    - [x] 4 answers
+    - [x] answer Feedback
+    - [x] HUD
+      - [x] score display
+      - [x] current question out of total questions display
+      - [x] Navigation
+        - [x] next question button
+        - [x] previous question button
+        - [x] restart quiz button
+      - [x] Hint
+        - [x] hint toggle button
+        - [x] hint toggle button image
+        - [x] hint display
+        - [x] hint display speech bubble
+      - [x] Audio
+        - [x] audio sounds
+          - [x] Correct
+          - [x] Incorrect
+          - [x] Quiz Finished
+        - [x] audio toggle
+    - [x] Background images
+- [ ] Tutorial Videos
+  - [ ] How to make a quiz?
+  - [ ] How to install?
+  - [ ] How to run?
+
+## Photos
 
 ![Photo](./docs/reference/20220820_115745.jpg)
 ![Photo](./docs/reference/20220820_115750.jpg)
@@ -59,12 +71,9 @@
 ## Layout
 
 ![Layout](./docs/reference/Quiz-Container.svg)
-
-### Prototyping
-
 [Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
 
-### Custom Elements
+## Custom Elements
 
 | Element Name          |         | Element Class     |
 | --------------------- | ------- | ----------------- |
@@ -91,7 +100,7 @@
 > Each sheet in a workbook is a different quiz
 > [Link to Example](./src/data/data.xlsx)
 
-### Sheet Table Template
+## Sheet Table Template
 
 | Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `space_bg.jpg`) |
 | -------- | --- | --- | --- | --- | -------------- | ---------------- | -------------------------------------- |
