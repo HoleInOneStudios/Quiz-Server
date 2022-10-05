@@ -1,12 +1,14 @@
 const { readFile, utils } = require('xlsx');
 const { resolve } = require('path');
 const { watch } = require('fs');
+require('dotenv').config();
 
 /**
  * File `path` of data spreadsheet with quiz questions.
  * @type {string}
  */
-const FILE_PATH = resolve(__dirname, '../data/data.xlsx');
+
+const FILE_PATH = resolve(__dirname, process.env.FILE_PATH);
 
 /**
  * Workbook object from `FILE_PATH`
