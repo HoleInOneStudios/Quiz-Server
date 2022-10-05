@@ -66,23 +66,25 @@
 
 ### Custom Elements
 
-| Element Name            |
-| ----------------------- |
-| `quiz-next`             |
-| `quiz-back`             |
-| `quiz-restart`          |
-| `quiz-container`        |
-| `quiz-title`            |
-| `quiz-question`         |
-| `quiz-question-text`    |
-| `quiz-answer-container` |
-| `quiz-answer`           |
-| `quiz-info`             |
-| `quiz-score`            |
-| `quiz-status`           |
-| `quiz-hint`             |
-| `quiz-hint-toggle`      |
-| `quiz-hint-text`        |
+| Element Name          |         | Element Class     |
+| --------------------- | ------- | ----------------- |
+| quiz-next             | &#8594; | `Next`            |
+| quiz-back             | &#8594; | `Back`            |
+| quiz-restart          | &#8594; | `Restart`         |
+| quiz-container        | &#8594; | `HTMLElement`     |
+| quiz-title            | &#8594; | `HTMLElement`     |
+| quiz-question         | &#8594; | `HTMLElement`     |
+| quiz-question-text    | &#8594; | `Question`        |
+| quiz-answer-container | &#8594; | `AnswerContainer` |
+| quiz-answer           | &#8594; | `Answer`          |
+| quiz-info             | &#8594; | `HTMLElement`     |
+| quiz-score            | &#8594; | `HTMLElement`     |
+| quiz-status           | &#8594; | `HTMLElement`     |
+| quiz-hint             | &#8594; | `HTMLElement`     |
+| quiz-hint-toggle      | &#8594; | `Hint`            |
+| quiz-hint-text        | &#8594; | `HintText`        |
+| quiz-finish           | &#8594; | `HTMLElement`     |
+| quiz-audio-toggle     | &#8594; | `HTMLElement`     |
 
 ## Data
 
@@ -91,8 +93,10 @@
 
 ### Sheet Table Template
 
-| Question | 1   | 2   | 3   | 4   | Correct | Hint | Background (Default is `space_bg.jpg`)        |
-| -------- | --- | --- | --- | --- | ------- | ---- | --------------------------------------------- |
-|          |     |     |     |     |         |      | Name of image in`./public/images/backgrounds` |
+| Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `space_bg.jpg`) |
+| -------- | --- | --- | --- | --- | -------------- | ---------------- | -------------------------------------- |
+|          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                       |
 
 ## Tutorials
+
+`work in progress`

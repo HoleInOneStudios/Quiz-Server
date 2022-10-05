@@ -2,8 +2,6 @@
 
 var fm = require('../bin/getData');
 
-fm.WatchFile();
-
 /**
  * Module dependencies.
  */
