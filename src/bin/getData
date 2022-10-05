@@ -1,17 +1,17 @@
-const XLSX = require('xlsx');
-const path = require('path');
-const fs = require('fs');
+const { readFile, utils } = require('xlsx');
+const { join } = require('path');
+const { watch } = require('fs');
 
 /**
  * File `path` of data spreadsheet with quiz questions.
  * @type {string}
  */
-const FILE_PATH = path.join(__dirname, '../data/data.xlsx');
+const FILE_PATH = join(__dirname, '../data/data.xlsx');
 
 /**
  * Workbook object from `FILE_PATH`
  */
-var WB = XLSX.readFile(FILE_PATH);
+var WB = readFile(FILE_PATH);
 
 /**
  * Read data from `sheetName` in `WB` and return it as an array of objects.
@@ -21,7 +21,7 @@ var WB = XLSX.readFile(FILE_PATH);
  */
 const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "HintImage", "BackgroundImage"]) => {
     updateFile();
-    var a = XLSX.utils.sheet_to_json(XLSX.readFile(FILE_PATH).Sheets[sheetName], { header: headers });
+    var a = utils.sheet_to_json(readFile(FILE_PATH).Sheets[sheetName], { header: headers });
 
     a.Correct = 1;
     return a;
@@ -31,7 +31,7 @@ const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct
  * Updates `WB` with new data from `FILE_PATH`
  */
 const updateFile = () => {
-    WB = XLSX.readFile(FILE_PATH);
+    WB = readFile(FILE_PATH);
     //console.log("File updated");
 }
 
@@ -39,7 +39,7 @@ const updateFile = () => {
  * Watch the file at `FILE_PATH` for changes and update `WB` when changes are detected.
  * @param {string} file File path to watch and read from.
  */
-const WatchFile = fs.watch(FILE_PATH, (eventType) => {
+const WatchFile = watch(FILE_PATH, (eventType) => {
     if (eventType === "change") {
         updateFile();
     }

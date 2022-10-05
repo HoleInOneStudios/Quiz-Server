@@ -1,8 +1,8 @@
 const app = require('../app');
-const fm = require('../bin/getData');
+const { WB, WatchFile, UnWatchFile } = require('../bin/getData');
 
-const fs = require('fs');
-const path = require('path');
+const { existsSync } = require('fs');
+const { join } = require('path');
 const supertest = require('supertest');
 
 const requestWithSupertest = supertest(app);
@@ -17,7 +17,7 @@ describe('Routes', () => {
         expect(res.statusCode).toBe(200);
     });
     describe('Quiz Routes', () => {
-        fm.WB.SheetNames.forEach(sheet => {
+        WB.SheetNames.forEach(sheet => {
             it(`GET /${sheet}`, async () => {
                 const res = await requestWithSupertest.get(`/${sheet}`);
                 expect(res.statusCode).toBe(200);
@@ -28,16 +28,16 @@ describe('Routes', () => {
 
 describe('Files', () => {
     it('GET Workbook', async () => {
-        expect(fm.WB).not.toBe(null);
+        expect(WB).not.toBe(null);
     })
     it('GET public directory', async () => {
-        expect(fs.existsSync(path.join(__dirname, "../public"))).toBe(true);
+        expect(existsSync(join(__dirname, "../public"))).toBe(true);
     });
     it('GET Views', async () => {
-        expect(fs.existsSync(path.join(__dirname, "../views"))).toBe(true);
+        expect(existsSync(join(__dirname, "../views"))).toBe(true);
     });
 });
 
 afterAll(() => {
-    fm.UnWatchFile();
+    UnWatchFile();
 })
