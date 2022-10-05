@@ -1,4 +1,4 @@
-const { readFile, utils } = require('xlsx');
+const { readFile, utils, read } = require('xlsx');
 const { resolve } = require('path');
 const { watch } = require('fs');
 require('dotenv').config();
@@ -9,6 +9,7 @@ require('dotenv').config();
  */
 
 const FILE_PATH = resolve(__dirname, process.env.FILE_PATH);
+console.debug("File path: " + FILE_PATH);
 
 /**
  * Workbook object from `FILE_PATH`
