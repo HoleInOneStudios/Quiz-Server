@@ -1,7 +1,9 @@
 const { readFile, utils, read } = require('xlsx');
-const { resolve } = require('path');
+const { resolve, dirname } = require('path');
 const { watch } = require('fs');
 require('dotenv').config();
+
+
 
 /**
  * File `path` of data spreadsheet with quiz questions.
