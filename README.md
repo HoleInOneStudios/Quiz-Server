@@ -15,16 +15,42 @@
 
 - [Quiz Server](#quiz-server)
   - [Table of Contents](#table-of-contents)
+  - [Tutorials](#tutorials)
+    - [Installation](#installation)
+    - [Running](#running)
+    - [Creating a Quiz](#creating-a-quiz)
   - [Milestones](#milestones)
   - [Photos](#photos)
   - [Layout](#layout)
   - [Custom Elements](#custom-elements)
   - [Data](#data)
   - [Sheet Table Template](#sheet-table-template)
-  - [Tutorials](#tutorials)
-    - [Installation](#installation)
-    - [Running](#running)
-    - [Creating a Quiz](#creating-a-quiz)
+
+## Tutorials
+
+### Installation
+
+1. Install [Node.js](https://nodejs.org/en/)
+2. Clone this repository
+3. run `npm install` in the root directory
+4. Create a `.env` file in the root
+5. In the `.env` file add the following *(you can change the port and IP to what you want)*
+
+   ```shell
+   PORT=8080
+   HOST='localhost'
+   ```
+
+### Running
+
+1. run `npm run start` in the folder
+2. Goto the domain printed in the console
+
+### Creating a Quiz
+
+1. Open the `data.xlsx` file in the `src/data` folder
+
+`Work in Progress`
 
 ## Milestones
 
@@ -107,29 +133,3 @@
 | Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `space_bg.jpg`) |
 | -------- | --- | --- | --- | --- | -------------- | ---------------- | -------------------------------------- |
 |          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                       |
-
-## Tutorials
-
-### Installation
-
-1. Install [Node.js](https://nodejs.org/en/)
-2. Clone this repository into a folder
-3. run `npm install` in the folder
-4. Create a `.env` file in the root of the folder
-5. In the `.env` file add the following
-
-   ```shell
-   PORT=8080
-   HOST='localhost'
-   ```
-
-### Running
-
-1. run `npm run start` in the folder
-2. goto the domain printed in the console
-
-### Creating a Quiz
-
-1. Open the `data.xlsx` file in the `src/data` folder
-
-`Work in Progress`
