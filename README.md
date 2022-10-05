@@ -130,6 +130,6 @@
 
 ## Sheet Table Template
 
-| Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `space_bg.jpg`) |
-| -------- | --- | --- | --- | --- | -------------- | ---------------- | -------------------------------------- |
-|          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                       |
+| Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `placeholder.jpg`) |
+| -------- | --- | --- | --- | --- | -------------- | ---------------- | ----------------------------------------- |
+|          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                          |
