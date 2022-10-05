@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest --colors",
     "start": "node ./src/bin/www",
-    "dev": " nodemon ./src/bin/www"
+    "dev": " nodemon ./src/bin/www",
+    "build": "pkg -o dist/quiz.exe ./src/bin/www"
   },
   "repository": {
     "type": "git",
