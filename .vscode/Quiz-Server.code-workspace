@@ -76,7 +76,7 @@
 		"zenMode.fullScreen": true,
 		"zenMode.hideActivityBar": false,
 		"zenMode.hideTabs": false,
-		"zenMode.hideStatusBar": true,
+		"zenMode.hideStatusBar": false,
 		"zenMode.hideLineNumbers": false,
 		"zenMode.silentNotifications": true,
 		"zenMode.restore": true
