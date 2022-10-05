@@ -112,12 +112,24 @@
 
 ### Installation
 
-`work in progress`
+1. Install [Node.js](https://nodejs.org/en/)
+2. Clone this repository into a folder
+3. run `npm install` in the folder
+4. Create a `.env` file in the root of the folder
+5. In the `.env` file add the following
+
+   ```shell
+   PORT=8080
+   HOST='localhost'
+   ```
 
 ### Running
 
-`work in progress`
+1. run `npm run start` in the folder
+2. goto the domain printed in the console
 
 ### Creating a Quiz
 
-`work in progress`
+1. Open the `data.xlsx` file in the `src/data` folder
+
+`Work in Progress`
