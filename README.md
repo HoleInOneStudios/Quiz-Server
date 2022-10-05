@@ -23,6 +23,9 @@
   - [Data](#data)
   - [Sheet Table Template](#sheet-table-template)
   - [Tutorials](#tutorials)
+    - [Installation](#installation)
+    - [Running](#running)
+    - [Creating a Quiz](#creating-a-quiz)
 
 ## Milestones
 
@@ -107,5 +110,15 @@
 |          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                       |
 
 ## Tutorials
+
+### Installation
+
+`work in progress`
+
+### Running
+
+`work in progress`
+
+### Creating a Quiz
 
 `work in progress`
