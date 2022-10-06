@@ -31,7 +31,7 @@
 
 1. Install the latest version of [quiz-app.zip](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest)
 2. Extract the contents
-3. Using your terminal or c command prompt, navigate to the extracted folder
+3. Using your terminal or command prompt, navigate to the extracted folder
 4. execute `quiz-app.exe` within the terminal
    1. Windows &rarr; `.\quiz-app.exe`
    2. Mac &rarr; `?`
