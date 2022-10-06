@@ -1,3 +1,4 @@
 node_modules/
 ~$*.xlsx
 package-lock.json
+dist

@@ -16,8 +16,8 @@ if (process.env.NODE_ENV == 1) {
 } else {
     FILE_PATH = join(__dirname, '../', process.env.FILE_PATH);
 }
-console.log(process.cwd());
-console.debug("File path: " + FILE_PATH);
+//console.log(process.cwd());
+//console.debug("File path: " + FILE_PATH);
 
 /**
  * Workbook object from `FILE_PATH`

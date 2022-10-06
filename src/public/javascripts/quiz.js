@@ -71,7 +71,7 @@ function loadAnswers() {
 }
 
 async function checkAnswers(answer) {
-    console.log(1)
+    //console.log(1)
     if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
@@ -103,7 +103,7 @@ async function checkAnswers(answer) {
 }
 
 async function setupAnswerEvents(answer) {
-    console.log(1)
+    //console.log(1)
     if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
