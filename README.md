@@ -16,8 +16,7 @@
 - [Quiz Server](#quiz-server)
   - [Table of Contents](#table-of-contents)
   - [Tutorials](#tutorials)
-    - [Installation](#installation)
-    - [Running](#running)
+    - [Gettings Started](#gettings-started)
     - [Creating a Quiz](#creating-a-quiz)
   - [Milestones](#milestones)
   - [Photos](#photos)
@@ -28,13 +27,16 @@
 
 ## Tutorials
 
-### Installation
+### Gettings Started
 
-`Work in Progress`
-
-### Running
-
-`Work in Progress`
+1. Install the latest version of [quiz-app.zip](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest)
+2. Extract the contents
+3. Using your terminal or c command prompt, navigate to the extracted folder
+4. execute `quiz-app.exe` within the terminal
+   1. Windows &rarr; `.\quiz-app.exe`
+   2. Mac &rarr; `?`
+   3. Linux &rarr; `?`
+5. Navigate the web address provided in the terminal. (e.g. `http://localhost:8080`)
 
 ### Creating a Quiz
 
