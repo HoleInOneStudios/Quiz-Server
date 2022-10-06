@@ -89,7 +89,8 @@
 			"Documentation",
 			"Github",
 			"VSCode",
-			"All"
+			"All",
+			"Build"
 		],
 		"jest.jestCommandLine": "npm run test --"
 	},

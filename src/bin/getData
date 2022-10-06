@@ -1,5 +1,5 @@
 const { readFile, utils, read } = require('xlsx');
-const { resolve, join, dirname } = require('path');
+const { resolve, join, dirname, basename } = require('path');
 const { watch } = require('fs');
 require('dotenv').config();
 
@@ -10,7 +10,13 @@ require('dotenv').config();
  * @type {string}
  */
 
-const FILE_PATH = join(process.cwd(), process.env.FILE_PATH);
+let FILE_PATH;
+if (process.env.NODE_ENV == 1) {
+    FILE_PATH = resolve(dirname(process.execPath), process.env.FILE_PATH);
+} else {
+    FILE_PATH = join(__dirname, '../', process.env.FILE_PATH);
+}
+console.log(process.cwd());
 console.debug("File path: " + FILE_PATH);
 
 /**
