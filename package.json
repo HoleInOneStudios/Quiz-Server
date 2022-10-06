@@ -11,7 +11,7 @@
     "test": "jest --colors",
     "start": "node ./src/bin/www",
     "dev": " nodemon ./src/bin/www",
-    "build": "pkg package.json"
+    "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx"
   },
   "repository": {
     "type": "git",

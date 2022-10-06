@@ -30,21 +30,11 @@
 
 ### Installation
 
-1. Install [Node.js](https://nodejs.org/en/)
-2. Clone this repository
-3. run `npm install` in the root directory
-4. Create a `.env` file in the root
-5. In the `.env` file add the following *(you can change the port and IP to what you want)*
-
-   ```shell
-   PORT=8080
-   HOST='localhost'
-   ```
+`Work in Progress`
 
 ### Running
 
-1. run `npm run start` in the folder
-2. Goto the domain printed in the console
+`Work in Progress`
 
 ### Creating a Quiz
 
