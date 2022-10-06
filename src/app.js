@@ -16,10 +16,10 @@ app.use(express.static(join(__dirname, 'views'))) //Just for the sake of pkg, no
 app.use(express.static(join(__dirname, 'public'))) //Just for the sake of pkg, not needed otherwise
 
 //view engine setup
-app.set('views', resolve(process.cwd(), './src/views'));
+app.set('views', resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.use('/', indexRouter)
-app.use('/', quizRouter)
+app.use('/', indexRouter);
+app.use('/', quizRouter);
 
 module.exports = app;
