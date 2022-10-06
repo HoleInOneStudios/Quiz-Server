@@ -11,7 +11,8 @@
     "test": "jest --colors",
     "start": "node ./src/bin/www",
     "dev": " nodemon ./src/bin/www",
-    "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx"
+    "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx",
+    "package": "@powershell Compress-Archive -Path dist/quiz-app.exe, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/quiz-app.zip -Update"
   },
   "repository": {
     "type": "git",
