@@ -7,7 +7,12 @@ var { WatchFile, GetSheet } = require('../bin/getData');
 router.get('/:quiz', function (req, res) {
     var a = GetSheet(req.params.quiz);
     a.shift();
-    res.render('quiz', { message: a, title: req.params.quiz });
+
+    if (a.length != 0) {
+        res.render('quiz', { message: a, title: req.params.quiz });
+    } else {
+        res.send("Error: Sheet doesn't exist <br> <a href='/'>back</a>")
+    }
 });
 
 module.exports = router;
