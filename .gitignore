@@ -1,6 +1,7 @@
 node_modules/
 ~$*.xlsx
 package-lock.json
+release/
 
 *.7z
 *.gz

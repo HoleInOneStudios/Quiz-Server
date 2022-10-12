@@ -12,7 +12,10 @@
     "start": "node ./src/bin/www",
     "dev": " nodemon ./src/bin/www",
     "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx",
-    "package": "@powershell Compress-Archive -Path dist/quiz-app.exe, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/quiz-app.zip -Update"
+    "package": "npm run package:win && npm run package:macos && npm run package:linux",
+    "package:win": "@powershell Compress-Archive -Path dist/quiz-app-win.exe, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/release/quiz-app-win.zip -Update",
+    "package:linux": "@powershell Compress-Archive -Path dist/quiz-app-linux, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/release/quiz-app-linux.zip -Update",
+    "package:macos": "@powershell Compress-Archive -Path dist/quiz-app-macos, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/release/quiz-app-macos.zip -Update"
   },
   "repository": {
     "type": "git",
@@ -41,7 +44,9 @@
   "pkg": {
     "outputPath": "dist",
     "targets": [
-      "node16-win-x64"
+      "node16-win-x64",
+      "node16-macos-x64",
+      "node16-linux-x64"
     ],
     "assets": [
       "src/routes/**/*",
