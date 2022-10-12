@@ -3,10 +3,5 @@ node_modules/
 package-lock.json
 
 *.7z
-*.dmg
 *.gz
-*.iso
-*.jar
-*.rar
-*.tar
 *.zip
