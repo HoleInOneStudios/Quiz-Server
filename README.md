@@ -32,7 +32,7 @@
 1. Install the [latest version](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest) for your operating system
 2. Extract the contents
 3. Using your terminal or command prompt, navigate to the extracted folder
-4. execute `quiz-app.exe` within the terminal
+4. execute `quiz-app-<version>` within the terminal
    1. Windows &rarr; `.\quiz-app.exe`
    2. Mac &rarr; `?`
    3. Linux &rarr; `?`
