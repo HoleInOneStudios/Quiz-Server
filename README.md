@@ -29,7 +29,7 @@
 
 ### Gettings Started
 
-1. Install the latest version of [quiz-app.zip](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest)
+1. Install the [latest version](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest) for your operating system
 2. Extract the contents
 3. Using your terminal or command prompt, navigate to the extracted folder
 4. execute `quiz-app.exe` within the terminal
@@ -122,6 +122,6 @@
 
 ## Sheet Table Template
 
-| Question | 1   | 2   | 3   | 4   | Correct        | Hint             | Background (Default is `placeholder.jpg`) |
-| -------- | --- | --- | --- | --- | -------------- | ---------------- | ----------------------------------------- |
-|          |     |     |     |     | *(1, 2, 3, 4)* | *(url of image)* | *(url of image)*                          |
+| Question                            | 1                                       | 2                                       | 3                                       | 4                                       | Correct        | Hint                        | Hint Image       | Background Image                               |
+| ----------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | -------------- | --------------------------- | ---------------- | ---------------------------------------------- |
+| *(text to be used as the question)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(1, 2, 3, 4)* | *(text to be used as hint)* | *(url of image)* | *(url of image(Default is `placeholder.jpg`))* |
