@@ -11,7 +11,7 @@
     "test": "jest --colors",
     "start": "node ./src/bin/www",
     "dev": " nodemon ./src/bin/www",
-    "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx",
+    "build": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx && npm run package",
     "package": "npm run package:win && npm run package:macos && npm run package:linux",
     "package:win": "@powershell Compress-Archive -Path dist/quiz-app-win.exe, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/release/quiz-app-win.zip -Update",
     "package:linux": "@powershell Compress-Archive -Path dist/quiz-app-linux, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/release/quiz-app-linux.zip -Update",
