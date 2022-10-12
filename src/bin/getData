@@ -33,8 +33,6 @@ var WB = readFile(FILE_PATH);
 const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct", "Hint", "HintImage", "BackgroundImage"]) => {
     updateFile();
     var a = utils.sheet_to_json(readFile(FILE_PATH).Sheets[sheetName], { header: headers });
-    console.debug(a)
-
     a.Correct = 1;
     return a;
 }
