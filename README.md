@@ -122,6 +122,8 @@
 
 ## Sheet Table Template
 
-| Question                            | 1                                       | 2                                       | 3                                       | 4                                       | Correct        | Hint                        | Hint Image       | Background Image                               |
-| ----------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | -------------- | --------------------------- | ---------------- | ---------------------------------------------- |
-| *(text to be used as the question)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(text to be used as the first answer)* | *(1, 2, 3, 4)* | *(text to be used as hint)* | *(url of image)* | *(url of image(Default is `placeholder.jpg`))* |
+If you don't include text in the answer choice it will not show up, so you can create True or False questions by leaving the other answers blank.
+
+| Question                            | 1                                       | 2                                        | 3                                       | 4                                        | Correct        | Hint                        | Hint Image                                                                 | Background Image                               |
+| ----------------------------------- | --------------------------------------- | ---------------------------------------- | --------------------------------------- | ---------------------------------------- | -------------- | --------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
+| *(text to be used as the question)* | *(text to be used as the first answer)* | *(text to be used as the second answer)* | *(text to be used as the third answer)* | *(text to be used as the fourth answer)* | *(1, 2, 3, 4)* | *(text to be used as hint)* | *(url of image(Default is random image from `this person doesn't exist`))* | *(url of image(Default is `placeholder.jpg`))* |
