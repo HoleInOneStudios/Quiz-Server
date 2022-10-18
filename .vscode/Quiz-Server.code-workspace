@@ -9,20 +9,20 @@
 			"path": "../src"
 		},
 		{
-			"name": "Build",
-			"path": "../dist"
-		},
-		{
 			"name": "Documentation",
 			"path": "../docs"
 		},
 		{
 			"name": "VSCode",
-			"path": "../.vscode"
+			"path": "."
 		},
 		{
 			"name": "Github",
 			"path": "../.github"
+		},
+		{
+			"name": "Build",
+			"path": "../dist"
 		}
 	],
 	"settings": {
