@@ -16,7 +16,7 @@
 - [Quiz Server](#quiz-server)
   - [Table of Contents](#table-of-contents)
   - [Tutorials](#tutorials)
-    - [Gettings Started](#gettings-started)
+    - [Getting Started](#getting-started)
     - [Creating a Quiz](#creating-a-quiz)
   - [Milestones](#milestones)
   - [Photos](#photos)
@@ -27,7 +27,7 @@
 
 ## Tutorials
 
-### Gettings Started
+### Getting Started
 
 1. Install the [latest version](https://github.com/HoleInOneStudios/Quiz-Server/releases/latest) for your operating system
 2. Extract the contents
