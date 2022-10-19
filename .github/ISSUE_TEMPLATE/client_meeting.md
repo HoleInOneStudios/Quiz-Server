@@ -1,0 +1,19 @@
+# Client Meeting
+
+> This is a template for a client meeting. It is used to create a new issue for each meeting.
+
+## Date
+
+> MM-DD-YYYY
+
+## Old Business
+
+> Old business is any business that was not completed in the last meeting.
+
+## New Business
+
+> New business is any business that needs to be completed by the next meeting.
+
+## Notes
+
+> Notes are any additional information that is relevant to the meeting.
