@@ -4,6 +4,7 @@ package-lock.json
 dist/
 release/
 docs/reference/
+
 *.7z
 *.gz
 *.zip
