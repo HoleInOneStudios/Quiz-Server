@@ -1,4 +1,4 @@
-![Logo](./docs/reference/icon.png)
+![Logo](./docs/images/icon.png)
 
 # Quiz Server
 
@@ -82,15 +82,15 @@
 
 ## Photos
 
-![Photo](./docs/reference/20220820_115745.jpg)
-![Photo](./docs/reference/20220820_115750.jpg)
-![Photo](./docs/reference/20220820_115756.jpg)
-![Photo](./docs/reference/20220820_120202.jpg)
-![Photo](./docs/reference/COPY20220820_115756.jpg)
+![Photo](./docs/images/20220820_115745.jpg)
+![Photo](./docs/images/20220820_115750.jpg)
+![Photo](./docs/images/20220820_115756.jpg)
+![Photo](./docs/images/20220820_120202.jpg)
+![Photo](./docs/images/COPY20220820_115756.jpg)
 
 ## Layout
 
-![Layout](./docs/reference/Quiz-Container.svg)
+![Layout](./docs/images/Quiz-Container.svg)
 [Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
 
 ## Custom Elements
