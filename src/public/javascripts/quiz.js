@@ -8,6 +8,7 @@ var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
 var MAIN = document.getElementsByTagName('main')[0];
 var QUIZ_FINISH_TEXT = document.getElementById('quiz-finish');
 var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
+var QUIZ_START = document.getElementsByTagName('quiz-start')[0];
 var AUDIO_CORRECT = document.getElementById('correct_Audio');
 var AUDIO_INCORRECT = document.getElementById('incorrect_Audio');
 var AUDIO_TOGGLE = document.getElementsByTagName('quiz-audio-toggle')[0];
@@ -19,24 +20,32 @@ var SCORE = 0;
 var HINT_SHOWING = false;
 var AUDIO_ON = true;
 
+function start() {
+    QUIZ_START.classList = 'hidden';
+    update();
+}
+
 function restart() {
     CURRENT_QUESTION = 0;
     SCORE = 0;
     SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
     QUIZ_FINISH.classList = 'hidden';
-
-    update();
+    QUIZ_START.classList = '';
 }
 
 function update() {
-    QUIZ_SCORE_ELEMENT.innerText = `${parseInt(SCORE / TOTAL_QUESTIONS * 100)}%`;
-    QUIZ_STATUS_ELEMENT.innerText = `${CURRENT_QUESTION + 1}/${TOTAL_QUESTIONS}`;
-    QUIZ_HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION].Hint;
-
+    updateInfo();
+    updateHint();
     updateQuestion();
 }
 
+function updateInfo() {
+    QUIZ_SCORE_ELEMENT.innerText = `${parseInt(SCORE / TOTAL_QUESTIONS * 100)}%`;
+    QUIZ_STATUS_ELEMENT.innerText = `${CURRENT_QUESTION + 1}/${TOTAL_QUESTIONS}`;
+}
+
 function updateHint() {
+    QUIZ_HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION].Hint;
     if (HINT_SHOWING) {
         QUIZ_HINT_TEXT.classList.remove('hidden');
     }
@@ -71,7 +80,6 @@ function loadAnswers() {
 }
 
 async function checkAnswers(answer) {
-    //console.log(1)
     if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
@@ -88,35 +96,18 @@ async function checkAnswers(answer) {
             }
         }
         await updateAnswers();
-    }
-}
-
-async function setupAnswerEvents(answer) {
-    //console.log(1)
-    if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
-        SHEET_DATA[CURRENT_QUESTION].answered = true;
-        SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
-
-        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
-            SCORE++;
-        }
-        await updateAnswers();
-
-
+        await updateInfo();
     }
 }
 
 async function showFinalScreen() {
-    await setTimeout(async () => {
-        if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-            CURRENT_QUESTION += 1;
-        }
-        else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
-            QUIZ_FINISH.classList = '';
-            QUIZ_FINISH_TEXT.innerHTML = `<h2>${(parseInt(SCORE / TOTAL_QUESTIONS * 100) > 70) ? "Congratulations!" : "Better Luck Next Time!"}</h2><p>You have completed the quiz!</p><p>Your score is: ${parseInt(SCORE / TOTAL_QUESTIONS & 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
-        }
-        update();
-    }, 500);
+    if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
+        CURRENT_QUESTION += 1;
+    }
+    else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
+        QUIZ_FINISH.classList = '';
+        QUIZ_FINISH_TEXT.innerHTML = `<h2>${(parseInt(SCORE / TOTAL_QUESTIONS * 100) > 70) ? "Congratulations!" : "Better Luck Next Time!"}</h2><p>You have completed the quiz!</p><p>Your score is: ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
+    }
 }
 
 function updateAnswers() {
