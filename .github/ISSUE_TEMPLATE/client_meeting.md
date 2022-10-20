@@ -1,7 +1,7 @@
 ---
-name: Client Meeting
+name: Client Meeting Report
 about: This is a template for a client meeting. It is used to create a new issue for each meeting.
-title: 'Client Meeting'
+title: 'Client Meeting - [DATE]'
 labels: 'Client Meetings'
 assignees: 'HoleInOneGolfer'
 
@@ -9,15 +9,19 @@ assignees: 'HoleInOneGolfer'
 
 ## Date
 
-> MM-DD-YYYY
+MM-DD-YYYY
 
 ## Old Business
 
 > Old business is any business that was not completed in the last meeting.
 
+* [ ] ...
+
 ## New Business
 
 > New business is any business that needs to be completed by the next meeting.
+
+* [ ] ...
 
 ## Notes
 
