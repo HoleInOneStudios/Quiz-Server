@@ -303,3 +303,21 @@ quiz-audio-toggle {
 
     padding: 2vh;
 }
+
+.floating {
+    animation: floating 5s ease-in-out infinite alternate;
+}
+
+@keyframes floating {
+    0% {
+        transform: rotate(0.005turn);
+    }
+
+    50% {
+        transform: rotate(-0.005turn);
+    }
+
+    100% {
+        transform: rotate(0.005turn);
+    }
+}
