@@ -17,7 +17,8 @@
   - [Table of Contents](#table-of-contents)
   - [Tutorials](#tutorials)
     - [Getting Started](#getting-started)
-    - [Creating a Quiz](#creating-a-quiz)
+    - [Opening to LAN](#opening-to-lan)
+    - [Creating and Editing a Quiz](#creating-and-editing-a-quiz)
   - [Milestones](#milestones)
   - [Photos](#photos)
   - [Layout](#layout)
@@ -38,47 +39,20 @@
    3. Linux &rarr; `?`
 5. Navigate the web address provided in the terminal. (e.g. `http://localhost:8080`)
 
-### Creating a Quiz
+### Opening to LAN
 
-1. Open the `data.xlsx` file in the `src/data` folder
+1. Navigate to the extracted folder
+2. Change the host in the .env file to your devices public IP address
+3. Run the application
+4. On a device on the same network, navigate to the public IP address and port (e.g. `http://192.168.50.179:80`)
 
-`Work in Progress`
+### Creating and Editing a Quiz
+
+`TODO`
 
 ## Milestones
 
-- [x] Re-Create to specifications of the [Photos](#photos)
-  - [x] Load quizzes from spreadsheet
-    - [x] Hot updating of spreadsheet
-  - [x] Runs on a single server
-  - [x] IOS Compatible
-  - [x] Quiz
-    - [x] Quiz Title
-    - [x] questions
-    - [x] 4 answers
-    - [x] answer Feedback
-    - [x] HUD
-      - [x] score display
-      - [x] current question out of total questions display
-      - [x] Navigation
-        - [x] next question button
-        - [x] previous question button
-        - [x] restart quiz button
-      - [x] Hint
-        - [x] hint toggle button
-        - [x] hint toggle button image
-        - [x] hint display
-        - [x] hint display speech bubble
-      - [x] Audio
-        - [x] audio sounds
-          - [x] Correct
-          - [x] Incorrect
-          - [x] Quiz Finished
-        - [x] audio toggle
-    - [x] Background images
-- [ ] Tutorial Videos
-  - [ ] How to make a quiz?
-  - [ ] How to install?
-  - [ ] How to run?
+`TODO`
 
 ## Photos
 
