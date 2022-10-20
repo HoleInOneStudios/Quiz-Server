@@ -148,3 +148,27 @@ function toggleAudio() {
         AUDIO_TOGGLE.innerHTML = 'volume_off';
     }
 }
+
+function debounce(callback, timeout, _this) {
+    var timer;
+    return function (e) {
+        var _that = this;
+        if (timer)
+            clearTimeout(timer);
+        timer = setTimeout(function () {
+            callback.call(_this || _that, e);
+        }, timeout);
+    }
+}
+
+var userAction = debounce(function (e) {
+    console.log("silence");
+    restart();
+}, 60 * 1000);
+
+document.body.onload = () => {
+    document.addEventListener("mousemove", userAction, false);
+    document.addEventListener("click", userAction, false);
+    document.addEventListener("scroll", userAction, false);
+    document.addEventListener("keypress", userAction, false);
+}
