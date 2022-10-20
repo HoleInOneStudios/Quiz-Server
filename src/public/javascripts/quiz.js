@@ -89,17 +89,6 @@ async function checkAnswers(answer) {
         }
         await updateAnswers();
     }
-
-    // await setTimeout(async () => {
-    //     if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-    //         CURRENT_QUESTION += 1;
-    //     }
-    //     else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
-    //         QUIZ_FINISH.classList = '';
-    //         QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS} correct!`;
-    //     }
-    //     update();
-    // }, 500);
 }
 
 async function setupAnswerEvents(answer) {
@@ -112,15 +101,19 @@ async function setupAnswerEvents(answer) {
             SCORE++;
         }
         await updateAnswers();
-    }
 
+
+    }
+}
+
+async function showFinalScreen() {
     await setTimeout(async () => {
         if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
             CURRENT_QUESTION += 1;
         }
         else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
             QUIZ_FINISH.classList = '';
-            QUIZ_FINISH_TEXT.innerHTML = `<h2>Congratulations</h2><p>You have completed the quiz!</p><p>Your score is:${parseInt(SCORE / TOTAL_QUESTIONS & 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
+            QUIZ_FINISH_TEXT.innerHTML = `<h2>${(parseInt(SCORE / TOTAL_QUESTIONS * 100) > 70) ? "Congratulations!" : "Better Luck Next Time!"}</h2><p>You have completed the quiz!</p><p>Your score is: ${parseInt(SCORE / TOTAL_QUESTIONS & 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
         }
         update();
     }, 500);
