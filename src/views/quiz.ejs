@@ -75,10 +75,12 @@
             </quiz-navigation>
 
             <quiz-finish class="hidden">
-                <h2 id="finalText">Congratulations</h2>
-                <p>You have completed the quiz!</p>
-                <span id="quiz-finish"></span>
-                <button onclick="restart();">Restart</button>
+                <div id="quiz-finish">
+                    <h2>Congratulations</h2>
+                    <p>You have completed the quiz!</p>
+                    <p>Your score is:</p>
+                </div>
+                <button onclick="restart();" class="floating">Restart</button>
             </quiz-finish>
         </quiz-container>
 

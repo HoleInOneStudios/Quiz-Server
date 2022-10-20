@@ -120,7 +120,7 @@ async function setupAnswerEvents(answer) {
         }
         else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
             QUIZ_FINISH.classList = '';
-            QUIZ_FINISH_TEXT.innerText = `You scored ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}!`;
+            QUIZ_FINISH_TEXT.innerHTML = `<h2>Congratulations</h2><p>You have completed the quiz!</p><p>Your score is:${parseInt(SCORE / TOTAL_QUESTIONS & 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
         }
         update();
     }, 500);
