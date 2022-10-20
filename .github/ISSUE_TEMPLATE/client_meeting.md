@@ -11,6 +11,14 @@ assignees: 'HoleInOneGolfer'
 
 MM-DD-YYYY
 
+## Start Time
+
+HH:MM AM/PM
+
+## End Time
+
+HH:MM AM/PM
+
 ## Old Business
 
 > Old business is any business that was not completed in the last meeting.
