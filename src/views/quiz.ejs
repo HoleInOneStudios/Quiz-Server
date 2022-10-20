@@ -2,20 +2,20 @@
 
 
 <!--Preload Default Background Image-->
-<link rel="preload" href="/images/backgrounds/placeholder.jpg" as="image" crossorigin="anonymous" />
+<link rel="preload" href="/public/images/backgrounds/placeholder.jpg" as="image" crossorigin="anonymous" />
 <!--Preload Background Images-->
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].BackgroundImage) { %>
-<link rel="preload" href="<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
+<link rel="preload" href="./img/<%=message[i].BackgroundImage%>" as="image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
 <!--Preload Default Hint Image-->
-<link rel="preload" href="/images/hint_people/Hint-Person-Placeholder.png" as="image" crossorigin="anonymous" />
+<link rel="preload" href="/public/images/hint_people/Hint-Person-Placeholder.png" as="image" crossorigin="anonymous" />
 <!--Preload Hint Images-->
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].HintImage) { %>
-<link rel="preload" href="<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
+<link rel="preload" href="./img/<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
@@ -27,10 +27,10 @@
 <body>
     <div style="display: none;">
         <audio id="correct_Audio" controls>
-            <source src="/audio/notification-sound-7062.mp3" type="audio/mpeg">
+            <source src="/public/audio/notification-sound-7062.mp3" type="audio/mpeg">
         </audio>
         <audio id="incorrect_Audio" controls>
-            <source src="/audio/playernocanselect-37979.mp3" type="audio/mpeg">
+            <source src="/public/audio/playernocanselect-37979.mp3" type="audio/mpeg">
         </audio>
     </div>
     <main id=" root" title="main" class="contrast-bg">
@@ -80,8 +80,8 @@
 
     </main>
 
-    <script src="./javascripts/service.js" defer>
+    <script src="./public/javascripts/service.js" defer>
         a.init();
     </script>
-    <script src="./javascripts/quiz.js"></script>
+    <script src="./public/javascripts/quiz.js"></script>
 </body>

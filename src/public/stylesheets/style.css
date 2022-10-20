@@ -1,11 +1,24 @@
 /* Imports */
 @font-face {
     font-family: 'Sigmar One';
-    src: url('../fonts/SigmarOne-Regular.ttf');
+    src: url('../fonts/Avenir Black.ttf');
 }
 
 /* Root */
 :root {
+    /* 
+    ======= Style Guide Colors (PMS) =======
+        pms 282 - black
+        pms 7672 - indigo
+        pms 301 - dark_blue
+        pms 2905 - sky_blue
+        pms 7444 - light_indigo
+        pms 233 - magenta
+        pms 2995 - light_blue
+        pms 396 - yellow
+        pms 1495 - orange
+    ========================================
+    */
     --background-main: #fff;
     --background-secondary: #c6c6c6;
 

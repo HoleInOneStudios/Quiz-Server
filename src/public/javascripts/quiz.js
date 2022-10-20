@@ -46,9 +46,9 @@ function updateHint() {
 }
 
 function updateQuestion() {
-    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./images/backgrounds/placeholder.jpg)';
+    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
     //console.log(MAIN.style.backgroundImage);
-    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./images/hint_people/Hint-Person-Placeholder.png)';
+    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
 
