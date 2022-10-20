@@ -6,29 +6,27 @@
 
 /* Root */
 :root {
-    /* 
-    ======= Style Guide Colors (PMS) =======
-        pms 282 - black
-        pms 7672 - indigo
-        pms 301 - dark_blue
-        pms 2905 - sky_blue
-        pms 7444 - light_indigo
-        pms 233 - magenta
-        pms 2995 - light_blue
-        pms 396 - yellow
-        pms 1495 - orange
-    ========================================
-    */
-    --background-main: #fff;
-    --background-secondary: #c6c6c6;
+    /* ======= Style Guide Colors (PMS) ======= */
+    --pms_282: #00214d;
+    --pms_7672: #4c4084;
+    --pms_301: #00599c;
+    --pms_2905: #9ec9e3;
+    --pms_7444: #b6b8dc;
+    --pms_233: #c7007d;
+    --pms_2995: #00a6de;
+    --pms_396: #e1e000;
+    --pms_1495: #ff8f1c;
+    /* ======================================== */
+    --background-main: var(--pms_282);
+    --background-secondary: var(--pms_7672);
 
-    --text-color: #000;
-    --link-color: #299;
+    --text-color: var(--pms_7444);
+    --link-color: var(--pms_2905);
 
-    --unselected-answer-color: #ccc;
+    --unselected-answer-color: var(--pms_7672);
 
-    --correct-color: #5f5;
-    --incorrect-color: #f55;
+    --correct-color: var(--pms_2995);
+    --incorrect-color: var(--pms_233);
 }
 
 /* HTML Element Styles */
