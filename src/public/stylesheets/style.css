@@ -29,6 +29,79 @@
     --incorrect-color: var(--pms_233);
 }
 
+/* Helper Style Classes */
+.bg_282 {
+    background-color: var(--pms_282);
+}
+
+.bg_7672 {
+    background-color: var(--pms_7672);
+}
+
+.bg_301 {
+    background-color: var(--pms_301);
+}
+
+.bg_2905 {
+    background-color: var(--pms_2905);
+}
+
+.bg_7444 {
+    background-color: var(--pms_7444);
+}
+
+.bg_233 {
+    background-color: var(--pms_233);
+}
+
+.bg_2995 {
+    background-color: var(--pms_2995);
+}
+
+.bg_396 {
+    background-color: var(--pms_396);
+}
+
+.bg_1495 {
+    background-color: var(--pms_1495);
+}
+
+.text_282 {
+    color: var(--pms_282);
+}
+
+.text_7672 {
+    color: var(--pms_7672);
+}
+
+.text_301 {
+    color: var(--pms_301);
+}
+
+.text_2905 {
+    color: var(--pms_2905);
+}
+
+.text_7444 {
+    color: var(--pms_7444);
+}
+
+.text_233 {
+    color: var(--pms_233);
+}
+
+.text_2995 {
+    color: var(--pms_2995);
+}
+
+.text_396 {
+    color: var(--pms_396);
+}
+
+.text_1495 {
+    color: var(--pms_1495);
+}
+
 /* HTML Element Styles */
 html {
     margin: 0;
@@ -90,10 +163,6 @@ footer {
 
 .hidden {
     display: none;
-}
-
-* {
-    /* transition: all 0.5s ease; */
 }
 
 quiz-container {
@@ -213,14 +282,6 @@ quiz-info {
     background-color: var(--unselected-answer-color);
 
     opacity: 0.75;
-}
-
-quiz-score {
-    /* font-size: 7vh; */
-}
-
-quiz-status {
-    /* font-size: 3vh; */
 }
 
 quiz-hint {
