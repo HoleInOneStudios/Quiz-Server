@@ -42,11 +42,13 @@ function update() {
     updateQuestion();
 }
 
+// * Set the status and info text elements to the correct text
 function updateInfo() {
     QUIZ_SCORE_ELEMENT.innerText = `${parseInt(SCORE / TOTAL_QUESTIONS * 100)}%`;
     QUIZ_STATUS_ELEMENT.innerText = `${CURRENT_QUESTION + 1}/${TOTAL_QUESTIONS}`;
 }
 
+// * Update hint text and set to hidden if hint not showing
 function updateHint() {
     QUIZ_HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION].Hint;
     if (HINT_SHOWING) {
@@ -59,7 +61,6 @@ function updateHint() {
 
 function updateQuestion() {
     MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-    //console.log(MAIN.style.backgroundImage);
     QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
@@ -106,7 +107,7 @@ async function checkAnswers(answer) {
     await updateInfo();
 }
 
-async function showFinalScreen() {
+async function nextOrFinal() {
     if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
         CURRENT_QUESTION += 1;
     }
@@ -128,6 +129,7 @@ function updateAnswers() {
     }
 }
 
+// * Toggle weather to play audio or not
 function toggleAudio() {
     AUDIO_ON = !AUDIO_ON;
 
@@ -139,6 +141,7 @@ function toggleAudio() {
     }
 }
 
+// * User timeout after 60 seconds of inactivity
 function debounce(callback, timeout, _this) {
     var timer;
     return function (e) {

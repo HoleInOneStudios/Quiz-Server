@@ -8,12 +8,12 @@ const navigationElements = {
             this.classList.add('material-symbols-outlined');
 
             this.onclick = async (event) => {
-                showFinalScreen();
+                nextOrFinal();
                 update();
             }
             this.addEventListener('keydown', async (event) => {
                 if (event.key == 'Enter') {
-                    showFinalScreen();
+                    nextOrFinal();
                 }
             });
         }
@@ -42,12 +42,7 @@ const navigationElements = {
                 }
             });
 
-            if (HINT_SHOWING) {
-                HINT_SHOWING = false;
-            }
-            else {
-                HINT_SHOWING = true;
-            }
+
 
             updateHint();
         }
