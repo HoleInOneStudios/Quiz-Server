@@ -19,7 +19,6 @@
     - [Getting Started](#getting-started)
     - [Opening to LAN](#opening-to-lan)
     - [Creating and Editing a Quiz](#creating-and-editing-a-quiz)
-  - [Milestones](#milestones)
   - [Photos](#photos)
   - [Layout](#layout)
   - [Custom Elements](#custom-elements)
@@ -47,10 +46,6 @@
 4. On a device on the same network, navigate to the public IP address and port (e.g. `http://192.168.50.179:80`)
 
 ### Creating and Editing a Quiz
-
-`TODO`
-
-## Milestones
 
 `TODO`
 

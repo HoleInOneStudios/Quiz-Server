@@ -1,110 +1,88 @@
-// quiz navigation custom elements
-class QuizNav extends HTMLElement {
-    constructor () {
-        super();
+const navigationElements = {
+    Next: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
 
-        this.tabIndex = 0;
-        this.classList.add('material-symbols-outlined');
-    }
-}
-class Next extends QuizNav {
-    constructor () {
-        super();
+            this.innerHTML = 'navigate_next';
+            this.tabIndex = 0;
+            this.classList.add('material-symbols-outlined');
 
-        this.innerHTML = 'navigate_next';
-
-        this.onclick = async (event) => {
-            //console.log(event);
-            showFinalScreen();
-            update();
-        }
-        this.addEventListener('keyup', async (event) => { });
-        this.addEventListener('keydown', async (event) => {
-            if (event.key == 'Enter') {
-                showFinalScreen();
-            }
-        });
-    }
-}
-class Back extends QuizNav {
-    constructor () {
-        super();
-
-        this.innerHTML = 'navigate_before';
-
-        this.onclick = async (event) => {
-            //console.log(event);
-
-            if (CURRENT_QUESTION > 0) {
-                CURRENT_QUESTION--;
+            this.onclick = async (event) => {
+                nextOrFinal();
                 update();
             }
+            this.addEventListener('keydown', async (event) => {
+                if (event.key == 'Enter') {
+                    nextOrFinal();
+                }
+            });
         }
-        this.addEventListener('keyup', async (event) => { });
-        this.addEventListener('keydown', async (event) => {
-            if (event.key == 'Enter') {
+    },
+    Back: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
+
+            this.innerHTML = 'navigate_before';
+            this.tabIndex = 0;
+            this.classList.add('material-symbols-outlined');
+
+            this.onclick = async (event) => {
+
                 if (CURRENT_QUESTION > 0) {
                     CURRENT_QUESTION--;
                     update();
                 }
             }
-        });
+            this.addEventListener('keydown', async (event) => {
+                if (event.key == 'Enter') {
+                    if (CURRENT_QUESTION > 0) {
+                        CURRENT_QUESTION--;
+                        update();
+                    }
+                }
+            });
 
-        if (HINT_SHOWING) {
-            HINT_SHOWING = false;
+
+
+            updateHint();
         }
-        else {
-            HINT_SHOWING = true;
-        }
+    },
+    Restart: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
 
-        updateHint();
-    }
-}
-class Restart extends QuizNav {
-    constructor () {
-        super();
+            this.innerHTML = 'replay';
+            this.tabIndex = 0;
+            this.classList.add('material-symbols-outlined');
 
-        this.innerHTML = 'replay';
-
-        this.onclick = async (event) => {
-            //console.log(event);
-
-            await new Promise(r => setTimeout(r, 500));
-
-            restart();
-            update();
-        }
-        this.addEventListener('keyup', async (event) => { });
-        this.addEventListener('keydown', async (event) => {
-            if (event.key == 'Enter') {
+            this.onclick = async (event) => {
                 await new Promise(r => setTimeout(r, 500));
 
                 restart();
                 update();
             }
-        });
+            this.addEventListener('keydown', async (event) => {
+                if (event.key == 'Enter') {
+                    await new Promise(r => setTimeout(r, 500));
+
+                    restart();
+                    update();
+                }
+            });
+        }
     }
 }
-class Hint extends QuizNav {
-    constructor () {
-        super();
 
-        this.tabIndex = 0;
+const hintElements = {
+    Hint: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
 
-        this.onclick = (event) => {
-            //console.log(event);
+            this.tabIndex = 0;
+            this.tabIndex = 0;
+            this.classList.add('material-symbols-outlined');
 
-            if (HINT_SHOWING) {
-                HINT_SHOWING = false;
-            }
-            else {
-                HINT_SHOWING = true;
-            }
-
-            updateHint();
-        }
-        this.addEventListener('keydown', async (event) => {
-            if (event.key == 'Enter') {
+            this.onclick = (event) => {
                 if (HINT_SHOWING) {
                     HINT_SHOWING = false;
                 }
@@ -114,56 +92,67 @@ class Hint extends QuizNav {
 
                 updateHint();
             }
-        });
-        this.addEventListener('keyup', async (event) => { });
+            this.addEventListener('keydown', async (event) => {
+                if (event.key == 'Enter') {
+                    if (HINT_SHOWING) {
+                        HINT_SHOWING = false;
+                    }
+                    else {
+                        HINT_SHOWING = true;
+                    }
 
+                    updateHint();
+                }
+            });
+        }
+    },
+    HintText: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
+            this.classList = 'hidden';
+        }
     }
 }
 
-// quiz question custom elements
-class Question extends HTMLElement {
-    constructor () {
-        super();
-
-        update();
-    }
-}
-class AnswerContainer extends HTMLElement {
-    constructor () {
-        super();
-    }
-}
-class Answer extends HTMLElement {
-    constructor () {
-        super();
-
-        this.tabIndex = 0;
-    }
-}
-class HintText extends HTMLElement {
-    constructor () {
-        super();
-
-        this.classList = 'hidden';
+const mainQuizElements = {
+    Question: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
+        }
+    },
+    AnswerContainer: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
+        }
+    },
+    Answer: class extends HTMLElement {
+        constructor () {
+            super(); //Required Constructor Call
+            this.tabIndex = 0; //Required for focus
+        }
     }
 }
 
 // register custom elements
-customElements.define('quiz-next', Next);
-customElements.define('quiz-back', Back);
-customElements.define('quiz-restart', Restart);
+
 customElements.define('quiz-container', class extends HTMLElement { });
 customElements.define('quiz-title', class extends HTMLElement { });
 customElements.define('quiz-question', class extends HTMLElement { });
-customElements.define('quiz-question-text', Question);
-customElements.define('quiz-answer-container', AnswerContainer)
-customElements.define('quiz-answer', Answer);
 customElements.define('quiz-info', class extends HTMLElement { });
 customElements.define('quiz-score', class extends HTMLElement { });
 customElements.define('quiz-status', class extends HTMLElement { });
 customElements.define('quiz-hint', class extends HTMLElement { });
-customElements.define('quiz-hint-toggle', Hint);
-customElements.define('quiz-hint-text', HintText);
 customElements.define('quiz-finish', class extends HTMLElement { });
 customElements.define('quiz-start', class extends HTMLElement { });
 customElements.define('quiz-audio-toggle', class extends HTMLElement { });
+
+customElements.define('quiz-question-text', mainQuizElements.Question);
+customElements.define('quiz-answer-container', mainQuizElements.AnswerContainer)
+customElements.define('quiz-answer', mainQuizElements.Answer);
+
+customElements.define('quiz-next', navigationElements.Next);
+customElements.define('quiz-back', navigationElements.Back);
+customElements.define('quiz-restart', navigationElements.Restart);
+
+customElements.define('quiz-hint-toggle', hintElements.Hint);
+customElements.define('quiz-hint-text', hintElements.HintText);

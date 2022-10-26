@@ -1,17 +1,17 @@
-var SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
-var QUESTION_ELEMENT = document.getElementsByTagName('quiz-question-text')[0];
-var ANSWER_ELEMENTS = [...document.getElementsByTagName('quiz-answer')];
-var QUIZ_SCORE_ELEMENT = document.getElementsByTagName('quiz-score')[0];
-var QUIZ_STATUS_ELEMENT = document.getElementsByTagName('quiz-status')[0];
-var QUIZ_HINT_TOGGLE = document.getElementsByTagName('quiz-hint-toggle')[0];
-var QUIZ_HINT_TEXT = document.getElementsByTagName('quiz-hint-text')[0];
-var MAIN = document.getElementsByTagName('main')[0];
-var QUIZ_FINISH_TEXT = document.getElementById('quiz-finish');
-var QUIZ_FINISH = document.getElementsByTagName('quiz-finish')[0];
-var QUIZ_START = document.getElementsByTagName('quiz-start')[0];
-var AUDIO_CORRECT = document.getElementById('correct_Audio');
-var AUDIO_INCORRECT = document.getElementById('incorrect_Audio');
-var AUDIO_TOGGLE = document.getElementsByTagName('quiz-audio-toggle')[0];
+var SHEET_DATA = JSON.parse($('#sheet-data').text()); // * Get the data from the sheet
+var QUESTION_ELEMENT = $('quiz-question-text').get(0);
+var ANSWER_ELEMENTS = [...$('quiz-answer')];
+var QUIZ_SCORE_ELEMENT = $('quiz-score').get(0);
+var QUIZ_STATUS_ELEMENT = $('quiz-status').get(0);
+var QUIZ_HINT_TOGGLE = $('quiz-hint-toggle').get(0);
+var QUIZ_HINT_TEXT = $('quiz-hint-text').get(0);
+var MAIN = $('main').get(0);
+var QUIZ_FINISH_TEXT = $('#quiz-finish');
+var QUIZ_FINISH = $('quiz-finish').get(0);
+var QUIZ_START = $('quiz-start').get(0);
+var AUDIO_CORRECT = $('#correct_Audio').get(0);
+var AUDIO_INCORRECT = $('#incorrect_Audio').get(0);
+var AUDIO_TOGGLE = $('quiz-audio-toggle').get(0);
 
 var CURRENT_QUESTION = 0;
 var TOTAL_QUESTIONS = SHEET_DATA.length;
@@ -42,11 +42,13 @@ function update() {
     updateQuestion();
 }
 
+// * Set the status and info text elements to the correct text
 function updateInfo() {
     QUIZ_SCORE_ELEMENT.innerText = `${parseInt(SCORE / TOTAL_QUESTIONS * 100)}%`;
     QUIZ_STATUS_ELEMENT.innerText = `${CURRENT_QUESTION + 1}/${TOTAL_QUESTIONS}`;
 }
 
+// * Update hint text and set to hidden if hint not showing
 function updateHint() {
     QUIZ_HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION].Hint;
     if (HINT_SHOWING) {
@@ -59,7 +61,6 @@ function updateHint() {
 
 function updateQuestion() {
     MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-    //console.log(MAIN.style.backgroundImage);
     QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
@@ -106,7 +107,7 @@ async function checkAnswers(answer) {
     await updateInfo();
 }
 
-async function showFinalScreen() {
+async function nextOrFinal() {
     if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
         CURRENT_QUESTION += 1;
     }
@@ -128,6 +129,7 @@ function updateAnswers() {
     }
 }
 
+// * Toggle weather to play audio or not
 function toggleAudio() {
     AUDIO_ON = !AUDIO_ON;
 
@@ -139,6 +141,7 @@ function toggleAudio() {
     }
 }
 
+// * User timeout after 60 seconds of inactivity
 function debounce(callback, timeout, _this) {
     var timer;
     return function (e) {
