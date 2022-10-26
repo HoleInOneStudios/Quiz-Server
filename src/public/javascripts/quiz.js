@@ -163,11 +163,13 @@ function debounce(callback, timeout, _this) {
     }
 }
 
+// * User timeout after 60 seconds of inactivity
 var userAction = debounce(function (e) {
     console.log("silence");
     restart();
 }, 60 * 1000);
 
+// * User timeout after 60 seconds of inactivity
 document.body.onload = () => {
     document.addEventListener("mousemove", userAction, false);
     document.addEventListener("click", userAction, false);
