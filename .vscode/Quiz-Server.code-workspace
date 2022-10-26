@@ -57,6 +57,55 @@
 			"reference": "images",
 			"tutorials": "video"
 		},
+		"better-comments.highlightPlainText": true,
+		"better-comments.multilineComments": true,
+		"better-comments.tags": [
+			{
+				"tag": "!",
+				"color": "#FF2D00",
+				"strikethrough": false,
+				"underline": false,
+				"backgroundColor": "transparent",
+				"bold": false,
+				"italic": false
+			},
+			{
+				"tag": "?",
+				"color": "#3498DB",
+				"strikethrough": false,
+				"underline": false,
+				"backgroundColor": "transparent",
+				"bold": false,
+				"italic": false
+			},
+			{
+				"tag": "//",
+				"color": "#474747",
+				"strikethrough": true,
+				"underline": false,
+				"backgroundColor": "transparent",
+				"bold": false,
+				"italic": false
+			},
+			{
+				"tag": "todo",
+				"color": "#FF8C00",
+				"strikethrough": false,
+				"underline": false,
+				"backgroundColor": "transparent",
+				"bold": false,
+				"italic": false
+			},
+			{
+				"tag": "*",
+				"color": "#98C379",
+				"strikethrough": false,
+				"underline": false,
+				"backgroundColor": "transparent",
+				"bold": false,
+				"italic": false
+			}
+		],
 		"editor.wordWrap": "off",
 		"editor.fontFamily": "Operator Mono",
 		"editor.fontLigatures": true,
@@ -67,7 +116,7 @@
 		"terminal.integrated.lineHeight": 1.5,
 		"terminal.integrated.letterSpacing": 0,
 		"editor.tokenColorCustomizations": {
-			"comments": "#FF9000",
+			"comments": "#eb1e1e",
 		},
 		"material-icon-theme.folders.color": "#90a4ae",
 		"workbench.colorCustomizations": {},
