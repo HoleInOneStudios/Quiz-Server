@@ -87,20 +87,23 @@ async function checkAnswers(answer) {
         SHEET_DATA[CURRENT_QUESTION].answered = true;
         SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
 
-        if (AUDIO_ON) {
-            if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+
+        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
+            if (AUDIO_ON) {
                 AUDIO_CORRECT.currentTime = 0;
                 AUDIO_CORRECT.play();
-                SCORE++;
             }
-            else {
+            SCORE++;
+        }
+        else {
+            if (AUDIO_ON) {
                 AUDIO_INCORRECT.currentTime = 0;
                 AUDIO_INCORRECT.play();
             }
         }
-        await updateAnswers();
-        await updateInfo();
     }
+    await updateAnswers();
+    await updateInfo();
 }
 
 async function showFinalScreen() {
