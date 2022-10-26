@@ -1,4 +1,4 @@
-var SHEET_DATA = JSON.parse($('#sheet-data').text());
+var SHEET_DATA = JSON.parse($('#sheet-data').text()); // * Get the data from the sheet
 var QUESTION_ELEMENT = $('quiz-question-text').get(0);
 var ANSWER_ELEMENTS = [...$('quiz-answer')];
 var QUIZ_SCORE_ELEMENT = $('quiz-score').get(0);
