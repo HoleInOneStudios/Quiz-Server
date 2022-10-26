@@ -92,10 +92,6 @@ footer {
     display: none;
 }
 
-* {
-    /* transition: all 0.5s ease; */
-}
-
 quiz-container {
     font-size: 2vw;
 }
@@ -133,10 +129,6 @@ quiz-title {
 
 quiz-title {
     font-size: 3ch;
-}
-
-quiz-title {
-    /* font-size: 5vw; */
 }
 
 quiz-question {
@@ -215,14 +207,6 @@ quiz-info {
     opacity: 0.75;
 }
 
-quiz-score {
-    /* font-size: 7vh; */
-}
-
-quiz-status {
-    /* font-size: 3vh; */
-}
-
 quiz-hint {
     z-index: 1;
 
@@ -265,6 +249,7 @@ quiz-start {
     position: fixed;
 
     background-color: var(--unselected-answer-color);
+    background-size: contain;
     border: solid;
 
     width: 100%;
