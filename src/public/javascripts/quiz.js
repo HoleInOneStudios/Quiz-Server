@@ -20,6 +20,9 @@ var SCORE = 0;
 var HINT_SHOWING = false;
 var AUDIO_ON = true;
 
+QUIZ_START.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+QUIZ_FINISH.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+
 function start() {
     QUIZ_START.classList = 'hidden';
     update();
