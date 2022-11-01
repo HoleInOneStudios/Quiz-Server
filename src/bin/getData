@@ -1,9 +1,7 @@
-const { readFile, utils, read } = require('xlsx');
-const { resolve, join, dirname, basename } = require('path');
+const { readFile, utils } = require('xlsx');
+const { resolve, join, dirname } = require('path');
 const { watch } = require('fs');
 require('dotenv').config();
-
-
 
 /**
  * File `path` of data spreadsheet with quiz questions.
@@ -16,8 +14,6 @@ if (process.env.NODE_ENV == 1) {
 } else {
     FILE_PATH = join(__dirname, '../', process.env.FILE_PATH);
 }
-//console.log(process.cwd());
-//console.debug("File path: " + FILE_PATH);
 
 /**
  * Workbook object from `FILE_PATH`
@@ -42,7 +38,6 @@ const GetSheet = (sheetName, headers = ["Question", "1", "2", "3", "4", "Correct
  */
 const updateFile = () => {
     WB = readFile(FILE_PATH);
-    //console.log("File updated");
 }
 
 /**
@@ -65,18 +60,8 @@ const UnWatchFile = () => {
 
 module.exports.FILE_PATH = FILE_PATH;
 module.exports.WB = WB;
+module.exports.WatchFile = WatchFile;
 
 module.exports.GetSheet = GetSheet;
-module.exports.WatchFile = WatchFile;
 module.exports.updateFile = updateFile;
 module.exports.UnWatchFile = UnWatchFile;
-
-module.exports = {
-    FILE_PATH,
-    WB,
-
-    UnWatchFile,
-    GetSheet,
-    WatchFile,
-    updateFile
-}
