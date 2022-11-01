@@ -20,8 +20,7 @@ var SCORE = 0;
 var HINT_SHOWING = false;
 var AUDIO_ON = true;
 
-QUIZ_START.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-QUIZ_FINISH.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+updateImages();
 
 function start() {
     QUIZ_START.classList = 'hidden';
@@ -34,12 +33,15 @@ function restart() {
     SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
     QUIZ_FINISH.classList = 'hidden';
     QUIZ_START.classList = '';
+
+    updateImages();
 }
 
 function update() {
     updateInfo();
     updateHint();
     updateQuestion();
+    updateImages();
 }
 
 // * Set the status and info text elements to the correct text
@@ -60,11 +62,10 @@ function updateHint() {
 }
 
 function updateQuestion() {
-    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
     QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
     HINT_SHOWING = false;
 
+    updateImages();
     updateHint();
     loadAnswers();
 }
@@ -129,6 +130,14 @@ function updateAnswers() {
     }
 }
 
+// * Update background images of start, finish, and main screens
+function updateImages() {
+    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
+    QUIZ_START.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+    QUIZ_FINISH.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
+}
+
 // * Toggle weather to play audio or not
 function toggleAudio() {
     AUDIO_ON = !AUDIO_ON;
@@ -154,11 +163,13 @@ function debounce(callback, timeout, _this) {
     }
 }
 
+// * User timeout after 60 seconds of inactivity
 var userAction = debounce(function (e) {
     console.log("silence");
     restart();
 }, 60 * 1000);
 
+// * User timeout after 60 seconds of inactivity
 document.body.onload = () => {
     document.addEventListener("mousemove", userAction, false);
     document.addEventListener("click", userAction, false);
