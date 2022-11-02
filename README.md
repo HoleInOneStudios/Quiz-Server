@@ -2,9 +2,18 @@
 
 # Quiz Server
 
+## Badges
+
+![GitHub forks](https://img.shields.io/github/forks/holeinonestudios/quiz-server?style=social)![GitHub Repo stars](https://img.shields.io/github/stars/holeinonestudios/quiz-server?style=social)![GitHub watchers](https://img.shields.io/github/watchers/holeinonestudios/quiz-server?style=social)![GitHub](https://img.shields.io/github/license/holeinonestudios/quiz-server)
+
+![GitHub issues](https://img.shields.io/github/issues/holeinonestudios/quiz-server)![GitHub pull requests](https://img.shields.io/github/issues-pr/holeinonestudios/quiz-server)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/holeinonestudios/quiz-server)![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/holeinonestudios/quiz-server)![GitHub contributors](https://img.shields.io/github/contributors/holeinonestudios/quiz-server)
+
+![GitHub Sponsors](https://img.shields.io/github/sponsors/holeinonestudios)
+
 ## Table of Contents
 
 - [Quiz Server](#quiz-server)
+  - [Badges](#badges)
   - [Table of Contents](#table-of-contents)
   - [Tutorials](#tutorials)
     - [Getting Started](#getting-started)
