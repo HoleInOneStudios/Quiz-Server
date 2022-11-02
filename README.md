@@ -2,28 +2,18 @@
 
 # Quiz Server
 
-[![HoleInOneStudios - Quiz-Server](https://img.shields.io/static/v1?label=HoleInOneStudios&message=Quiz-Server&color=blue&logo=github)](https://github.com/HoleInOneStudios/Quiz-Server "Go to GitHub repo")
-[![npm](https://img.shields.io/npm/v/package.svg?color=blue)](https://www.npmjs.org/package/@holeinonestudios/quiz-app)
-![GitHub issues](https://img.shields.io/github/issues/HoleInOneStudios/Quiz-Server)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/HoleInOneStudios/Quiz-Server)
-[![CodeQL](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/codeql-analysis.yml)
-[![Greetings](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/greetings.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/greetings.yml)
-[![Labeler](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/labeler.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/labeler.yml)
-[![Mark stale issues and pull requests](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/stale.yml/badge.svg?branch=main)](https://github.com/HoleInOneStudios/Quiz-Server/actions/workflows/stale.yml)
-
 ## Table of Contents
 
 - [Quiz Server](#quiz-server)
   - [Table of Contents](#table-of-contents)
   - [Tutorials](#tutorials)
     - [Getting Started](#getting-started)
-    - [Opening to LAN](#opening-to-lan)
-    - [Creating and Editing a Quiz](#creating-and-editing-a-quiz)
-  - [Photos](#photos)
-  - [Layout](#layout)
+    - [Editing Config](#editing-config)
   - [Custom Elements](#custom-elements)
   - [Data](#data)
   - [Sheet Table Template](#sheet-table-template)
+  - [Photos](#photos)
+  - [Layout](#layout)
 
 ## Tutorials
 
@@ -34,33 +24,23 @@
 3. Using your terminal or command prompt, navigate to the extracted folder
 4. execute `quiz-app-<version>` within the terminal
    1. Windows &rarr; `.\quiz-app.exe`
-   2. Mac &rarr; `?`
-   3. Linux &rarr; `?`
+   2. Mac &rarr; `.\quiz-app-macos`
+   3. Linux &rarr; `.\quiz-app-linux`
 5. Navigate the web address provided in the terminal. (e.g. `http://localhost:8080`)
 
-### Opening to LAN
+### Editing Config
 
-1. Navigate to the extracted folder
-2. Change the host in the .env file to your devices public IP address
-3. Run the application
-4. On a device on the same network, navigate to the public IP address and port (e.g. `http://192.168.50.179:80`)
+The configuration is done in the `.env` file. In side it should look like this:
 
-### Creating and Editing a Quiz
+```bash
+PORT=80
+HOST='localhost'
+FILE_PATH='./data.xlsx'
+IMAGE_PATH='./img/'
+```
 
-`TODO`
-
-## Photos
-
-![Photo](./docs/images/20220820_115745.jpg)
-![Photo](./docs/images/20220820_115750.jpg)
-![Photo](./docs/images/20220820_115756.jpg)
-![Photo](./docs/images/20220820_120202.jpg)
-![Photo](./docs/images/COPY20220820_115756.jpg)
-
-## Layout
-
-![Layout](./docs/images/Quiz-Container.svg)
-[Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
+`PORT` is the port the server is hosted on. 80 is the default web port.
+`HOST` should be changed to the device running the server's public IP address.`
 
 ## Custom Elements
 
@@ -96,3 +76,16 @@ If you don't include text in the answer choice it will not show up, so you can c
 | Question | 1        | 2        | 3        | 4        | Correct        | Hint     | Hint Image                                                                 | Background Image                               |
 | -------- | -------- | -------- | -------- | -------- | -------------- | -------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
 | *(text)* | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(url of image(Default is random image from `this person doesn't exist`))* | *(url of image(Default is `placeholder.jpg`))* |
+
+## Photos
+
+![Photo](./docs/images/20220820_115745.jpg)
+![Photo](./docs/images/20220820_115750.jpg)
+![Photo](./docs/images/20220820_115756.jpg)
+![Photo](./docs/images/20220820_120202.jpg)
+![Photo](./docs/images/COPY20220820_115756.jpg)
+
+## Layout
+
+![Layout](./docs/images/Quiz-Container.svg)
+[Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
