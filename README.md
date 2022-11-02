@@ -2,6 +2,19 @@
 
 # Quiz Server
 
+## Table of Contents
+
+- [Quiz Server](#quiz-server)
+  - [Table of Contents](#table-of-contents)
+  - [Badges](#badges)
+  - [Tutorials](#tutorials)
+    - [Getting Started](#getting-started)
+    - [Editing Config](#editing-config)
+  - [Data](#data)
+    - [Data Table Template](#data-table-template)
+  - [Photos](#photos)
+  - [Layout](#layout)
+
 ## Badges
 
 ![GitHub forks](https://img.shields.io/github/forks/holeinonestudios/quiz-server?style=social)![GitHub Repo stars](https://img.shields.io/github/stars/holeinonestudios/quiz-server?style=social)![GitHub watchers](https://img.shields.io/github/watchers/holeinonestudios/quiz-server?style=social)![GitHub](https://img.shields.io/github/license/holeinonestudios/quiz-server)
@@ -9,20 +22,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/holeinonestudios/quiz-server)![GitHub pull requests](https://img.shields.io/github/issues-pr/holeinonestudios/quiz-server)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/holeinonestudios/quiz-server)![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/holeinonestudios/quiz-server)![GitHub contributors](https://img.shields.io/github/contributors/holeinonestudios/quiz-server)
 
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/holeinonestudios)
-
-## Table of Contents
-
-- [Quiz Server](#quiz-server)
-  - [Badges](#badges)
-  - [Table of Contents](#table-of-contents)
-  - [Tutorials](#tutorials)
-    - [Getting Started](#getting-started)
-    - [Editing Config](#editing-config)
-  - [Custom Elements](#custom-elements)
-  - [Data](#data)
-  - [Sheet Table Template](#sheet-table-template)
-  - [Photos](#photos)
-  - [Layout](#layout)
 
 ## Tutorials
 
@@ -51,34 +50,12 @@ IMAGE_PATH='./img/'
 `PORT` is the port the server is hosted on. 80 is the default web port.
 `HOST` should be changed to the device running the server's public IP address.`
 
-## Custom Elements
-
-| Element Name          |         | Element Class     |
-| --------------------- | ------- | ----------------- |
-| quiz-next             | &#8594; | `Next`            |
-| quiz-back             | &#8594; | `Back`            |
-| quiz-restart          | &#8594; | `Restart`         |
-| quiz-container        | &#8594; | `HTMLElement`     |
-| quiz-title            | &#8594; | `HTMLElement`     |
-| quiz-question         | &#8594; | `HTMLElement`     |
-| quiz-question-text    | &#8594; | `Question`        |
-| quiz-answer-container | &#8594; | `AnswerContainer` |
-| quiz-answer           | &#8594; | `Answer`          |
-| quiz-info             | &#8594; | `HTMLElement`     |
-| quiz-score            | &#8594; | `HTMLElement`     |
-| quiz-status           | &#8594; | `HTMLElement`     |
-| quiz-hint             | &#8594; | `HTMLElement`     |
-| quiz-hint-toggle      | &#8594; | `Hint`            |
-| quiz-hint-text        | &#8594; | `HintText`        |
-| quiz-finish           | &#8594; | `HTMLElement`     |
-| quiz-audio-toggle     | &#8594; | `HTMLElement`     |
-
 ## Data
 
 > Each sheet in a workbook is a different quiz
 > [Link to Example](./src/data/data.xlsx)
 
-## Sheet Table Template
+### Data Table Template
 
 If you don't include text in the answer choice it will not show up, so you can create True or False questions by leaving the other answers blank.
 
