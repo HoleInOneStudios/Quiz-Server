@@ -1,0 +1,5 @@
+security:
+  - "(security|vulnerability)"
+
+Client Meetings:
+  - "(client|meeting)"
