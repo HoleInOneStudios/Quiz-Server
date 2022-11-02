@@ -12,7 +12,7 @@ app.use(express.static(join(__dirname, 'views'))) //Just for the sake of pkg, no
 app.use("/public", express.static(join(__dirname, 'public'))) //Just for the sake of pkg, not needed otherwise
 
 let FILE_PATH;
-if (process.env.NODE_ENV == 1) {
+if (process.env.NODE_ENV == undefined) {
     FILE_PATH = resolve(dirname(process.execPath), process.env.IMAGE_PATH);
 } else {
     FILE_PATH = join(__dirname, process.env.IMAGE_PATH);

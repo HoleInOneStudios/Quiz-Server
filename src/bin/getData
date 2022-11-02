@@ -9,8 +9,8 @@ require('dotenv').config();
  */
 
 let FILE_PATH;
-if (process.env.NODE_ENV == 1) {
-    FILE_PATH = resolve(dirname(process.execPath), process.env.FILE_PATH);
+if (process.env.NODE_ENV == undefined) {
+    FILE_PATH = resolve(process.env.FILE_PATH);
 } else {
     FILE_PATH = join(__dirname, '../', process.env.FILE_PATH);
 }
