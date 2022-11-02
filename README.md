@@ -12,7 +12,6 @@
     - [Editing Config](#editing-config)
   - [Data](#data)
     - [Data Table Template](#data-table-template)
-  - [Photos](#photos)
   - [Layout](#layout)
 
 ## Badges
@@ -63,15 +62,6 @@ If you don't include text in the answer choice it will not show up, so you can c
 | -------- | -------- | -------- | -------- | -------- | -------------- | -------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
 | *(text)* | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(url of image(Default is random image from `this person doesn't exist`))* | *(url of image(Default is `placeholder.jpg`))* |
 
-## Photos
-
-![Photo](./docs/images/20220820_115745.jpg)
-![Photo](./docs/images/20220820_115750.jpg)
-![Photo](./docs/images/20220820_115756.jpg)
-![Photo](./docs/images/20220820_120202.jpg)
-![Photo](./docs/images/COPY20220820_115756.jpg)
-
 ## Layout
 
-![Layout](./docs/images/Quiz-Container.svg)
 [Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
