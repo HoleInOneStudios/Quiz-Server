@@ -3,3 +3,9 @@ security:
 
 Client Meetings:
   - "(client|meeting)"
+
+feature:
+  - "(feature|enhancement)"
+
+bug:
+  - "(bug|issue)"
