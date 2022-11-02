@@ -64,8 +64,8 @@ a {
 }
 
 footer {
-    position: absolute;
-    padding: 2vh 0 2vh 0;
+    position: fixed;
+    padding: 1vh 0 1vh 0;
     bottom: 0;
     width: 100%;
 
