@@ -66,13 +66,31 @@ footer {
 
 quiz-logo {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
 }
 
 quiz-logo img {
     width: 30%;
+}
+
+quiz-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 2vw;
+
+    background-color: var(--background-secondary);
+    border-radius: 0 0 5vh 0;
+
+    font-size: 3vh;
 }
 
 quiz-start,
