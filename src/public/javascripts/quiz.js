@@ -91,8 +91,8 @@ function updateDOMState() {
             break;
         case QUIZ_STATE.FINISH:
             START.style.display = 'none';
-            MAIN.style.display = 'flex';
-            FINISH.style.display = 'block';
+            MAIN.style.display = 'none';
+            FINISH.style.display = 'flex';
             break;
     }
 }
