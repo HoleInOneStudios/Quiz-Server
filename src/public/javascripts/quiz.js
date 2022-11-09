@@ -102,6 +102,7 @@ function setStateStart() {
     CURRENT_STATE = QUIZ_STATE.START;
     resetSession();
     CURRENT_QUESTION = 0;
+    SCORE = 0;
     updateDOMState();
 }
 
@@ -112,6 +113,7 @@ function setStateMain() {
 
 function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
+    finishDOM();
     updateDOMState();
 }
 
@@ -132,6 +134,12 @@ function resetSession() {
     }
 }
 
+// Session Status Update 
+let SCORE = 0;
+function updateStatus() {
+
+}
+
 // Set the current question
 let CURRENT_QUESTION = 0;
 
@@ -142,4 +150,8 @@ function nextQuestion() {
     } else {
         setStateFinish();
     }
+}
+
+// finish
+function finishDOM() {
 }
