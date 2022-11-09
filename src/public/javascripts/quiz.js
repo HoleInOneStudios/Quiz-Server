@@ -43,7 +43,9 @@ for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
 const START = $('quiz-start').get(0);
 
 const MAIN = $('quiz-main').get(0);
+
 const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
+const HINT_TEXT = $('quiz-hint-text').get(0);
 
 const FINISH = $('quiz-finish').get(0);
 
@@ -71,7 +73,7 @@ const QUIZ_STATE = {
 }
 
 // Set the current state
-let CURRENT_STATE = QUIZ_STATE.MAIN;
+let CURRENT_STATE = QUIZ_STATE.FINISH;
 updateDOMState();
 
 // update DOM based on state
@@ -98,6 +100,8 @@ function updateDOMState() {
 // Set state functions
 function setStateStart() {
     CURRENT_STATE = QUIZ_STATE.START;
+    resetSession();
+    CURRENT_QUESTION = 0;
     updateDOMState();
 }
 
@@ -109,4 +113,33 @@ function setStateMain() {
 function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
     updateDOMState();
+}
+
+// Session
+const SESSION = [];
+for (var i = 0; i < SHEET_DATA.length; i++) {
+    SESSION.push({
+        selections: [],
+        correct: false
+    })
+}
+
+// Reset SESSION
+function resetSession() {
+    for (var i = 0; i < SESSION.length; i++) {
+        SESSION[i].selections = [];
+        SESSION[i].correct = false;
+    }
+}
+
+// Set the current question
+let CURRENT_QUESTION = 0;
+
+// Next Question
+function nextQuestion() {
+    if (CURRENT_QUESTION < SHEET_DATA.length - 1) {
+        CURRENT_QUESTION++;
+    } else {
+        setStateFinish();
+    }
 }
