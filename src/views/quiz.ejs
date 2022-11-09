@@ -38,10 +38,10 @@
         <quiz-start>
             <quiz-title><%= title%></quiz-title>
             <p style="font-size: 7vh">How much do you know?</p>
-            <quiz-start-button class="button">Begin!</quiz-start-button>
+            <quiz-start-button class="button" onclick="setStateMain()">Begin!</quiz-start-button>
         </quiz-start>
 
-        <quiz-main class="hidden">
+        <quiz-main>
             <quiz-title><%= title%></quiz-title>
             <quiz-question></quiz-question>
             <quiz-answers>
@@ -69,14 +69,14 @@
             </quiz-nav>
         </quiz-main>
 
-        <quiz-finish class="hidden">
+        <quiz-finish>
             <quiz-title><%= title%></quiz-title>
             <quiz-results>
                 <h2>Congratulations</h2>
                 <p>You have completed the quiz!</p>
                 <p>Your score is:</p>
             </quiz-results>
-            <quiz-restart class="button">
+            <quiz-restart class="button" onclick="setStateStart()">
                 Restart!
             </quiz-restart>
         </quiz-finish>

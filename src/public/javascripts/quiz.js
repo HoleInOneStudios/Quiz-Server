@@ -55,3 +55,51 @@ FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[
 
 // Set logo
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
+
+// States
+const QUIZ_STATE = {
+    START: 0,
+    MAIN: 1,
+    FINISH: 2
+}
+
+// Set the current state
+let CURRENT_STATE = QUIZ_STATE.MAIN;
+updateDOMState();
+
+// update DOM based on state
+function updateDOMState() {
+    switch (CURRENT_STATE) {
+        case QUIZ_STATE.START:
+            START.style.display = 'flex';
+            MAIN.style.display = 'none';
+            FINISH.style.display = 'none';
+            break;
+        case QUIZ_STATE.MAIN:
+            START.style.display = 'none';
+            MAIN.style.display = 'flex';
+            FINISH.style.display = 'none';
+            break;
+        case QUIZ_STATE.FINISH:
+            START.style.display = 'none';
+            MAIN.style.display = 'flex';
+            FINISH.style.display = 'block';
+            break;
+    }
+}
+
+// Set state functions
+function setStateStart() {
+    CURRENT_STATE = QUIZ_STATE.START;
+    updateDOMState();
+}
+
+function setStateMain() {
+    CURRENT_STATE = QUIZ_STATE.MAIN;
+    updateDOMState();
+}
+
+function setStateFinish() {
+    CURRENT_STATE = QUIZ_STATE.FINISH;
+    updateDOMState();
+}
