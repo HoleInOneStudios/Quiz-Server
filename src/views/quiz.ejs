@@ -43,12 +43,12 @@
 
         <quiz-main>
             <quiz-title><%= title%></quiz-title>
-            <quiz-question></quiz-question>
+            <quiz-question>What?</quiz-question>
             <quiz-answers>
-                <quiz-answer class="button"></quiz-answer>
-                <quiz-answer class="button"></quiz-answer>
-                <quiz-answer class="button"></quiz-answer>
-                <quiz-answer class="button"></quiz-answer>
+                <quiz-answer class="button">A</quiz-answer>
+                <quiz-answer class="button">B</quiz-answer>
+                <quiz-answer class="button">C</quiz-answer>
+                <quiz-answer class="button">D</quiz-answer>
             </quiz-answers>
 
             <quiz-status>
@@ -64,8 +64,8 @@
             </quiz-hint>
 
             <quiz-nav>
-                <quiz-next class="material-symbols-outlined"></quiz-next>
-                <quiz-restart class="material-symbols-outlined"></quiz-restart>
+                <quiz-restart class="material-symbols-outlined" onclick="setStateStart()">undo</quiz-restart>
+                <quiz-next class="material-symbols-outlined">play_arrow</quiz-next>
             </quiz-nav>
         </quiz-main>
 

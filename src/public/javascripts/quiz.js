@@ -43,6 +43,7 @@ for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
 const START = $('quiz-start').get(0);
 
 const MAIN = $('quiz-main').get(0);
+const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
 
 const FINISH = $('quiz-finish').get(0);
 
@@ -55,6 +56,12 @@ FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[
 
 // Set logo
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
+
+// Set Hint Image
+function setHintImage() {
+    HINT_TOGGLE.innerHTML = SHEET_DATA[0].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/hint_people/Hint-Person-Placeholder.jpg" alt="Hint Image">`;
+}
+setHintImage();
 
 // States
 const QUIZ_STATE = {
