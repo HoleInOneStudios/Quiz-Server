@@ -144,7 +144,7 @@ quiz-nav {
 
 quiz-nav * {
     margin: 1vh;
-    padding: 1vh;
+    padding: 3vh;
 
     font-size: 5vh;
 
@@ -153,7 +153,6 @@ quiz-nav * {
 
     border: 1px solid var(--text-color);
     border-radius: 1vh;
-
 }
 
 quiz-hint {
@@ -170,7 +169,7 @@ quiz-hint {
 quiz-hint-toggle * {
     font-size: 5vh;
     margin: 1vh;
-    width: 10vh;
+    width: 15vh;
 
     z-index: 1;
 
