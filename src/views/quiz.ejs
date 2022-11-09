@@ -33,8 +33,49 @@
             <source src="/public/audio/playernocanselect-37979.mp3" type="audio/mpeg">
         </audio>
     </div>
+    <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
     <main id=" root" title="main" class="contrast-bg">
-        <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
+        <quiz-start>
+            <quiz-title><%= title%></quiz-title>
+            <p>How much do you know?</p>
+            <quiz-start-button></quiz-start-button>
+            <quiz-logo></quiz-logo>
+        </quiz-start>
+
+        <quiz-main>
+            <quiz-title><%= title%></quiz-title>
+            <quiz-question></quiz-question>
+            <quiz-answers>
+                <quiz-answer></quiz-answer>
+                <quiz-answer></quiz-answer>
+                <quiz-answer></quiz-answer>
+                <quiz-answer></quiz-answer>
+            </quiz-answers>
+
+            <quiz-status>
+                <quiz-current-question></quiz-current-question>
+                <quiz-score></quiz-score>
+                <quiz-tries></quiz-tries>
+            </quiz-status>
+
+            <quiz-logo></quiz-logo>
+
+            <quiz-next></quiz-next>
+
+            <quiz-hint>
+                <quiz-hint-toggle></quiz-hint-toggle>
+                <quiz-hint-text></quiz-hint-text>
+            </quiz-hint>
+
+            <quiz-restart></quiz-restart>
+        </quiz-main>
+
+        <quiz-finish>
+            <quiz-title><%= title%></quiz-title>
+            <quiz-results></quiz-results>
+            <quiz-restart></quiz-restart>
+            <quiz-logo></quiz-logo>
+        </quiz-finish>
 
         <quiz-container title="all quiz elements container">
             <quiz-title class="contrast-el"><%= title%></quiz-title>
