@@ -22,24 +22,24 @@
  * quiz-logo
  */
 
-customElement.define('quiz-start', class extends HTMLElement { });
-customElement.define('quiz-title', class extends HTMLElement { });
-customElement.define('quiz-start-button', class extends HTMLElement { });
-customElement.define('quiz-main', class extends HTMLElement { });
-customElement.define('quiz-question', class extends HTMLElement { });
-customElement.define('quiz-answers', class extends HTMLElement { });
-customElement.define('quiz-answer', class extends HTMLElement { });
-customElement.define('quiz-status', class extends HTMLElement { });
-customElement.define('quiz-current-question', class extends HTMLElement { });
-customElement.define('quiz-score', class extends HTMLElement { });
-customElement.define('quiz-tries', class extends HTMLElement { });
-customElement.define('quiz-hint', class extends HTMLElement { });
-customElement.define('quiz-hint-toggle', class extends HTMLElement { });
-customElement.define('quiz-hint-text', class extends HTMLElement { });
-customElement.define('quiz-nav', class extends HTMLElement { });
-customElement.define('quiz-restart', class extends HTMLElement { });
-customElement.define('quiz-next', class extends HTMLElement { });
-customElement.define('quiz-finish', class extends HTMLElement { });
-customElement.define('quiz-results', class extends HTMLElement { });
-customElement.define('quiz-audio-toggle', class extends HTMLElement { });
-customElement.define('quiz-logo', class extends HTMLElement { });
+customElements.define('quiz-start', class extends HTMLElement { });
+customElements.define('quiz-title', class extends HTMLElement { });
+customElements.define('quiz-start-button', class extends HTMLElement { });
+customElements.define('quiz-main', class extends HTMLElement { });
+customElements.define('quiz-question', class extends HTMLElement { });
+customElements.define('quiz-answers', class extends HTMLElement { });
+customElements.define('quiz-answer', class extends HTMLElement { });
+customElements.define('quiz-status', class extends HTMLElement { });
+customElements.define('quiz-current-question', class extends HTMLElement { });
+customElements.define('quiz-score', class extends HTMLElement { });
+customElements.define('quiz-tries', class extends HTMLElement { });
+customElements.define('quiz-hint', class extends HTMLElement { });
+customElements.define('quiz-hint-toggle', class extends HTMLElement { });
+customElements.define('quiz-hint-text', class extends HTMLElement { });
+customElements.define('quiz-nav', class extends HTMLElement { });
+customElements.define('quiz-restart', class extends HTMLElement { });
+customElements.define('quiz-next', class extends HTMLElement { });
+customElements.define('quiz-finish', class extends HTMLElement { });
+customElements.define('quiz-results', class extends HTMLElement { });
+customElements.define('quiz-audio-toggle', class extends HTMLElement { });
+customElements.define('quiz-logo', class extends HTMLElement { });
