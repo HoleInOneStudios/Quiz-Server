@@ -47,9 +47,19 @@ const MAIN = $('quiz-main').get(0);
 const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
 const HINT_TEXT = $('quiz-hint-text').get(0);
 
+const QUIZ_STATUS = $('quiz-current-question').get(0);
+const QUIZ_SCORE = $('quiz-score').get(0);
+const QUIZ_TRIES = $('quiz-tries').get(0);
+
 const FINISH = $('quiz-finish').get(0);
 
 const LOGO = $('quiz-logo').get(0);
+
+// Session Status Update 
+let SCORE = 0;
+
+// Set the current question
+let CURRENT_QUESTION = 0;
 
 // Set background images
 START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
@@ -60,10 +70,17 @@ FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
 
 // Set Hint Image
-function setHintImage() {
-    HINT_TOGGLE.innerHTML = SHEET_DATA[0].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/hint_people/Hint-Person-Placeholder.jpg" alt="Hint Image">`;
+function setHint() {
+    HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/hint_people/Hint-Person-Placeholder.jpg" alt="Hint Image">`;
+    HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
 }
-setHintImage();
+function toggleHint() {
+    HINT_TEXT.classList.toggle('hidden');
+}
+function disableHint() {
+    HINT_TEXT.classList.remove('hidden');
+}
+setHint();
 
 // States
 const QUIZ_STATE = {
@@ -73,7 +90,7 @@ const QUIZ_STATE = {
 }
 
 // Set the current state
-let CURRENT_STATE = QUIZ_STATE.FINISH;
+let CURRENT_STATE = QUIZ_STATE.START;
 updateDOMState();
 
 // update DOM based on state
@@ -108,6 +125,7 @@ function setStateStart() {
 
 function setStateMain() {
     CURRENT_STATE = QUIZ_STATE.MAIN;
+    updateStatus();
     updateDOMState();
 }
 
@@ -134,15 +152,6 @@ function resetSession() {
     }
 }
 
-// Session Status Update 
-let SCORE = 0;
-function updateStatus() {
-
-}
-
-// Set the current question
-let CURRENT_QUESTION = 0;
-
 // Next Question
 function nextQuestion() {
     if (CURRENT_QUESTION < SHEET_DATA.length - 1) {
@@ -150,8 +159,18 @@ function nextQuestion() {
     } else {
         setStateFinish();
     }
+    disableHint();
+    setHint();
+    updateStatus();
 }
 
 // finish
 function finishDOM() {
+}
+
+// Status
+function updateStatus() {
+    QUIZ_STATUS.innerHTML = `${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
+    QUIZ_SCORE.innerHTML = `${SCORE / SHEET_DATA.length * 100}%`;
+    QUIZ_TRIES.innerHTML = `${SESSION[CURRENT_QUESTION].selections.length}`;
 }
