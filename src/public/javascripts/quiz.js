@@ -1,6 +1,6 @@
 // Process the raw data from sheets to a quiz
-var RAW_SHEET_DATA = JSON.parse($('#sheet-data').text());
-var SHEET_DATA = [];
+const RAW_SHEET_DATA = JSON.parse($('#sheet-data').text());
+const SHEET_DATA = [];
 
 // Create questions in the quiz
 for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
@@ -38,3 +38,20 @@ for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
     // push to the array
     SHEET_DATA.push(q);
 }
+
+// Get DOM elements
+const START = $('quiz-start').get(0);
+
+const MAIN = $('quiz-main').get(0);
+
+const FINISH = $('quiz-finish').get(0);
+
+const LOGO = $('quiz-logo').get(0);
+
+// Set background images
+START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+
+// Set logo
+LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;

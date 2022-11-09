@@ -19,8 +19,8 @@
 <% } %>
 <% } %>
 
-
-
+<!--Preload Logo-->
+<link rel="preload" href="./img/logo.png" as="image" crossorigin="anonymous" />
 
 </head>
 
@@ -37,18 +37,18 @@
     <main id=" root" title="main" class="contrast-bg">
         <quiz-start>
             <quiz-title><%= title%></quiz-title>
-            <p>How much do you know?</p>
-            <quiz-start-button>Begin!</quiz-start-button>
+            <p style="font-size: 7vh">How much do you know?</p>
+            <quiz-start-button class="button">Begin!</quiz-start-button>
         </quiz-start>
 
-        <quiz-main>
+        <quiz-main class="hidden">
             <quiz-title><%= title%></quiz-title>
             <quiz-question></quiz-question>
             <quiz-answers>
-                <quiz-answer></quiz-answer>
-                <quiz-answer></quiz-answer>
-                <quiz-answer></quiz-answer>
-                <quiz-answer></quiz-answer>
+                <quiz-answer class="button"></quiz-answer>
+                <quiz-answer class="button"></quiz-answer>
+                <quiz-answer class="button"></quiz-answer>
+                <quiz-answer class="button"></quiz-answer>
             </quiz-answers>
 
             <quiz-status>
@@ -69,14 +69,14 @@
             </quiz-nav>
         </quiz-main>
 
-        <quiz-finish>
+        <quiz-finish class="hidden">
             <quiz-title><%= title%></quiz-title>
             <quiz-results>
                 <h2>Congratulations</h2>
                 <p>You have completed the quiz!</p>
                 <p>Your score is:</p>
             </quiz-results>
-            <quiz-restart>
+            <quiz-restart class="button">
                 Restart!
             </quiz-restart>
         </quiz-finish>
