@@ -236,11 +236,13 @@ function loadQuestion() {
 function answerEvent(answerIndex) {
     if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
+            correct_Audio.play();
             SESSION[CURRENT_QUESTION].correct = true;
             SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
         }
         else {
+            incorrect_Audio.play();
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
         SESSION[CURRENT_QUESTION].selections.push(answerIndex);
