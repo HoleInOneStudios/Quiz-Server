@@ -78,6 +78,7 @@ main {
 footer {
     justify-content: center;
     align-items: center;
+}
 
 quiz-logo {
     position: fixed;
