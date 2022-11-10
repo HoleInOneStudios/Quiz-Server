@@ -53,10 +53,22 @@ const QUIZ_TRIES = $('quiz-tries').get(0);
 
 const FINISH = $('quiz-finish').get(0);
 
+const QUIZ_RESULTS = $('quiz-results').get(0);
+
 const LOGO = $('quiz-logo').get(0);
 
 // Session Status Update 
 let SCORE = 0;
+
+// Session array
+const SESSION = [];
+// Session
+for (var i = 0; i < SHEET_DATA.length; i++) {
+    SESSION.push({
+        selections: [],
+        correct: false
+    })
+}
 
 // Set the current question
 let CURRENT_QUESTION = 0;
@@ -78,7 +90,7 @@ function toggleHint() {
     HINT_TEXT.classList.toggle('hidden');
 }
 function disableHint() {
-    HINT_TEXT.classList.remove('hidden');
+    HINT_TEXT.classList.toggle('hidden', true);
 }
 setHint();
 
@@ -117,14 +129,18 @@ function updateDOMState() {
 // Set state functions
 function setStateStart() {
     CURRENT_STATE = QUIZ_STATE.START;
-    resetSession();
     CURRENT_QUESTION = 0;
     SCORE = 0;
+    resetSession();
+    disableHint();
+    setHint();
+
     updateDOMState();
 }
 
 function setStateMain() {
     CURRENT_STATE = QUIZ_STATE.MAIN;
+    loadQuestion();
     updateStatus();
     updateDOMState();
 }
@@ -133,15 +149,6 @@ function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
     finishDOM();
     updateDOMState();
-}
-
-// Session
-const SESSION = [];
-for (var i = 0; i < SHEET_DATA.length; i++) {
-    SESSION.push({
-        selections: [],
-        correct: false
-    })
 }
 
 // Reset SESSION
@@ -159,13 +166,19 @@ function nextQuestion() {
     } else {
         setStateFinish();
     }
+
+    loadQuestion();
     disableHint();
     setHint();
     updateStatus();
 }
 
-// finish
+//finish DOM
 function finishDOM() {
+    QUIZ_RESULTS.innerHTML =
+        `<h2>${SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
+         <p>You have completed the quiz!</p>
+         <p>Your score is: ${SCORE / SHEET_DATA.length * 100}%</p>`;
 }
 
 // Status
@@ -173,4 +186,16 @@ function updateStatus() {
     QUIZ_STATUS.innerHTML = `${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
     QUIZ_SCORE.innerHTML = `${SCORE / SHEET_DATA.length * 100}%`;
     QUIZ_TRIES.innerHTML = `${SESSION[CURRENT_QUESTION].selections.length}`;
+}
+
+// load question
+function loadQuestion() {
+    // Set the question
+    $('quiz-question').get(0).innerHTML = SHEET_DATA[CURRENT_QUESTION].question;
+
+    // Set the answers
+    const ANSWERS = $('quiz-answer');
+    for (var i = 0; i < ANSWERS.length; i++) {
+        ANSWERS[i].innerHTML = SHEET_DATA[CURRENT_QUESTION].answers[i];
+    }
 }

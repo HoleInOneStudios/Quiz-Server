@@ -118,6 +118,8 @@ quiz-title {
 quiz-question {
     font-size: 5vh;
     margin-bottom: 2vh;
+
+    width: 75%;
 }
 
 quiz-answers {
@@ -125,7 +127,8 @@ quiz-answers {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2vh;
 
-    width: 80%;
+    width: auto;
+
 
     justify-content: center;
     align-items: center;
@@ -199,6 +202,9 @@ quiz-results {
     border-radius: 1rem;
     padding: 2vw;
     font-size: 4vh;
+
+    width: auto;
+
 
     cursor: pointer;
     transition: all 0.2s ease-in-out;
