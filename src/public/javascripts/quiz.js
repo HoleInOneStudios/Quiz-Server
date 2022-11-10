@@ -43,6 +43,8 @@ for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
 const START = $('quiz-start').get(0);
 
 const MAIN = $('quiz-main').get(0);
+const QUESTION = $('quiz-question').get(0);
+const ANSWERS = $('quiz-answer');
 
 const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
 const HINT_TEXT = $('quiz-hint-text').get(0);
@@ -60,6 +62,13 @@ const LOGO = $('quiz-logo').get(0);
 // Session Status Update 
 let SCORE = 0;
 
+// tries
+let MAX_TRIES = 0;
+let TRIES = 0;
+
+// Set the current question
+let CURRENT_QUESTION = 0;
+
 // Session array
 const SESSION = [];
 // Session
@@ -69,9 +78,6 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
         correct: false
     })
 }
-
-// Set the current question
-let CURRENT_QUESTION = 0;
 
 // Set background images
 START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
@@ -178,24 +184,60 @@ function finishDOM() {
     QUIZ_RESULTS.innerHTML =
         `<h2>${SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
          <p>You have completed the quiz!</p>
-         <p>Your score is: ${SCORE / SHEET_DATA.length * 100}%</p>`;
+         <p>Your score is: ${parseInt(SCORE / SHEET_DATA.length * 100)}%</p>`;
 }
 
 // Status
 function updateStatus() {
     QUIZ_STATUS.innerHTML = `${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
-    QUIZ_SCORE.innerHTML = `${SCORE / SHEET_DATA.length * 100}%`;
-    QUIZ_TRIES.innerHTML = `${SESSION[CURRENT_QUESTION].selections.length}`;
+    QUIZ_SCORE.innerHTML = `${parseInt(SCORE / SHEET_DATA.length * 100)}%`;
+    QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries`;
 }
 
 // load question
 function loadQuestion() {
     // Set the question
-    $('quiz-question').get(0).innerHTML = SHEET_DATA[CURRENT_QUESTION].question;
+    QUESTION.innerHTML = SHEET_DATA[CURRENT_QUESTION].question;
 
     // Set the answers
-    const ANSWERS = $('quiz-answer');
     for (var i = 0; i < ANSWERS.length; i++) {
-        ANSWERS[i].innerHTML = SHEET_DATA[CURRENT_QUESTION].answers[i];
+        if (SHEET_DATA[CURRENT_QUESTION].answers[i]) {
+            ANSWERS[i].classList.toggle('correct', false);
+            ANSWERS[i].classList.toggle('incorrect', false);
+            ANSWERS[i].innerHTML = SHEET_DATA[CURRENT_QUESTION].answers[i];
+            ANSWERS[i].classList.toggle('hidden', false);
+        } else {
+            ANSWERS[i].classList.toggle('hidden', true);
+        }
+    }
+
+    // set Tries
+    MAX_TRIES = 0;
+    for (var i = 0; i < SHEET_DATA[CURRENT_QUESTION].answers.length; i++) {
+        if (SHEET_DATA[CURRENT_QUESTION].answers[i]) {
+            MAX_TRIES++;
+        }
+    }
+    MAX_TRIES--;
+    TRIES = MAX_TRIES;
+
+    console.log(MAX_TRIES);
+}
+
+// answer
+function answerEvent(answerIndex) {
+    if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
+        if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
+            SESSION[CURRENT_QUESTION].correct = true;
+            SCORE++;
+            ANSWERS[answerIndex].classList.toggle('correct', true);
+        }
+        else {
+            ANSWERS[answerIndex].classList.toggle('incorrect', true);
+        }
+        SESSION[CURRENT_QUESTION].selections.push(answerIndex);
+        TRIES--;
+
+        updateStatus();
     }
 }

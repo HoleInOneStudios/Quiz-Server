@@ -213,3 +213,11 @@ quiz-results {
 .hidden {
     display: none;
 }
+
+.correct {
+    background-color: var(--correct-color);
+}
+
+.incorrect {
+    background-color: var(--incorrect-color);
+}
