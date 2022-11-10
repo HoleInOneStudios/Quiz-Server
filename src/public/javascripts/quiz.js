@@ -62,8 +62,8 @@ const QUIZ_RESULTS = $('quiz-results').get(0);
 const LOGO = $('quiz-logo').get(0);
 
 // Audio DOM
-const CORRECT = $('#correct_audio').get(0);
-const INCORRECT = $('#incorrect_audio').get(0);
+const CORRECT = $('#correct_Audio').get(0);
+const INCORRECT = $('#incorrect_Audio').get(0);
 
 // Session Status Update 
 let SCORE = 0;
@@ -236,13 +236,17 @@ function loadQuestion() {
 function answerEvent(answerIndex) {
     if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
-            correct_Audio.play();
+            if (AUDIO) {
+                CORRECT.play();
+            }
             SESSION[CURRENT_QUESTION].correct = true;
             SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
         }
         else {
-            incorrect_Audio.play();
+            if (AUDIO) {
+                INCORRECT.play();
+            }
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
         SESSION[CURRENT_QUESTION].selections.push(answerIndex);
@@ -257,4 +261,31 @@ function toggleAudio() {
     AUDIO = !AUDIO;
 
     AUDIO_TOGGLE.innerText = AUDIO ? 'volume_up' : 'volume_off';
+}
+
+// User timeout after 60 seconds of inactivity
+function debounce(callback, timeout, _this) {
+    var timer;
+    return function (e) {
+        var _that = this;
+        if (timer)
+            clearTimeout(timer);
+        timer = setTimeout(function () {
+            callback.call(_this || _that, e);
+        }, timeout);
+    }
+}
+
+// User timeout after 60 seconds of inactivity
+var userAction = debounce(function (e) {
+    console.log("silence");
+    restart();
+}, 60 * 1000);
+
+// User timeout after 60 seconds of inactivity
+document.body.onload = () => {
+    document.addEventListener("mousemove", userAction, false);
+    document.addEventListener("click", userAction, false);
+    document.addEventListener("scroll", userAction, false);
+    document.addEventListener("keypress", userAction, false);
 }
