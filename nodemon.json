@@ -1,6 +1,5 @@
 {
     "verbose": true,
-    "ignore": [
-        
-    ]
+    "ignore": [],
+    "quiet": true
 }

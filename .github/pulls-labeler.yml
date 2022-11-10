@@ -1,0 +1,8 @@
+security:
+  - "(security|vulnerability)"
+
+feature:
+  - "(feature|enhancement)"
+
+bug:
+  - "(bug|issue)"

@@ -30,6 +30,22 @@
     --incorrect-color: rgb(103, 22, 22);
 }
 
+.text_233 {
+    color: var(--pms_233);
+}
+
+.text_2995 {
+    color: var(--pms_2995);
+}
+
+.text_396 {
+    color: var(--pms_396);
+}
+
+.text_1495 {
+    color: var(--pms_1495);
+}
+
 /* HTML Element Styles */
 
 html {
@@ -62,7 +78,6 @@ main {
 footer {
     justify-content: center;
     align-items: center;
-}
 
 quiz-logo {
     position: fixed;

@@ -1,0 +1,11 @@
+security:
+  - "(security|vulnerability)"
+
+Client Meetings:
+  - "(client|meeting)"
+
+Feature:
+  - "(feature|enhancement)"
+
+Bug:
+  - "(bug|issue)"

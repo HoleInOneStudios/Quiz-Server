@@ -24,7 +24,13 @@
     "type": "git",
     "url": "git+https://github.com/HoleInOneStudios/Quiz-Server.git"
   },
-  "keywords": [],
+  "keywords": [
+    "samsat",
+    "quiz",
+    "nodejs",
+    "express",
+    "ejs"
+  ],
   "author": "HoleInOneGolfer",
   "license": "MIT",
   "bugs": {

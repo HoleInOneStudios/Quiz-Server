@@ -3,12 +3,18 @@
 </head>
 
 <body>
+    <script>
+        function openQuiz(URL) {
+            window.open(URL, '_blank', 'popup=yes');
+        }
+    </script>
+
     <main id="root">
         <img src="./public/images/icon.png" alt="Quiz Server Logo" />
         <h1>Quiz List</h1>
         <% for(var i = 0 ; i < message.length ; i++) { %>
         <p>
-            <a tabIndex="0" href="<%=message[i]%>"><%= message[i] %></a>
+        <p tabIndex="0" onclick="openQuiz('<%=message[i]%>')"><%= message[i] %></a>
         </p>
         <% } %>
         <%- include('footer.ejs')%>
