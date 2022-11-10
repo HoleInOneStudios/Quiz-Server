@@ -252,6 +252,15 @@ function answerEvent(answerIndex) {
         SESSION[CURRENT_QUESTION].selections.push(answerIndex);
         TRIES--;
 
+        if (TRIES <= 0) {
+            // reveal correct answer
+            for (var i = 0; i < SHEET_DATA[CURRENT_QUESTION].correctAnswers.length; i++) {
+                if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[i]) {
+                    ANSWERS[i].classList.toggle('correct', true);
+                }
+            }
+        }
+
         updateStatus();
     }
 }
