@@ -88,6 +88,14 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
 // audio boolean
 let AUDIO = true;
 
+// Set background images
+START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+
+// Set logo
+LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
+
 // States
 const QUIZ_STATE = {
     START: 0,
@@ -98,14 +106,6 @@ const QUIZ_STATE = {
 // Set the current state
 let CURRENT_STATE = QUIZ_STATE.START;
 updateDOMState();
-
-// Set background images
-START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
-MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
-FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
-
-// Set logo
-LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
 
 // Set Hint Image
 function setHint() {
