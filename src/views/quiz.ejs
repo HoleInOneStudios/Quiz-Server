@@ -19,8 +19,8 @@
 <% } %>
 <% } %>
 
-
-
+<!--Preload Logo-->
+<link rel="preload" href="./img/logo.png" as="image" crossorigin="anonymous" />
 
 </head>
 
@@ -33,75 +33,58 @@
             <source src="/public/audio/playernocanselect-37979.mp3" type="audio/mpeg">
         </audio>
     </div>
+    <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
     <main id=" root" title="main" class="contrast-bg">
-        <span id="sheet-data" style="display: none;"><%= JSON.stringify(message) %></span>
+        <quiz-start>
+            <quiz-title><%= title%></quiz-title>
+            <p style="font-size: 7vh">How much do you know?</p>
+            <quiz-start-button class="button" onclick="setStateMain()">Begin!</quiz-start-button>
+        </quiz-start>
 
-        <quiz-container title="all quiz elements container">
-            <quiz-title class="contrast-el"><%= title%></quiz-title>
-            <quiz-info title="quiz info container">
-                <quiz-score title="quiz score percent"></quiz-score>
-                <quiz-status title="quiz question currently on"></quiz-status>
-            </quiz-info>
+        <quiz-main>
+            <quiz-title><%= title%></quiz-title>
+            <quiz-question>What?</quiz-question>
+            <quiz-answers>
+                <quiz-answer class="button" onclick="answerEvent(0)">A</quiz-answer>
+                <quiz-answer class="button" onclick="answerEvent(1)">B</quiz-answer>
+                <quiz-answer class="button" onclick="answerEvent(2)">C</quiz-answer>
+                <quiz-answer class="button" onclick="answerEvent(3)">D</quiz-answer>
+            </quiz-answers>
 
-            <quiz-question title="quiz question and answers">
-                <quiz-question-text class="floating" title="quiz question text container"></quiz-question-text>
-                <quiz-answer-container title="quiz answer choices">
-                    <quiz-answer class="floating text_2995" onclick="checkAnswers(this)" answer="1"
-                        title="answer choice 1">
-                    </quiz-answer>
-                    <quiz-answer class="floating text_396" onclick="checkAnswers(this)" answer="2"
-                        title="answer choice 2">
-                    </quiz-answer>
-                    <quiz-answer class="floating text_233" onclick="checkAnswers(this)" answer="3"
-                        title="answer choice 3">
-                    </quiz-answer>
-                    <quiz-answer class="floating text_1495" onclick="checkAnswers(this)" answer="4"
-                        title="answer choice 4">
-                    </quiz-answer>
-                </quiz-answer-container>
-            </quiz-question>
+            <quiz-status>
+                <quiz-current-question>10/10</quiz-current-question>
+                <quiz-score>100%</quiz-score>
+                <quiz-tries>Tries: 3/3</quiz-tries>
+            </quiz-status>
 
-            <quiz-hint title="quiz hint element container">
-                <p style="margin: 0; background-color: var(--background-secondary); font-size: 1vw;">Press me for a
-                    hint</p>
-                <quiz-hint-toggle title="quiz hint toggle"></quiz-hint-toggle>
-                <quiz-hint-text title="quiz hint text"></quiz-hint-text>
+            <quiz-hint>
+                <quiz-hint-toggle onclick="toggleHint()"></quiz-hint-toggle>
+                <quiz-hint-text class="hidden">?</quiz-hint-text>
             </quiz-hint>
 
-            <quiz-audio-toggle onclick="toggleAudio();" class="material-symbols-outlined">
-                volume_up
-            </quiz-audio-toggle>
+            <quiz-nav>
+                <quiz-restart class="material-symbols-outlined" onclick="setStateStart()">undo</quiz-restart>
+                <quiz-next class="material-symbols-outlined" onclick="nextQuestion()">play_arrow</quiz-next>
+            </quiz-nav>
+        </quiz-main>
 
-            <quiz-navigation title="quiz navigation button container">
-                <quiz-restart title="restart quiz button"></quiz-restart>
-                <!-- <quiz-back title="back question button"></quiz-back> -->
-                <quiz-next title="next question button"></quiz-next>
-            </quiz-navigation>
-
-            <quiz-finish class="hidden">
-                <div id="quiz-finish">
-                    <h2>Congratulations</h2>
-                    <p>You have completed the quiz!</p>
-                    <p>Your score is:</p>
-                </div>
-                <button onclick="restart();" class="floating">Restart</button>
-            </quiz-finish>
-
-            <quiz-start class="">
-                <div id="quiz-finish">
-                    <h2><%=title%></h2>
-                    <h1>How much do you know?</h1>
-                </div>
-                <button onclick="start();" class="floating">Begin!</button>
-            </quiz-start>
-
-            <img id="logo" src="./img/logo.png" alt="quiz background image">
-        </quiz-container>
-
+        <quiz-finish>
+            <quiz-title><%= title%></quiz-title>
+            <quiz-results>
+                <h2>Congratulations</h2>
+                <p>You have completed the quiz!</p>
+                <p>Your score is:</p>
+            </quiz-results>
+            <quiz-restart class="button" onclick="setStateStart()">
+                Restart!
+            </quiz-restart>
+        </quiz-finish>
+        <quiz-audio-toggle class="material-symbols-outlined button" onclick="toggleAudio()">volume_up
+        </quiz-audio-toggle>
+        <quiz-logo></quiz-logo>
     </main>
 
     <script src="./public/javascripts/service.js" defer>
-        a.init();
     </script>
     <script src="./public/javascripts/quiz.js">
     </script>

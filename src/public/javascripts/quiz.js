@@ -1,156 +1,269 @@
-var SHEET_DATA = JSON.parse($('#sheet-data').text()); // * Get the data from the sheet
-var QUESTION_ELEMENT = $('quiz-question-text').get(0);
-var ANSWER_ELEMENTS = [...$('quiz-answer')];
-var QUIZ_SCORE_ELEMENT = $('quiz-score').get(0);
-var QUIZ_STATUS_ELEMENT = $('quiz-status').get(0);
-var QUIZ_HINT_TOGGLE = $('quiz-hint-toggle').get(0);
-var QUIZ_HINT_TEXT = $('quiz-hint-text').get(0);
-var MAIN = $('main').get(0);
-var QUIZ_FINISH_TEXT = $('#quiz-finish').get(0);
-var QUIZ_FINISH = $('quiz-finish').get(0);
-var QUIZ_START = $('quiz-start').get(0);
-var AUDIO_CORRECT = $('#correct_Audio').get(0);
-var AUDIO_INCORRECT = $('#incorrect_Audio').get(0);
-var AUDIO_TOGGLE = $('quiz-audio-toggle').get(0);
+// Process the raw data from sheets to a quiz
+const RAW_SHEET_DATA = JSON.parse($('#sheet-data').text());
+const SHEET_DATA = [];
 
-var CURRENT_QUESTION = 0;
-var TOTAL_QUESTIONS = SHEET_DATA.length;
-var MAX_QUESTION_INDEX = TOTAL_QUESTIONS - 1;
-var SCORE = 0;
-var HINT_SHOWING = false;
-var AUDIO_ON = true;
+// Create questions in the quiz
+for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
+    var q = {};
+    // Set the question
+    q.question = RAW_SHEET_DATA[i].Question;
 
-updateImages();
+    q.answers = [];
+    // Set the answers
+    for (var j = 0; j < 4; j++) {
+        if (RAW_SHEET_DATA[i][(j + 1).toString()] != '') {
+            q.answers.push(RAW_SHEET_DATA[i][(j + 1).toString()]);
+        }
+    }
 
-function start() {
-    QUIZ_START.classList = 'hidden';
-    update();
+    // Set the correct Answers
+    q.correctAnswers = [];
+    answerArray = RAW_SHEET_DATA[i]["Correct"].toString().split(', ');
+    for (var j = 0; j < q.answers.length; j++) {
+        q.correctAnswers.push(false);
+        for (var k = 0; k < answerArray.length; k++) {
+            if (j + 1 == answerArray[k]) {
+                q.correctAnswers[j] = true;
+            }
+        }
+    }
+
+    // Set the hint
+    q.hint = RAW_SHEET_DATA[i].Hint;
+
+    // Set the image
+    q.bgImage = RAW_SHEET_DATA[i].BackgroundImage;
+    q.hImage = RAW_SHEET_DATA[i].HintImage;
+
+    // push to the array
+    SHEET_DATA.push(q);
 }
 
-function restart() {
+// Get DOM elements
+const START = $('quiz-start').get(0);
+
+const MAIN = $('quiz-main').get(0);
+const QUESTION = $('quiz-question').get(0);
+const ANSWERS = $('quiz-answer');
+
+const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
+const HINT_TEXT = $('quiz-hint-text').get(0);
+
+const QUIZ_STATUS = $('quiz-current-question').get(0);
+const QUIZ_SCORE = $('quiz-score').get(0);
+const QUIZ_TRIES = $('quiz-tries').get(0);
+
+const AUDIO_TOGGLE = $('quiz-audio-toggle').get(0);
+
+const FINISH = $('quiz-finish').get(0);
+
+const QUIZ_RESULTS = $('quiz-results').get(0);
+
+const LOGO = $('quiz-logo').get(0);
+
+// Audio DOM
+const CORRECT = $('#correct_Audio').get(0);
+const INCORRECT = $('#incorrect_Audio').get(0);
+
+// Session Status Update 
+let SCORE = 0;
+
+// tries
+let MAX_TRIES = 0;
+let TRIES = 0;
+
+// Set the current question
+let CURRENT_QUESTION = 0;
+
+// Session array
+const SESSION = [];
+// Session
+for (var i = 0; i < SHEET_DATA.length; i++) {
+    SESSION.push({
+        selections: [],
+        correct: false
+    })
+}
+
+// audio boolean
+let AUDIO = true;
+
+// Set background images
+START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+
+// Set logo
+LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
+
+// States
+const QUIZ_STATE = {
+    START: 0,
+    MAIN: 1,
+    FINISH: 2
+}
+
+// Set the current state
+let CURRENT_STATE = QUIZ_STATE.START;
+updateDOMState();
+
+// Set Hint Image
+function setHint() {
+    HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/hint_people/Hint-Person-Placeholder.jpg" alt="Hint Image">`;
+    HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
+}
+function toggleHint() {
+    HINT_TEXT.classList.toggle('hidden');
+}
+function disableHint() {
+    HINT_TEXT.classList.toggle('hidden', true);
+}
+
+// update DOM based on state
+function updateDOMState() {
+    switch (CURRENT_STATE) {
+        case QUIZ_STATE.START:
+            START.style.display = 'flex';
+            MAIN.style.display = 'none';
+            FINISH.style.display = 'none';
+            break;
+        case QUIZ_STATE.MAIN:
+            START.style.display = 'none';
+            MAIN.style.display = 'flex';
+            FINISH.style.display = 'none';
+            break;
+        case QUIZ_STATE.FINISH:
+            START.style.display = 'none';
+            MAIN.style.display = 'none';
+            FINISH.style.display = 'flex';
+            break;
+    }
+}
+
+// Set state functions
+function setStateStart() {
+    CURRENT_STATE = QUIZ_STATE.START;
     CURRENT_QUESTION = 0;
     SCORE = 0;
-    SHEET_DATA = JSON.parse(document.getElementById('sheet-data').innerText);
-    QUIZ_FINISH.classList = 'hidden';
-    QUIZ_START.classList = '';
 
-    updateImages();
+    updateDOMState();
 }
 
-function update() {
-    updateInfo();
-    updateHint();
-    updateQuestion();
-    updateImages();
+function setStateMain() {
+    CURRENT_STATE = QUIZ_STATE.MAIN;
+    resetSession();
+    disableHint();
+    setHint();
+    loadQuestion();
+    updateStatus();
+    updateDOMState();
 }
 
-// * Set the status and info text elements to the correct text
-function updateInfo() {
-    QUIZ_SCORE_ELEMENT.innerText = `${parseInt(SCORE / TOTAL_QUESTIONS * 100)}%`;
-    QUIZ_STATUS_ELEMENT.innerText = `${CURRENT_QUESTION + 1}/${TOTAL_QUESTIONS}`;
+function setStateFinish() {
+    CURRENT_STATE = QUIZ_STATE.FINISH;
+    finishDOM();
+    updateDOMState();
 }
 
-// * Update hint text and set to hidden if hint not showing
-function updateHint() {
-    QUIZ_HINT_TEXT.innerText = SHEET_DATA[CURRENT_QUESTION].Hint;
-    if (HINT_SHOWING) {
-        QUIZ_HINT_TEXT.classList.remove('hidden');
-    }
-    else {
-        QUIZ_HINT_TEXT.classList = 'hidden';
+// Reset SESSION
+function resetSession() {
+    for (var i = 0; i < SESSION.length; i++) {
+        SESSION[i].selections = [];
+        SESSION[i].correct = false;
     }
 }
 
-function updateQuestion() {
-    QUESTION_ELEMENT.innerText = SHEET_DATA[CURRENT_QUESTION].Question;
-    HINT_SHOWING = false;
+// Next Question
+function nextQuestion() {
+    if (CURRENT_QUESTION < SHEET_DATA.length - 1) {
+        CURRENT_QUESTION++;
+    } else {
+        setStateFinish();
+    }
 
-    updateImages();
-    updateHint();
-    loadAnswers();
+    loadQuestion();
+    disableHint();
+    setHint();
+    updateStatus();
 }
 
-function loadAnswers() {
-    ANSWER_ELEMENTS.forEach((answer, index) => {
-        if (SHEET_DATA[CURRENT_QUESTION][(index + 1).toString()] == undefined) {
-            answer.style.display = 'none';
+//finish DOM
+function finishDOM() {
+    QUIZ_RESULTS.innerHTML =
+        `<h2>${SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
+         <p>You have completed the quiz!</p>
+         <p>Your score is: ${parseInt(SCORE / SHEET_DATA.length * 100)}%</p>`;
+}
+
+// Status
+function updateStatus() {
+    QUIZ_STATUS.innerHTML = `${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
+    QUIZ_SCORE.innerHTML = `${parseInt(SCORE / SHEET_DATA.length * 100)}%`;
+    QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries`;
+}
+
+// load question
+function loadQuestion() {
+    // Set the question
+    QUESTION.innerHTML = SHEET_DATA[CURRENT_QUESTION].question;
+
+    // Set the answers
+    for (var i = 0; i < ANSWERS.length; i++) {
+        if (SHEET_DATA[CURRENT_QUESTION].answers[i]) {
+            ANSWERS[i].classList.toggle('correct', false);
+            ANSWERS[i].classList.toggle('incorrect', false);
+            ANSWERS[i].innerHTML = SHEET_DATA[CURRENT_QUESTION].answers[i];
+            ANSWERS[i].classList.toggle('hidden', false);
         } else {
-            answer.style.display = 'block';
-            answer.innerText = SHEET_DATA[CURRENT_QUESTION][(index + 1)];
-
-            answer.classList.remove('correct', 'incorrect');
-            updateAnswers();
+            ANSWERS[i].classList.toggle('hidden', true);
         }
-    });
+    }
+
+    // set Tries
+    MAX_TRIES = 0;
+    for (var i = 0; i < SHEET_DATA[CURRENT_QUESTION].answers.length; i++) {
+        if (SHEET_DATA[CURRENT_QUESTION].answers[i]) {
+            MAX_TRIES++;
+        }
+    }
+    MAX_TRIES--;
+    TRIES = MAX_TRIES;
+
+    console.log(MAX_TRIES);
 }
 
-async function checkAnswers(answer) {
-    if (SHEET_DATA[CURRENT_QUESTION].answered != true) {
-        SHEET_DATA[CURRENT_QUESTION].answered = true;
-        SHEET_DATA[CURRENT_QUESTION].selected = parseInt(answer.getAttribute('answer'));
-
-
-        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
-            if (AUDIO_ON) {
-                AUDIO_CORRECT.currentTime = 0;
-                AUDIO_CORRECT.play();
+// answer
+function answerEvent(answerIndex) {
+    if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
+        if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
+            if (AUDIO) {
+                CORRECT.play();
             }
+            SESSION[CURRENT_QUESTION].correct = true;
             SCORE++;
+            ANSWERS[answerIndex].classList.toggle('correct', true);
         }
         else {
-            if (AUDIO_ON) {
-                AUDIO_INCORRECT.currentTime = 0;
-                AUDIO_INCORRECT.play();
+            if (AUDIO) {
+                INCORRECT.play();
             }
+            ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
-    }
-    await updateAnswers();
-    await updateInfo();
-}
+        SESSION[CURRENT_QUESTION].selections.push(answerIndex);
+        TRIES--;
 
-async function nextOrFinal() {
-    if (CURRENT_QUESTION < MAX_QUESTION_INDEX) {
-        CURRENT_QUESTION += 1;
-    }
-    else if (CURRENT_QUESTION == MAX_QUESTION_INDEX) {
-        QUIZ_FINISH.classList = '';
-        QUIZ_FINISH_TEXT.innerHTML = `<h2>${(parseInt(SCORE / TOTAL_QUESTIONS * 100) > 70) ? "Congratulations!" : "Better Luck Next Time!"}</h2><p>You have completed the quiz!</p><p>Your score is: ${parseInt(SCORE / TOTAL_QUESTIONS * 100)}% or ${SCORE}/${TOTAL_QUESTIONS}</p>`;
+        updateStatus();
     }
 }
 
-function updateAnswers() {
-    if (SHEET_DATA[CURRENT_QUESTION].answered) {
-        ANSWER_ELEMENTS[SHEET_DATA[CURRENT_QUESTION].Correct - 1].classList.add('correct');
-        if (SHEET_DATA[CURRENT_QUESTION].selected == SHEET_DATA[CURRENT_QUESTION].Correct) {
-
-        }
-        else {
-            ANSWER_ELEMENTS[SHEET_DATA[CURRENT_QUESTION].selected - 1].classList.add('incorrect');
-        }
-    }
-}
-
-// * Update background images of start, finish, and main screens
-function updateImages() {
-    MAIN.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-    QUIZ_HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].HintImage != undefined ? `url(./img/${SHEET_DATA[CURRENT_QUESTION].HintImage})` : 'url(./public/images/hint_people/Hint-Person-Placeholder.png)';
-    QUIZ_START.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-    QUIZ_FINISH.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].BackgroundImage != undefined ? `url(  ./img/${SHEET_DATA[CURRENT_QUESTION].BackgroundImage})` : 'url(./public/images/backgrounds/placeholder.jpg)';
-}
-
-// * Toggle weather to play audio or not
+// audio controls
 function toggleAudio() {
-    AUDIO_ON = !AUDIO_ON;
+    AUDIO = !AUDIO;
 
-    if (AUDIO_ON) {
-        AUDIO_TOGGLE.innerHTML = 'volume_up';
-    }
-    else if (!AUDIO_ON) {
-        AUDIO_TOGGLE.innerHTML = 'volume_off';
-    }
+    AUDIO_TOGGLE.innerText = AUDIO ? 'volume_up' : 'volume_off';
 }
 
-// * User timeout after 60 seconds of inactivity
+// User timeout after 60 seconds of inactivity
 function debounce(callback, timeout, _this) {
     var timer;
     return function (e) {
@@ -163,13 +276,13 @@ function debounce(callback, timeout, _this) {
     }
 }
 
-// * User timeout after 60 seconds of inactivity
+// User timeout after 60 seconds of inactivity
 var userAction = debounce(function (e) {
     console.log("silence");
     restart();
 }, 60 * 1000);
 
-// * User timeout after 60 seconds of inactivity
+// User timeout after 60 seconds of inactivity
 document.body.onload = () => {
     document.addEventListener("mousemove", userAction, false);
     document.addEventListener("click", userAction, false);
