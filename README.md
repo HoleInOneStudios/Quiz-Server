@@ -33,11 +33,11 @@
    1. Windows &rarr; `.\quiz-app.exe`
    2. Mac &rarr; `.\quiz-app-macos`
    3. Linux &rarr; `.\quiz-app-linux`
-5. Navigate the web address provided in the terminal. (e.g. `http://localhost:8080`)
+5. Navigate the web address provided in the terminal. (e.g. `http://localhost:80`)
 
 ### Editing Config
 
-The configuration is done in the `.env` file. In side it should look like this:
+The configuration is done in the `.env` file. Inside it should look like this:
 
 ```bash
 PORT=80
@@ -58,9 +58,9 @@ IMAGE_PATH='./img/'
 
 If you don't include text in the answer choice it will not show up, so you can create True or False questions by leaving the other answers blank.
 
-| Question | 1        | 2        | 3        | 4        | Correct        | Hint     | Hint Image                                                                 | Background Image                               |
-| -------- | -------- | -------- | -------- | -------- | -------------- | -------- | -------------------------------------------------------------------------- | ---------------------------------------------- |
-| *(text)* | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(url of image(Default is random image from `this person doesn't exist`))* | *(url of image(Default is `placeholder.jpg`))* |
+| Question | 1        | 2        | 3        | 4        | Correct        | Hint     | Hint Image                                      | Background Image                               |
+| -------- | -------- | -------- | -------- | -------- | -------------- | -------- | ----------------------------------------------- | ---------------------------------------------- |
+| *(text)* | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(url of image(Default is `some placeholder`))* | *(url of image(Default is `placeholder.jpg`))* |
 
 ## Layout
 
