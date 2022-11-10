@@ -53,11 +53,17 @@ const QUIZ_STATUS = $('quiz-current-question').get(0);
 const QUIZ_SCORE = $('quiz-score').get(0);
 const QUIZ_TRIES = $('quiz-tries').get(0);
 
+const AUDIO_TOGGLE = $('quiz-audio-toggle').get(0);
+
 const FINISH = $('quiz-finish').get(0);
 
 const QUIZ_RESULTS = $('quiz-results').get(0);
 
 const LOGO = $('quiz-logo').get(0);
+
+// Audio DOM
+const CORRECT = $('#correct_audio').get(0);
+const INCORRECT = $('#incorrect_audio').get(0);
 
 // Session Status Update 
 let SCORE = 0;
@@ -78,6 +84,9 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
         correct: false
     })
 }
+
+// audio boolean
+let AUDIO = true;
 
 // States
 const QUIZ_STATE = {
@@ -239,4 +248,11 @@ function answerEvent(answerIndex) {
 
         updateStatus();
     }
+}
+
+// audio controls
+function toggleAudio() {
+    AUDIO = !AUDIO;
+
+    AUDIO_TOGGLE.innerText = AUDIO ? 'volume_up' : 'volume_off';
 }

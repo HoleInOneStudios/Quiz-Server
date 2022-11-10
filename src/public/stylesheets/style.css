@@ -69,10 +69,21 @@ quiz-logo {
     top: 0;
     left: 0;
     right: 0;
+
+    z-index: 9;
 }
 
 quiz-logo img {
     width: 20%;
+}
+
+quiz-audio-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    z-index: 10;
+
 }
 
 quiz-status {
