@@ -79,6 +79,17 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
     })
 }
 
+// States
+const QUIZ_STATE = {
+    START: 0,
+    MAIN: 1,
+    FINISH: 2
+}
+
+// Set the current state
+let CURRENT_STATE = QUIZ_STATE.START;
+updateDOMState();
+
 // Set background images
 START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
 MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
@@ -98,18 +109,6 @@ function toggleHint() {
 function disableHint() {
     HINT_TEXT.classList.toggle('hidden', true);
 }
-setHint();
-
-// States
-const QUIZ_STATE = {
-    START: 0,
-    MAIN: 1,
-    FINISH: 2
-}
-
-// Set the current state
-let CURRENT_STATE = QUIZ_STATE.START;
-updateDOMState();
 
 // update DOM based on state
 function updateDOMState() {
@@ -137,15 +136,15 @@ function setStateStart() {
     CURRENT_STATE = QUIZ_STATE.START;
     CURRENT_QUESTION = 0;
     SCORE = 0;
-    resetSession();
-    disableHint();
-    setHint();
 
     updateDOMState();
 }
 
 function setStateMain() {
     CURRENT_STATE = QUIZ_STATE.MAIN;
+    resetSession();
+    disableHint();
+    setHint();
     loadQuestion();
     updateStatus();
     updateDOMState();
