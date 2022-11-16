@@ -58,7 +58,11 @@
             </quiz-status>
 
             <quiz-hint>
-                <quiz-hint-toggle onclick="toggleHint()"></quiz-hint-toggle>
+
+                <div>
+                    <p style="padding: 0; margin: 0;">Press me for a hint</p>
+                    <quiz-hint-toggle onclick="toggleHint()" style="padding: 0; margin: 0;"></quiz-hint-toggle>
+                </div>
                 <quiz-hint-text class="hidden">?</quiz-hint-text>
             </quiz-hint>
 
