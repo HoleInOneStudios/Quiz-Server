@@ -9,9 +9,16 @@
   - [Badges](#badges)
   - [Tutorials](#tutorials)
     - [Getting Started](#getting-started)
-    - [Editing Config](#editing-config)
+    - [Editing the Config](#editing-the-config)
+      - [Finding your public IP address](#finding-your-public-ip-address)
+        - [Windows](#windows)
+        - [Mac](#mac)
+        - [Linux](#linux)
+      - [Install](#install)
+        - [Android](#android)
+        - [iOS](#ios)
   - [Data](#data)
-    - [Data Table Template](#data-table-template)
+    - [Data Table](#data-table)
   - [Layout](#layout)
 
 ## Badges
@@ -35,7 +42,7 @@
    3. Linux &rarr; `.\quiz-app-linux`
 5. Navigate the web address provided in the terminal. (e.g. `http://localhost:80`)
 
-### Editing Config
+### Editing the Config
 
 The configuration is done in the `.env` file. Inside it should look like this:
 
@@ -49,18 +56,50 @@ IMAGE_PATH='./img/'
 `PORT` is the port the server is hosted on. 80 is the default web port.
 `HOST` should be changed to the device running the server's public IP address.`
 
+#### Finding your public IP address
+
+##### Windows
+
+1. Open a terminal or command prompt
+2. Type `ipconfig`
+3. Find the `IPv4 Address` for `Wireless LAN` and copy it
+4. update the `HOST` variable in the `.env` file to the copied IP address
+
+##### Mac
+
+`WIP`
+
+##### Linux
+
+`WIP`
+
+#### Install
+
+##### Android
+
+1. Navigate to the url provided in the terminal
+2. click the three dots in the top right corner
+3. click `Add to Home Screen`
+4. Open the app from your home screen
+
+##### iOS
+
+`WIP`
+
 ## Data
 
 > Each sheet in a workbook is a different quiz
 > [Link to Example](./src/data/data.xlsx)
 
-### Data Table Template
+### Data Table
 
 If you don't include text in the answer choice it will not show up, so you can create True or False questions by leaving the other answers blank.
 
-| Question | 1        | 2        | 3        | 4        | Correct        | Hint     | Hint Image                                      | Background Image                               |
-| -------- | -------- | -------- | -------- | -------- | -------------- | -------- | ----------------------------------------------- | ---------------------------------------------- |
-| *(text)* | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(url of image(Default is `some placeholder`))* | *(url of image(Default is `placeholder.jpg`))* |
+| Question          | 1        | 2        | 3        | 4        | Correct        | Hint     | Hint Image                                                  | Background Image                                |
+| ----------------- | -------- | -------- | -------- | -------- | -------------- | -------- | ----------------------------------------------------------- | ----------------------------------------------- |
+| *(text)*          | *(text)* | *(text)* | *(text)* | *(text)* | *(1, 2, 3, 4)* | *(text)* | *(name of image(Default is `Hint-Person-Placeholder.png`))* | *(name of image(Default is `placeholder.jpg`))* |
+|                   |          |          |          |          |                |          |                                                             |                                                 |
+| Example questions | Answer A | Answer B | Answer C | Answer D | 1, 2, 3        | Hint     | hint-person-placeholder.png                                 | placeholder.jpg                                 |
 
 ## Layout
 
