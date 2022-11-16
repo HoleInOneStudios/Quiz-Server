@@ -48,6 +48,10 @@
 
 /* HTML Element Styles */
 
+a {
+    color: var(--link-color);
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -193,7 +197,7 @@ quiz-hint {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 quiz-hint-toggle * {

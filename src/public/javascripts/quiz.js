@@ -237,6 +237,7 @@ function answerEvent(answerIndex) {
     if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
             if (AUDIO) {
+                CORRECT.currentTime = 0;
                 CORRECT.play();
             }
             SESSION[CURRENT_QUESTION].correct = true;
@@ -245,6 +246,7 @@ function answerEvent(answerIndex) {
         }
         else {
             if (AUDIO) {
+                INCORRECT.currentTime = 0;
                 INCORRECT.play();
             }
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
