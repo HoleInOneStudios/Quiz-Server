@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [Quiz Server](#quiz-server)
+- [Quiz Server](#quiz-serve
   - [Table of Contents](#table-of-contents)
   - [Badges](#badges)
   - [Tutorials](#tutorials)
@@ -23,9 +23,9 @@
 
 ## Badges
 
-![GitHub forks](https://img.shields.io/github/forks/holeinonestudios/quiz-server?style=social)![GitHub Repo stars](https://img.shields.io/github/stars/holeinonestudios/quiz-server?style=social)![GitHub watchers](https://img.shields.io/github/watchers/holeinonestudios/quiz-server?style=social)![GitHub](https://img.shields.io/github/license/holeinonestudios/quiz-server)
+![GitHub forks](https://img.shields.io/github/forks/holeinonestudios/quiz-server?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/holeinonestudios/quiz-server?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/holeinonestudios/quiz-server?style=social) ![GitHub](https://img.shields.io/github/license/holeinonestudios/quiz-server)
 
-![GitHub issues](https://img.shields.io/github/issues/holeinonestudios/quiz-server)![GitHub pull requests](https://img.shields.io/github/issues-pr/holeinonestudios/quiz-server)![GitHub commit activity](https://img.shields.io/github/commit-activity/w/holeinonestudios/quiz-server)![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/holeinonestudios/quiz-server)![GitHub contributors](https://img.shields.io/github/contributors/holeinonestudios/quiz-server)
+![GitHub issues](https://img.shields.io/github/issues/holeinonestudios/quiz-server) ![GitHub pull requests](https://img.shields.io/github/issues-pr/holeinonestudios/quiz-server) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/holeinonestudios/quiz-server) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/holeinonestudios/quiz-server) ![GitHub contributors](https://img.shields.io/github/contributors/holeinonestudios/quiz-server)
 
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/holeinonestudios)
 
@@ -77,14 +77,19 @@ IMAGE_PATH='./img/'
 
 ##### Android
 
-1. Navigate to the url provided in the terminal
-2. click the three dots in the top right corner
+1. Navigate to the **url provided in the terminal**
+2. click the **three dots** in the **top right corner**
 3. click `Add to Home Screen`
 4. Open the app from your home screen
 
-##### iOS
+##### IOS
 
-`WIP`
+1. Enable `guided access` in `accessibility settings`
+2. Navigate the **url provided in the terminal** on **safari**
+3. click the **share button** in the **top right corner**
+4. click `Add to Home Screen`
+5. open the app from your `Home Screen`
+6. activate kiosk mode by **triple clicking the home button**
 
 ## Data
 

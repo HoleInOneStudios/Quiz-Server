@@ -38,15 +38,6 @@
 			"*.ejs": "html",
 			"**/bin": "javascript"
 		},
-		"editor.codeActionsOnSave": {
-			"source.fixAll": true,
-			"source.organizeImports": true
-		},
-		"editor.quickSuggestions": {
-			"other": "on",
-			"comments": "on",
-			"strings": "on"
-		},
 		"material-icon-theme.files.associations": {
 			"www": "javascript",
 			"jest-puppeteer.config.js": "jest"
@@ -57,6 +48,7 @@
 			"reference": "images",
 			"tutorials": "video"
 		},
+		"material-icon-theme.folders.color": "#90a4ae",
 		"better-comments.highlightPlainText": true,
 		"better-comments.multilineComments": true,
 		"better-comments.tags": [
@@ -106,6 +98,18 @@
 				"italic": false
 			}
 		],
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true,
+			"source.organizeImports": true
+		},
+		"editor.quickSuggestions": {
+			"other": "on",
+			"comments": "on",
+			"strings": "on"
+		},
+		"editor.tokenColorCustomizations": {
+			"comments": "#eb1e1e",
+		},
 		"editor.wordWrap": "off",
 		"editor.fontFamily": "Operator Mono",
 		"editor.fontLigatures": true,
@@ -115,10 +119,6 @@
 		"terminal.integrated.fontSize": 14,
 		"terminal.integrated.lineHeight": 1.5,
 		"terminal.integrated.letterSpacing": 0,
-		"editor.tokenColorCustomizations": {
-			"comments": "#eb1e1e",
-		},
-		"material-icon-theme.folders.color": "#90a4ae",
 		"workbench.colorCustomizations": {},
 		"workbench.preferredDarkColorTheme": "GitHub Dark",
 		"workbench.preferredLightColorTheme": "GitHub Light",
