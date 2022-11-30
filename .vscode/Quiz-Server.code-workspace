@@ -145,48 +145,10 @@
 	},
 	"tasks": {
 		"version": "2.0.0",
-		"tasks": [
-			{
-				"type": "npm",
-				"script": "package",
-				"problemMatcher": [],
-				"label": "npm: package",
-				"detail": "@powershell Compress-Archive -Path dist/quiz-app.exe, dist/data/*-DestinationPath, dist/.env -DestinationPath dist/quiz-app.zip -Update"
-			},
-			{
-				"type": "npm",
-				"script": "build",
-				"group": "build",
-				"problemMatcher": [],
-				"label": "npm: build",
-				"detail": "pkg package.json && @powershell copy src/data/data.xlsx dist/data/data.xlsx"
-			},
-			{
-				"type": "npm",
-				"script": "test",
-				"group": "test",
-				"problemMatcher": [],
-				"label": "npm: test",
-				"detail": "jest --colors"
-			},
-			{
-				"type": "npm",
-				"script": "start",
-				"problemMatcher": [],
-				"label": "npm: start",
-				"detail": "node ./src/bin/www"
-			},
-			{
-				"type": "npm",
-				"script": "dev",
-				"problemMatcher": [],
-				"label": "npm: dev",
-				"detail": " nodemon ./src/bin/www"
-			}
-		]
+		"tasks": []
 	},
 	"launch": {
 		"configurations": [],
 		"compounds": []
-	},
+	}
 }
