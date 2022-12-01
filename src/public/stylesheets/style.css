@@ -4,6 +4,30 @@
     src: url('../fonts/Avenir Black.ttf');
 }
 
+/* Google Font*/
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/materialSymbols.woff2') format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
 /* Root */
 :root {
     /* ======= Style Guide Colors (PMS) ======= */
@@ -17,15 +41,11 @@
     --pms_396: #e1e000;
     --pms_1495: #ff8f1c;
     /* ======================================== */
-
     --background-main: var(--pms_282);
     --background-secondary: var(--pms_7672);
-
     --text-color: var(--pms_7444);
     --link-color: var(--pms_2905);
-
     --unselected-answer-color: var(--pms_7672);
-
     --correct-color: rgb(22, 103, 53);
     --incorrect-color: rgb(103, 22, 22);
 }
@@ -47,7 +67,6 @@
 }
 
 /* HTML Element Styles */
-
 a {
     color: var(--link-color);
 }
@@ -55,14 +74,11 @@ a {
 html {
     margin: 0;
     padding: 0;
-
     text-align: center;
     font-family: 'Avenir Black';
-
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
     color: var(--text-color);
     background-color: var(--background-main);
 }
@@ -75,7 +91,6 @@ body {
 main {
     height: 100vh;
     width: 100vw;
-
     background-size: cover;
 }
 
@@ -89,7 +104,6 @@ quiz-logo {
     top: 0;
     left: 0;
     right: 0;
-
     z-index: 9;
 }
 
@@ -101,9 +115,7 @@ quiz-audio-toggle {
     position: fixed;
     top: 0;
     right: 0;
-
     z-index: 10;
-
 }
 
 quiz-status {
@@ -111,16 +123,12 @@ quiz-status {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
     position: fixed;
     top: 0;
     left: 0;
-
     padding: 2vw;
-
     background-color: var(--background-secondary);
     border-radius: 0 0 5vh 0;
-
     font-size: 3vh;
 }
 
@@ -132,9 +140,7 @@ quiz-finish {
     left: 0;
     height: 100%;
     width: 100%;
-
     background-size: cover;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,7 +155,6 @@ quiz-title {
 quiz-question {
     font-size: 5vh;
     margin-bottom: 2vh;
-
     width: 75%;
 }
 
@@ -157,10 +162,7 @@ quiz-answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2vh;
-
     width: auto;
-
-
     justify-content: center;
     align-items: center;
 }
@@ -170,7 +172,6 @@ quiz-nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     position: fixed;
     bottom: 0;
     right: 0;
@@ -179,12 +180,9 @@ quiz-nav {
 quiz-nav * {
     margin: 1vh;
     padding: 3vh;
-
     font-size: 5vh;
-
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-
     border: 1px solid var(--text-color);
     border-radius: 1vh;
 }
@@ -193,7 +191,6 @@ quiz-hint {
     position: fixed;
     bottom: 0;
     left: 0;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -204,12 +201,9 @@ quiz-hint-toggle * {
     font-size: 5vh;
     margin: 1vh;
     width: 15vh;
-
     z-index: 1;
-
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-
     border: 1px solid var(--text-color);
     border-radius: 1vh;
 }
@@ -218,7 +212,6 @@ quiz-hint-text {
     font-size: 3vh;
     margin: 1vh;
     padding: 1vh;
-
     border: 1px solid var(--text-color);
     border-radius: 1vh;
 }
@@ -233,10 +226,7 @@ quiz-results {
     border-radius: 1rem;
     padding: 2vw;
     font-size: 4vh;
-
     width: auto;
-
-
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }

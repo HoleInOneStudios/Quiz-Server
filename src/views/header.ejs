@@ -23,8 +23,7 @@
     <title><%= title %></title>
 
     <!--Google Icon Font Preload-->
-    <link rel=" stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preload" href="./public/fonts/materialSymbols.woff2" as="font" crossorigin="anonymous" />
     <!--Main Font Preload-->
     <link rel="preload" href="./public/fonts/SigmarOne-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <!--Local Stylesheet-->
@@ -35,8 +34,7 @@
     <link rel="preload" href="./img/logo.png" as="image" crossorigin="anonymous" />
 
     <!--JQuery Preload-->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./public/javascripts/jquery-3.6.1.slim.min.js" crossorgin="anonymous"></script>
 
     <script>
       // Stop user from being able to scroll

@@ -1,6 +1,5 @@
 <%- include("header.ejs")%>
 
-
 <!--Preload Default Background Image-->
 <link rel="preload" href="./public/images/bg-placeholder.jpg" as="image" crossorigin="anonymous" />
 <!--Preload Background Images-->
@@ -19,6 +18,8 @@
 <% } %>
 <% } %>
 
+<!--Quiz Main Script-->
+<script src="./public/javascripts/quiz.js" defer></script>
 
 </head>
 
@@ -85,8 +86,4 @@
         </quiz-audio-toggle>
         <quiz-logo></quiz-logo>
     </main>
-
-    <script src="./public/javascripts/quiz.js">
-    </script>
-
 </body>
