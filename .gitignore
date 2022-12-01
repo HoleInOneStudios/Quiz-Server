@@ -2,7 +2,7 @@ node_modules/
 ~$*.xlsx
 dist/
 release/
-docs/reference/
+**/client-data/
 
 *.7z
 *.gz
