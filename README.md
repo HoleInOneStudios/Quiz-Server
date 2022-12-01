@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [Quiz Server](#quiz-serve
+- [Quiz Server](#quiz-server)
   - [Table of Contents](#table-of-contents)
   - [Badges](#badges)
   - [Tutorials](#tutorials)
@@ -16,7 +16,7 @@
         - [Linux](#linux)
       - [Install](#install)
         - [Android](#android)
-        - [iOS](#ios)
+        - [IOS](#ios)
   - [Data](#data)
     - [Data Table](#data-table)
   - [Layout](#layout)
@@ -84,12 +84,10 @@ IMAGE_PATH='./img/'
 
 ##### IOS
 
-1. Enable `guided access` in `accessibility settings`
-2. Navigate the **url provided in the terminal** on **safari**
-3. click the **share button** in the **top right corner**
-4. click `Add to Home Screen`
-5. open the app from your `Home Screen`
-6. activate kiosk mode by **triple clicking the home button**
+1. Navigate the **url provided in the terminal** on **safari**
+2. click the **share button** in the **top right corner**
+3. click `Add to Home Screen`
+4. open the app from your `Home Screen`
 
 ## Data
 
@@ -108,4 +106,4 @@ If you don't include text in the answer choice it will not show up, so you can c
 
 ## Layout
 
-[Figma](https://www.figma.com/file/juw197Ed7Ec5yTbPfFytLu/Quiz-Server?node-id=0%3A1)
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fjuw197Ed7Ec5yTbPfFytLu%2FQuiz-Server%3Fnode-id%3D0%253A1%26t%3DJN9mv2lxJ11hO3JF-1" allowfullscreen></iframe>
