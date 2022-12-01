@@ -15,7 +15,7 @@
  *          quiz-hint-text
  *    quiz-nav
  *        quiz-restart
- *        quiz-next 
+ *   \t     quiz-next 
  * quiz-finish
  *    quiz-results
  * quiz-audio-toggle

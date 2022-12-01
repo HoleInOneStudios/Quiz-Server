@@ -4,12 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="description"
       content="Simple quiz server application that connects to a server and reads from a spreadsheet." />
     <meta name="keywords" content="Quiz, SamSat" />
     <meta name="author" content="HoleInOneStudios, Benjamin Bowles" />
+
+    <!--Ipad remove default browser behavior-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
 
     <link rel="manifest" href="./public/manifest.json">
 
@@ -25,13 +28,7 @@
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
-      //clear cookies
-      window.addEventListener('load', () => {
-        document.cookie = "";
-      })
-
-      window.addEventListener('beforeunload', () => {
-        document.cookie = "";
-      });
+      document.body.ontouchmove = (event) => { event.preventDefault(); };
+      document.body.addEventListener("ontouchstart", (e) => { if (e.pageX > 10 && e.pageX < window.innerWidth - 10) { return; } e.preventDefault(); })
     </script>
     <script src="./public/javascripts/elements.js" defer></script>

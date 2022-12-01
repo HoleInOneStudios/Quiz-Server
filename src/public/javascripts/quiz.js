@@ -290,7 +290,7 @@ function debounce(callback, timeout, _this) {
 // User timeout after 60 seconds of inactivity
 var userAction = debounce(function (e) {
     console.log("silence");
-    restart();
+    setStateStart();
 }, 60 * 1000);
 
 // User timeout after 60 seconds of inactivity

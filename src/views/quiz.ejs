@@ -15,7 +15,7 @@
 <!--Preload Hint Images-->
 <% for (var i = 0; i < message.length; i++) { %>
 <% if (message[i].HintImage) { %>
-<link rel="preload" href="./img/<%=message[i].HintImage%>" as=" image" crossorigin="anonymous" />
+<link rel="preload" href="./img/<%=message[i].HintImage%>" as="image" crossorigin="anonymous" />
 <% } %>
 <% } %>
 
@@ -88,8 +88,7 @@
         <quiz-logo></quiz-logo>
     </main>
 
-    <script src="./public/javascripts/service.js" defer>
-    </script>
     <script src="./public/javascripts/quiz.js">
     </script>
+
 </body>

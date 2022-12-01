@@ -1,6 +1,11 @@
 {
-    "name": "Quiz Server App",
-    "short_name": "Quiz",
+    "name": "Online Museum Quiz App",
+    "short_name": "Museum Quizzes",
+    "author": "Benjamin Bowles (a.k.a. HoleInOneGolfer)",
+    "developer": {
+        "name": "HoleInOneStudios",
+        "url": "https://www.github.com/HoleInOneStudios"
+    },
     "description": "",
     "start_url": "/",
     "display": "fullscreen",
@@ -10,7 +15,7 @@
     "icons": [
         {
             "src": "./images/icon.png",
-            "sizes": "144x144",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ]
