@@ -89,9 +89,9 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
 let AUDIO = true;
 
 // Set background images
-START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
-MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
-FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/backgrounds/placeholder.jpg')`;
+START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/bg-placeholder.jpg')`;
+MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/bg-placeholder.jpg')`;
+FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/bg-placeholder.jpg')`;
 
 // Set logo
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
@@ -109,7 +109,7 @@ updateDOMState();
 
 // Set Hint Image
 function setHint() {
-    HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/hint_people/Hint-Person-Placeholder.jpg" alt="Hint Image">`;
+    HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/Hint-Person-Placeholder.png" alt="Hint Image">`;
     HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
 }
 function toggleHint() {
@@ -228,8 +228,6 @@ function loadQuestion() {
     }
     MAX_TRIES--;
     TRIES = MAX_TRIES;
-
-    console.log(MAX_TRIES);
 }
 
 // answer

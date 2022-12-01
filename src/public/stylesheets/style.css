@@ -1,6 +1,6 @@
 /* Imports */
 @font-face {
-    font-family: 'Sigmar One';
+    font-family: 'Avenir Black';
     src: url('../fonts/Avenir Black.ttf');
 }
 
@@ -57,7 +57,7 @@ html {
     padding: 0;
 
     text-align: center;
-    font-family: 'Sigmar One';
+    font-family: 'Avenir Black';
 
     -webkit-user-select: none;
     -ms-user-select: none;
