@@ -109,6 +109,7 @@ updateDOMState();
 
 // Set Hint Image
 function setHint() {
+    //HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].hImage ? SHEET_DATA[CURRENT_QUESTION].hImage : "./public/images/Hint-Person-Placeholder.png";
     HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/Hint-Person-Placeholder.png" alt="Hint Image">`;
     HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
 }

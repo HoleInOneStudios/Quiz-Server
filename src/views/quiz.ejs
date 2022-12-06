@@ -37,17 +37,18 @@
         <quiz-start>
             <quiz-title><%= title%></quiz-title>
             <p style="font-size: 7vh">How much do you know?</p>
-            <quiz-start-button class="button" onclick="setStateMain()">Begin!</quiz-start-button>
+            <quiz-start-button class="button" style="animation: buttonIdle 2s infinite ease-in-out; width: 50%;"
+                onclick="setStateMain()">Begin!</quiz-start-button>
         </quiz-start>
 
         <quiz-main>
             <quiz-title><%= title%></quiz-title>
             <quiz-question>What?</quiz-question>
             <quiz-answers>
-                <quiz-answer class="button" onclick="answerEvent(0)">A</quiz-answer>
-                <quiz-answer class="button" onclick="answerEvent(1)">B</quiz-answer>
-                <quiz-answer class="button" onclick="answerEvent(2)">C</quiz-answer>
-                <quiz-answer class="button" onclick="answerEvent(3)">D</quiz-answer>
+                <quiz-answer class="button text_1495" onclick="answerEvent(0)">A</quiz-answer>
+                <quiz-answer class="button text_233" onclick="answerEvent(1)">B</quiz-answer>
+                <quiz-answer class="button text_396" onclick="answerEvent(2)">C</quiz-answer>
+                <quiz-answer class="button text_2995" onclick="answerEvent(3)">D</quiz-answer>
             </quiz-answers>
 
             <quiz-status>
@@ -57,7 +58,6 @@
             </quiz-status>
 
             <quiz-hint>
-
                 <div>
                     <p style="padding: 0; margin: 0;">Press me for a hint</p>
                     <quiz-hint-toggle onclick="toggleHint()" style="padding: 0; margin: 0;"></quiz-hint-toggle>

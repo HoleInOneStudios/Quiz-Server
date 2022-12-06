@@ -104,7 +104,6 @@ quiz-logo {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9;
 }
 
 quiz-logo img {
@@ -149,19 +148,19 @@ quiz-finish {
 
 quiz-title {
     font-size: 10vh;
-    margin-bottom: 2vh;
+    margin-bottom: 0vh;
 }
 
 quiz-question {
-    font-size: 5vh;
-    margin-bottom: 2vh;
+    font-size: 4vh;
+    margin-bottom: 1vh;
     width: 75%;
 }
 
 quiz-answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2vh;
+    grid-gap: 1vh;
     width: auto;
     justify-content: center;
     align-items: center;
@@ -172,9 +171,10 @@ quiz-nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: relative;
     bottom: 0;
     right: 0;
+    left: 0;
 }
 
 quiz-nav * {
@@ -222,13 +222,15 @@ quiz-results {
 }
 
 .button {
-    border: solid;
+    border: solid var(--pms_7444);
     border-radius: 1rem;
     padding: 2vw;
     font-size: 4vh;
     width: auto;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+
+    box-sizing: border-box;
 }
 
 .hidden {
@@ -241,4 +243,18 @@ quiz-results {
 
 .incorrect {
     background-color: var(--incorrect-color);
+}
+
+@keyframes buttonIdle {
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
 }
