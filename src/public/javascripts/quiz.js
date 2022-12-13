@@ -198,9 +198,9 @@ function finishDOM() {
 
 // Status
 function updateStatus() {
-    QUIZ_STATUS.innerHTML = `${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
-    QUIZ_SCORE.innerHTML = `${parseInt(SCORE / SHEET_DATA.length * 100)}%`;
-    QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries`;
+    QUIZ_STATUS.innerHTML = `Question ${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
+    QUIZ_SCORE.innerHTML = `Score ${parseInt(SCORE / SHEET_DATA.length * 100)}%`;
+    QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries Remaining`;
 }
 
 // load question
