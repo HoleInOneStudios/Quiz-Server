@@ -225,7 +225,7 @@ quiz-results {
     border: solid var(--pms_7444);
     border-radius: 1rem;
     padding: 2vw;
-    font-size: 4vh;
+    font-size: 3vh;
     width: auto;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
