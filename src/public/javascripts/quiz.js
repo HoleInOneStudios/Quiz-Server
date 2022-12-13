@@ -72,6 +72,10 @@ let SCORE = 0;
 let MAX_TRIES = 0;
 let TRIES = 0;
 
+// nav buttons
+let NEXT_QUESTION = $('quiz-next').get(0);
+let RESTART = $('quiz-restart').get(0);
+
 // Set the current question
 let CURRENT_QUESTION = 0;
 
@@ -220,6 +224,9 @@ function loadQuestion() {
         }
     }
 
+    // remove animation from nextQuestion
+    NEXT_QUESTION.classList.remove('animate-button');
+
     // set Tries
     MAX_TRIES = 0;
     for (var i = 0; i < SHEET_DATA[CURRENT_QUESTION].answers.length; i++) {
@@ -242,6 +249,7 @@ function answerEvent(answerIndex) {
             SESSION[CURRENT_QUESTION].correct = true;
             SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
+            NEXT_QUESTION.classList.toggle('animate-button', true);
         }
         else {
             if (AUDIO) {
@@ -260,9 +268,12 @@ function answerEvent(answerIndex) {
                     ANSWERS[i].classList.toggle('correct', true);
                 }
             }
+            NEXT_QUESTION.classList.toggle('animate-button', true);
         }
 
         updateStatus();
+    }
+    else {
     }
 }
 

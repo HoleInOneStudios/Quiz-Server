@@ -224,12 +224,15 @@ quiz-results {
 .button {
     border: solid var(--pms_7444);
     border-radius: 1rem;
-    padding: 2vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     font-size: 3vh;
     width: auto;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-
+    background-color: rgba(10, 10, 10, 40%);
     box-sizing: border-box;
 }
 
@@ -243,6 +246,10 @@ quiz-results {
 
 .incorrect {
     background-color: var(--incorrect-color);
+}
+
+.animate-button {
+    animation: buttonIdle 2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 @keyframes buttonIdle {
