@@ -4,6 +4,11 @@
     src: url('../fonts/Avenir Black.ttf');
 }
 
+@font-face {
+    font-family: "comic sans";
+    src: url('../fonts/comicsans.ttf');
+}
+
 /* Google Font*/
 @font-face {
     font-family: 'Material Symbols Outlined';
@@ -48,6 +53,8 @@
     --unselected-answer-color: var(--pms_7672);
     --correct-color: rgb(22, 103, 53);
     --incorrect-color: rgb(103, 22, 22);
+    /* ======================================== */
+    font-family: 'comic sans';
 }
 
 .text_233 {
