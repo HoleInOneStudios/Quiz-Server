@@ -140,7 +140,10 @@
 			"All",
 			"Build"
 		],
-		"jest.jestCommandLine": "npm run test --"
+		"jest.jestCommandLine": "npm run test --",
+		"githubPullRequests.ignoredPullRequestBranches": [
+			"main"
+		]
 	},
 	"tasks": {
 		"version": "2.0.0",
