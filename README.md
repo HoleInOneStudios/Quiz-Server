@@ -43,8 +43,8 @@
 7. **Running on LAN**
    1. Determine IP address of machine to be used as server.  IPV4 version.
    2. Replace the `HOST` with the IP address from step 1.
-   3. In dist directory command prompt: `./quiz-app-win.exe`    **Dot-slash is required!**
-   4. **Be sure your computer allows the connection**
+   3. In dist directory command prompt: `./quiz-app-win.exe`    **Dot-slash is required!** **Be sure your computer allows the connection**
+   4. In a web browser, browse the the IP fom step 1.
 
 ## Data
 
