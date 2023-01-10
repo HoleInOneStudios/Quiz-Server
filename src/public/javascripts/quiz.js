@@ -6,27 +6,27 @@ FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[
 // Set logo
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
 
-// Set the current state
+// Set the current state to START */
 let CURRENT_STATE = QUIZ_STATE.START;
 updateDOMState();
 
-// Set Hint Image
+/** Set Hint Image  */
 function setHint() {
     //HINT_TOGGLE.style.backgroundImage = SHEET_DATA[CURRENT_QUESTION].hImage ? SHEET_DATA[CURRENT_QUESTION].hImage : "./public/images/Hint-Person-Placeholder.png";
     HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/Hint-Person-Placeholder.png" alt="Hint Image">`;
     HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
 }
-// Toggle Hint
+/** Toggle Hint and set `hint_used` to `true` for the session */
 function toggleHint() {
     SESSION.QUESTIONS[CURRENT_QUESTION].hint_used = true;
     HINT_TEXT.classList.toggle('hidden');
 }
-// Hide the Hint
+/** Hide the Hint */
 function disableHint() {
     HINT_TEXT.classList.toggle('hidden', true);
 }
 
-// update DOM based on state
+/** update DOM based on state */
 function updateDOMState() {
     switch (CURRENT_STATE) {
         case QUIZ_STATE.START:
@@ -47,40 +47,45 @@ function updateDOMState() {
     }
 }
 
-// Set state functions
+/** Set state function - Start */
 function setStateStart() {
-    SESSION.START_TIME = 0;
-    SESSION.END_TIME = 0;
-    resetSession();
     CURRENT_STATE = QUIZ_STATE.START;
     CURRENT_QUESTION = 0;
 
+    resetSession();
     updateDOMState();
 }
 
+/** Set state function - Main */
 function setStateMain() {
     CURRENT_STATE = QUIZ_STATE.MAIN;
-    SESSION.START_TIME = Date.now();
     resetSession();
+
     disableHint();
     setHint();
+
     loadQuestion();
     updateStatus();
+
+    SESSION.START_TIME = Date.now();
     updateDOMState();
 }
 
+/** Set state function - Finish  */
 function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
     SESSION.END_TIME = Date.now();
-    sendData();
+
     finishDOM();
     updateDOMState();
-    console.log("Finish");
+    sendData();
 }
 
-// Reset SESSION
+/** Reset SESSION */
 function resetSession() {
     SESSION.score = 0;
+    SESSION.START_TIME = 0;
+    SESSION.END_TIME = 0;
     for (var i = 0; i < SESSION.QUESTIONS.length; i++) {
         SESSION.QUESTIONS[i].selections = [];
         SESSION.QUESTIONS[i].correct = false;
@@ -89,7 +94,7 @@ function resetSession() {
     }
 }
 
-// Next Question
+/** Next Question */
 function nextQuestion() {
     if (CURRENT_QUESTION < SHEET_DATA.length - 1) {
         CURRENT_QUESTION++;
@@ -103,7 +108,7 @@ function nextQuestion() {
     updateStatus();
 }
 
-//finish DOM
+/** finish DOM */
 function finishDOM() {
     QUIZ_RESULTS.innerHTML =
         `<h2>${SESSION.score / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
@@ -111,14 +116,14 @@ function finishDOM() {
          <p>Your score is: ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%</p>`;
 }
 
-// Status
+/** Status */
 function updateStatus() {
     QUIZ_STATUS.innerHTML = `Question ${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
     QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%`;
     QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries Remaining`;
 }
 
-// load question
+/** load question */
 function loadQuestion() {
     // Set the question
     QUESTION.innerHTML = SHEET_DATA[CURRENT_QUESTION].question;
@@ -149,7 +154,7 @@ function loadQuestion() {
     TRIES = MAX_TRIES;
 }
 
-// answer
+/** answer */
 function answerEvent(answerIndex) {
     if (TRIES > 0 && !SESSION.QUESTIONS[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION.QUESTIONS[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
@@ -187,14 +192,14 @@ function answerEvent(answerIndex) {
     }
 }
 
-// audio controls
+/** audio controls */
 function toggleAudio() {
     AUDIO = !AUDIO;
 
     AUDIO_TOGGLE.innerText = AUDIO ? 'volume_up' : 'volume_off';
 }
 
-// User timeout after 60 seconds of inactivity
+/** User timeout after 60 seconds of inactivity */
 function debounce(callback, timeout, _this) {
     var timer;
     return function (e) {
@@ -207,13 +212,12 @@ function debounce(callback, timeout, _this) {
     }
 }
 
-// User timeout after 60 seconds of inactivity
+/** User timeout after 60 seconds of inactivity */
 var userAction = debounce(function (e) {
-    console.log("silence");
     setStateStart();
 }, 60 * 1000);
 
-// User timeout after 60 seconds of inactivity
+/** User timeout after 60 seconds of inactivity */
 document.body.onload = () => {
     document.addEventListener("mousemove", userAction, false);
     document.addEventListener("click", userAction, false);
@@ -221,9 +225,8 @@ document.body.onload = () => {
     document.addEventListener("keypress", userAction, false);
 }
 
-// send analytics to server
+/** send analytics to server */
 function sendData() {
-    console.log("Sending data");
     fetch("/send_score",
         {
             method: "POST",
