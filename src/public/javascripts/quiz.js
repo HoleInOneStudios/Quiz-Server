@@ -18,7 +18,7 @@ function setHint() {
 }
 // Toggle Hint
 function toggleHint() {
-    SESSION.Questions[CURRENT_QUESTION].hint_used = true;
+    SESSION.QUESTIONS[CURRENT_QUESTION].hint_used = true;
     HINT_TEXT.classList.toggle('hidden');
 }
 // Hide the Hint
@@ -49,6 +49,8 @@ function updateDOMState() {
 
 // Set state functions
 function setStateStart() {
+    SESSION.START_TIME = 0;
+    SESSION.END_TIME = 0;
     resetSession();
     CURRENT_STATE = QUIZ_STATE.START;
     CURRENT_QUESTION = 0;
@@ -58,6 +60,7 @@ function setStateStart() {
 
 function setStateMain() {
     CURRENT_STATE = QUIZ_STATE.MAIN;
+    SESSION.START_TIME = Date.now();
     resetSession();
     disableHint();
     setHint();
@@ -68,6 +71,7 @@ function setStateMain() {
 
 function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
+    SESSION.END_TIME = Date.now();
     sendData();
     finishDOM();
     updateDOMState();
@@ -76,7 +80,7 @@ function setStateFinish() {
 
 // Reset SESSION
 function resetSession() {
-    SESSION.Data.SCORE = 0;
+    SESSION.score = 0;
     for (var i = 0; i < SESSION.length; i++) {
         SESSION[i].selections = [];
         SESSION[i].correct = false;
@@ -102,15 +106,15 @@ function nextQuestion() {
 //finish DOM
 function finishDOM() {
     QUIZ_RESULTS.innerHTML =
-        `<h2>${SESSION.Data.SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
+        `<h2>${SESSION.score / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
          <p>You have completed the quiz!</p>
-         <p>Your score is: ${parseInt(SESSION.Data.SCORE / SHEET_DATA.length * 100)}%</p>`;
+         <p>Your score is: ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%</p>`;
 }
 
 // Status
 function updateStatus() {
     QUIZ_STATUS.innerHTML = `Question ${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
-    QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.Data.SCORE / SHEET_DATA.length * 100)}%`;
+    QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%`;
     QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries Remaining`;
 }
 
@@ -147,14 +151,14 @@ function loadQuestion() {
 
 // answer
 function answerEvent(answerIndex) {
-    if (TRIES > 0 && !SESSION.Questions[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION.Questions[CURRENT_QUESTION].correct) {
+    if (TRIES > 0 && !SESSION.QUESTIONS[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION.QUESTIONS[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
             if (AUDIO) {
                 CORRECT.currentTime = 0;
                 CORRECT.play();
             }
-            SESSION.Questions[CURRENT_QUESTION].correct = true;
-            SESSION.Data.SCORE++;
+            SESSION.QUESTIONS[CURRENT_QUESTION].correct = true;
+            SESSION.score++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
             NEXT_QUESTION.classList.toggle('animate-button', true);
         }
@@ -165,9 +169,9 @@ function answerEvent(answerIndex) {
             }
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
-        SESSION.Questions[CURRENT_QUESTION].selections.push(answerIndex);
+        SESSION.QUESTIONS[CURRENT_QUESTION].selections.push(answerIndex);
         TRIES--;
-        SESSION.Questions[CURRENT_QUESTION].tries_taken++;
+        SESSION.QUESTIONS[CURRENT_QUESTION].tries_taken++;
 
         if (TRIES <= 0) {
             // reveal correct answer

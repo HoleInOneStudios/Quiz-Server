@@ -48,15 +48,15 @@ let CURRENT_QUESTION = 0;
 
 // Session array
 const SESSION = {
-    Name: document.title,
-    Data: {
-        SCORE: 0,
-    },
-    Questions: []
+    START_TIME: 0,
+    END_TIME: 0,
+    QUIZ: document.title,
+    SCORE: 0,
+    QUESTIONS: []
 };
 // Session
 for (var i = 0; i < SHEET_DATA.length; i++) {
-    SESSION.Questions.push({
+    SESSION.QUESTIONS.push({
         selections: [],
         correct: false,
         hint_used: false,
