@@ -1,97 +1,3 @@
-// Process the raw data from sheets to a quiz
-const RAW_SHEET_DATA = JSON.parse($('#sheet-data').text());
-const SHEET_DATA = [];
-
-// Create questions in the quiz
-for (var i = 0; i < RAW_SHEET_DATA.length; i++) {
-    var q = {};
-    // Set the question
-    q.question = RAW_SHEET_DATA[i].Question;
-
-    q.answers = [];
-    // Set the answers
-    for (var j = 0; j < 4; j++) {
-        if (RAW_SHEET_DATA[i][(j + 1).toString()] != '') {
-            q.answers.push(RAW_SHEET_DATA[i][(j + 1).toString()]);
-        }
-    }
-
-    // Set the correct Answers
-    q.correctAnswers = [];
-    answerArray = RAW_SHEET_DATA[i]["Correct"].toString().split(', ');
-    for (var j = 0; j < q.answers.length; j++) {
-        q.correctAnswers.push(false);
-        for (var k = 0; k < answerArray.length; k++) {
-            if (j + 1 == answerArray[k]) {
-                q.correctAnswers[j] = true;
-            }
-        }
-    }
-
-    // Set the hint
-    q.hint = RAW_SHEET_DATA[i].Hint;
-
-    // Set the image
-    q.bgImage = RAW_SHEET_DATA[i].BackgroundImage;
-    q.hImage = RAW_SHEET_DATA[i].HintImage;
-
-    // push to the array
-    SHEET_DATA.push(q);
-}
-
-// Get DOM elements
-const START = $('quiz-start').get(0);
-
-const MAIN = $('quiz-main').get(0);
-const QUESTION = $('quiz-question').get(0);
-const ANSWERS = $('quiz-answer');
-
-const HINT_TOGGLE = $('quiz-hint-toggle').get(0);
-const HINT_TEXT = $('quiz-hint-text').get(0);
-
-const QUIZ_STATUS = $('quiz-current-question').get(0);
-const QUIZ_SCORE = $('quiz-score').get(0);
-const QUIZ_TRIES = $('quiz-tries').get(0);
-
-const AUDIO_TOGGLE = $('quiz-audio-toggle').get(0);
-
-const FINISH = $('quiz-finish').get(0);
-
-const QUIZ_RESULTS = $('quiz-results').get(0);
-
-const LOGO = $('quiz-logo').get(0);
-
-// Audio DOM
-const CORRECT = $('#correct_Audio').get(0);
-const INCORRECT = $('#incorrect_Audio').get(0);
-
-// Session Status Update 
-let SCORE = 0;
-
-// tries
-let MAX_TRIES = 0;
-let TRIES = 0;
-
-// nav buttons
-let NEXT_QUESTION = $('quiz-next').get(0);
-let RESTART = $('quiz-restart').get(0);
-
-// Set the current question
-let CURRENT_QUESTION = 0;
-
-// Session array
-const SESSION = [];
-// Session
-for (var i = 0; i < SHEET_DATA.length; i++) {
-    SESSION.push({
-        selections: [],
-        correct: false
-    })
-}
-
-// audio boolean
-let AUDIO = true;
-
 // Set background images
 START.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/bg-placeholder.jpg')`;
 MAIN.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[0].bgImage}')` : `url('./public/images/bg-placeholder.jpg')`;
@@ -99,13 +5,6 @@ FINISH.style.backgroundImage = SHEET_DATA[0].bgImage ? `url('./img/${SHEET_DATA[
 
 // Set logo
 LOGO.innerHTML = `<img src="./img/logo.png" alt="Logo">`;
-
-// States
-const QUIZ_STATE = {
-    START: 0,
-    MAIN: 1,
-    FINISH: 2
-}
 
 // Set the current state
 let CURRENT_STATE = QUIZ_STATE.START;
@@ -117,9 +16,12 @@ function setHint() {
     HINT_TOGGLE.innerHTML = SHEET_DATA[CURRENT_QUESTION].hImage ? `<img src="./img/${SHEET_DATA[0].hImage}" alt="Hint Image">` : `<img src="./public/images/Hint-Person-Placeholder.png" alt="Hint Image">`;
     HINT_TEXT.innerHTML = SHEET_DATA[CURRENT_QUESTION].hint;
 }
+// Toggle Hint
 function toggleHint() {
+    SESSION.Questions[CURRENT_QUESTION].hint_used = true;
     HINT_TEXT.classList.toggle('hidden');
 }
+// Hide the Hint
 function disableHint() {
     HINT_TEXT.classList.toggle('hidden', true);
 }
@@ -147,9 +49,9 @@ function updateDOMState() {
 
 // Set state functions
 function setStateStart() {
+    resetSession();
     CURRENT_STATE = QUIZ_STATE.START;
     CURRENT_QUESTION = 0;
-    SCORE = 0;
 
     updateDOMState();
 }
@@ -166,15 +68,20 @@ function setStateMain() {
 
 function setStateFinish() {
     CURRENT_STATE = QUIZ_STATE.FINISH;
+    sendData();
     finishDOM();
     updateDOMState();
+    console.log("Finish");
 }
 
 // Reset SESSION
 function resetSession() {
+    SESSION.Data.SCORE = 0;
     for (var i = 0; i < SESSION.length; i++) {
         SESSION[i].selections = [];
         SESSION[i].correct = false;
+        SESSION[i].hint_used = false;
+        SESSION[i].tries_taken = 0;
     }
 }
 
@@ -195,15 +102,15 @@ function nextQuestion() {
 //finish DOM
 function finishDOM() {
     QUIZ_RESULTS.innerHTML =
-        `<h2>${SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
+        `<h2>${SESSION.Data.SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
          <p>You have completed the quiz!</p>
-         <p>Your score is: ${parseInt(SCORE / SHEET_DATA.length * 100)}%</p>`;
+         <p>Your score is: ${parseInt(SESSION.Data.SCORE / SHEET_DATA.length * 100)}%</p>`;
 }
 
 // Status
 function updateStatus() {
     QUIZ_STATUS.innerHTML = `Question ${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
-    QUIZ_SCORE.innerHTML = `Score ${parseInt(SCORE / SHEET_DATA.length * 100)}%`;
+    QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.Data.SCORE / SHEET_DATA.length * 100)}%`;
     QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries Remaining`;
 }
 
@@ -240,14 +147,14 @@ function loadQuestion() {
 
 // answer
 function answerEvent(answerIndex) {
-    if (TRIES > 0 && !SESSION[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION[CURRENT_QUESTION].correct) {
+    if (TRIES > 0 && !SESSION.Questions[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION.Questions[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
             if (AUDIO) {
                 CORRECT.currentTime = 0;
                 CORRECT.play();
             }
-            SESSION[CURRENT_QUESTION].correct = true;
-            SCORE++;
+            SESSION.Questions[CURRENT_QUESTION].correct = true;
+            SESSION.Data.SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
             NEXT_QUESTION.classList.toggle('animate-button', true);
         }
@@ -258,8 +165,9 @@ function answerEvent(answerIndex) {
             }
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
-        SESSION[CURRENT_QUESTION].selections.push(answerIndex);
+        SESSION.Questions[CURRENT_QUESTION].selections.push(answerIndex);
         TRIES--;
+        SESSION.Questions[CURRENT_QUESTION].tries_taken++;
 
         if (TRIES <= 0) {
             // reveal correct answer
@@ -272,8 +180,6 @@ function answerEvent(answerIndex) {
         }
 
         updateStatus();
-    }
-    else {
     }
 }
 
@@ -309,4 +215,18 @@ document.body.onload = () => {
     document.addEventListener("click", userAction, false);
     document.addEventListener("scroll", userAction, false);
     document.addEventListener("keypress", userAction, false);
+}
+
+// send analytics to server
+function sendData() {
+    console.log("Sending data");
+    fetch("/send_score",
+        {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ SESSION })
+        })
+        .then(response => response.json())
 }

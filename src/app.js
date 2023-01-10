@@ -1,8 +1,10 @@
 var express = require('express');
 var { resolve, join, dirname } = require('path');
 var ejs = require('ejs');
+var bodyParser = require('body-parser')
 
 //Routes
+var dataRouter = require('./routes/data');
 var indexRouter = require('./routes/main');
 var quizRouter = require('./routes/quiz');
 
@@ -23,6 +25,10 @@ app.use("/img", express.static(FILE_PATH)) //Just for the sake of pkg, not neede
 app.set('views', resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
 
+// parse application/json
+app.use(bodyParser.json())
+
+app.use('/', dataRouter);
 app.use('/', indexRouter);
 app.use('/', quizRouter);
 
