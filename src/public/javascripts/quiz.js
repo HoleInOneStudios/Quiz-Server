@@ -81,11 +81,11 @@ function setStateFinish() {
 // Reset SESSION
 function resetSession() {
     SESSION.score = 0;
-    for (var i = 0; i < SESSION.length; i++) {
-        SESSION[i].selections = [];
-        SESSION[i].correct = false;
-        SESSION[i].hint_used = false;
-        SESSION[i].tries_taken = 0;
+    for (var i = 0; i < SESSION.QUESTIONS.length; i++) {
+        SESSION.QUESTIONS[i].selections = [];
+        SESSION.QUESTIONS[i].correct = false;
+        SESSION.QUESTIONS[i].hint_used = false;
+        SESSION.QUESTIONS[i].tries_taken = 0;
     }
 }
 

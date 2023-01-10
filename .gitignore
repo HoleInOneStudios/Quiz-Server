@@ -7,3 +7,5 @@ release/
 *.7z
 *.gz
 *.zip
+.gitignore
+session.data
