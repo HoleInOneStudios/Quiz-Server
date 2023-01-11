@@ -10,16 +10,6 @@ var quizRouter = require('./routes/quiz');
 
 var app = express();
 
-// set up rate limiter: maximum of five requests per minute
-var RateLimit = require('express-rate-limit');
-var limiter = RateLimit.rateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minute
-    max: 30 // limit each IP to 30 requests per windowMs Minute
-});
-
-// apply rate limiter to all requests
-app.use(limiter);
-
 app.use(express.static(join(__dirname, 'views'))) //Just for the sake of pkg, not needed otherwise
 app.use("/public", express.static(join(__dirname, 'public'))) //Just for the sake of pkg, not needed otherwise
 
