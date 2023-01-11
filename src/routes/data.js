@@ -5,7 +5,7 @@ var router = express.Router();
 const sessionDataFile = "./session.data";
 
 router.post('/send_score', function (req, res) {
-    res.send(req.body);
+    res.send("OK");
 
     req.body.SESSION.START_TIME = new Date(req.body.SESSION.START_TIME).toString();
     req.body.SESSION.END_TIME = new Date(req.body.SESSION.END_TIME).toString();

@@ -235,5 +235,5 @@ function sendData() {
             },
             body: JSON.stringify({ SESSION })
         })
-        .then(response => response.json())
+        .catch(err => console.error(err))
 }
