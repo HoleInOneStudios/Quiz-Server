@@ -83,7 +83,7 @@ function setStateFinish() {
 
 /** Reset SESSION */
 function resetSession() {
-    SESSION.score = 0;
+    SESSION.SCORE = 0;
     SESSION.START_TIME = 0;
     SESSION.END_TIME = 0;
     for (var i = 0; i < SESSION.QUESTIONS.length; i++) {
@@ -113,13 +113,13 @@ function finishDOM() {
     QUIZ_RESULTS.innerHTML =
         `<h2>${SESSION.score / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
          <p>You have completed the quiz!</p>
-         <p>Your score is: ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%</p>`;
+         <p>Your score is: ${parseInt(SESSION.SCORE / SHEET_DATA.length * 100)}%</p>`;
 }
 
 /** Status */
 function updateStatus() {
     QUIZ_STATUS.innerHTML = `Question ${CURRENT_QUESTION + 1}/${SHEET_DATA.length}`;
-    QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.score / SHEET_DATA.length * 100)}%`;
+    QUIZ_SCORE.innerHTML = `Score ${parseInt(SESSION.SCORE / SHEET_DATA.length * 100)}%`;
     QUIZ_TRIES.innerHTML = `${TRIES}/${MAX_TRIES} Tries Remaining`;
 }
 
@@ -163,7 +163,7 @@ function answerEvent(answerIndex) {
                 CORRECT.play();
             }
             SESSION.QUESTIONS[CURRENT_QUESTION].correct = true;
-            SESSION.score++;
+            SESSION.SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
             NEXT_QUESTION.classList.toggle('animate-button', true);
         }
