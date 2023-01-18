@@ -9,6 +9,20 @@ function buildLogData(session) {
     return logData;
 }
 
+function readLogData() {
+    var array = fs.readFileSync(sessionDataFile).toString().split("\n");
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == "") {
+            array.splice(i, 1);
+        }
+        else {
+            array[i] = JSON.parse(array[i]);
+        }
+    }
+    console.log(array);
+    return array;
+}
+
 
 router.post('/send_score', function (req, res) {
     res.send("OK");
@@ -28,6 +42,7 @@ router.post('/send_score', function (req, res) {
     fs.appendFile(sessionDataFile, buildLogData(req.body.SESSION) + "\n", function (err) {
         console.log('Session Data Saved...');
     });
+
 });
 
 module.exports = router;
