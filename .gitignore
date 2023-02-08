@@ -2,10 +2,8 @@ node_modules/
 ~$*.xlsx
 dist/
 release/
-**/client-data/
 
 *.7z
 *.gz
 *.zip
-.gitignore
 session.data
