@@ -111,7 +111,7 @@ function nextQuestion() {
 /** finish DOM */
 function finishDOM() {
     QUIZ_RESULTS.innerHTML =
-        `<h2>${SESSION.score / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
+        `<h2>${SESSION.SCORE / SHEET_DATA.length * 100 > 70 ? 'Congratulations!' : 'Better Luck Next Time!'}</h2>
          <p>You have completed the quiz!</p>
          <p>Your score is: ${parseInt(SESSION.SCORE / SHEET_DATA.length * 100)}%</p>`;
 }
@@ -217,12 +217,21 @@ var userAction = debounce(function (e) {
     setStateStart();
 }, 60 * 1000);
 
+var refresh = debounce(function (e) {
+    location.reload();
+}, 15 * 60 * 1000);
+
 /** User timeout after 60 seconds of inactivity */
 document.body.onload = () => {
     document.addEventListener("mousemove", userAction, false);
     document.addEventListener("click", userAction, false);
     document.addEventListener("scroll", userAction, false);
     document.addEventListener("keypress", userAction, false);
+
+    document.addEventListener("mousemove", refresh, false);
+    document.addEventListener("click", refresh, false);
+    document.addEventListener("scroll", refresh, false);
+    document.addEventListener("keypress", refresh, false);
 }
 
 /** send analytics to server */
