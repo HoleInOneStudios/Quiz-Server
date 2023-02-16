@@ -140,6 +140,7 @@ quiz-status {
 
 quiz-start,
 quiz-main,
+quiz-info,
 quiz-finish {
     position: fixed;
     top: 0;

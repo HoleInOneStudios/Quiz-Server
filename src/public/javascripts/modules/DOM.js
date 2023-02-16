@@ -1,5 +1,6 @@
 // Get DOM elements
-const START = $('quiz-start').get(0);
+const START = $( 'quiz-start' ).get( 0 );
+const INFO = $( 'quiz-info' ).get( 0 );
 
 const MAIN = $('quiz-main').get(0);
 const QUESTION = $('quiz-question').get(0);

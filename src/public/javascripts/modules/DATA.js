@@ -67,8 +67,9 @@ for (var i = 0; i < SHEET_DATA.length; i++) {
 // States
 const QUIZ_STATE = {
     START: 0,
-    MAIN: 1,
-    FINISH: 2
+    INFO: 1,
+    MAIN: 2,
+    FINISH: 3
 }
 
 // audio boolean

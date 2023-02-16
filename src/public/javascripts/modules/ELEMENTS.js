@@ -31,6 +31,7 @@ const ELEMENTS = [
     'quiz-answers',
     'quiz-answer',
     'quiz-status',
+    'quiz-info',
     'quiz-current-question',
     'quiz-score',
     'quiz-tries',

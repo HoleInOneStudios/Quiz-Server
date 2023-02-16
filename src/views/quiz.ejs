@@ -38,8 +38,20 @@
             <quiz-title><%= title%></quiz-title>
             <p style="font-size: 7vh">How much do you know?</p>
             <quiz-start-button class="button animate-button" style="width: 50%;"
-                onclick="setStateMain()">Begin!</quiz-start-button>
+                onclick="setStateInfo()">Begin!</quiz-start-button>
         </quiz-start>
+
+        <quiz-info>
+            <p style="font-size: 5vh">
+                You may have more than one chance to answer each question correctly.
+                <br>
+                If your answer turns red, it’s not correct. Try again.
+                <br>
+                If your answer turns green, great job! Move to the next question!
+            </p>
+            <quiz-start-button class="button animate-button" style="width: 50%;"
+                onclick="setStateMain();">Continue</quiz-start-button>
+        </quiz-info>
 
         <quiz-main>
             <quiz-title><%= title%></quiz-title>
