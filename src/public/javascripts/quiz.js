@@ -64,6 +64,8 @@ function setStateMain() {
     disableHint();
     setHint();
 
+    MUSIC.play();
+    
     loadQuestion();
     updateStatus();
 
@@ -158,20 +160,16 @@ function loadQuestion() {
 function answerEvent(answerIndex) {
     if (TRIES > 0 && !SESSION.QUESTIONS[CURRENT_QUESTION].selections.includes(answerIndex) && !SESSION.QUESTIONS[CURRENT_QUESTION].correct) {
         if (SHEET_DATA[CURRENT_QUESTION].correctAnswers[answerIndex]) {
-            if (AUDIO) {
-                CORRECT.currentTime = 0;
-                CORRECT.play();
-            }
+            CORRECT.currentTime = 0;
+            CORRECT.play();
             SESSION.QUESTIONS[CURRENT_QUESTION].correct = true;
             SESSION.SCORE++;
             ANSWERS[answerIndex].classList.toggle('correct', true);
             NEXT_QUESTION.classList.toggle('animate-button', true);
         }
         else {
-            if (AUDIO) {
-                INCORRECT.currentTime = 0;
-                INCORRECT.play();
-            }
+            INCORRECT.currentTime = 0;
+            INCORRECT.play();
             ANSWERS[answerIndex].classList.toggle('incorrect', true);
         }
         SESSION.QUESTIONS[CURRENT_QUESTION].selections.push(answerIndex);
@@ -193,9 +191,13 @@ function answerEvent(answerIndex) {
 }
 
 /** audio controls */
-function toggleAudio() {
+function toggleAudio ()
+{
     AUDIO = !AUDIO;
-
+    for (let index = 0; index < AUDIOS.length; index++) {
+        const element = AUDIOS[index];
+        element.setAttribute('muted', !AUDIO);
+    }
     AUDIO_TOGGLE.innerText = AUDIO ? 'volume_up' : 'volume_off';
 }
 
@@ -215,6 +217,7 @@ function debounce(callback, timeout, _this) {
 /** User timeout after 60 seconds of inactivity */
 var userAction = debounce(function (e) {
     setStateStart();
+    MUSIC.stop();   
 }, 60 * 1000);
 
 var refresh = debounce(function (e) {

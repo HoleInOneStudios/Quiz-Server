@@ -22,7 +22,10 @@ const LOGO = $('quiz-logo').get(0);
 
 // Audio DOM
 const CORRECT = $('#correct_Audio').get(0);
-const INCORRECT = $('#incorrect_Audio').get(0);
+const INCORRECT = $( '#incorrect_Audio' ).get( 0 );
+const MUSIC = $( '#music_Audio' ).get( 0 );
+
+const AUDIOS = $( 'audio' );
 
 // nav buttons
 const NEXT_QUESTION = $('quiz-next').get(0);
