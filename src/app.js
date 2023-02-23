@@ -24,14 +24,14 @@ app.use(express.static(join(__dirname, 'views'))) //Just for the sake of pkg, no
 app.use("/public", express.static(join(__dirname, 'public'))) //Just for the sake of pkg, not needed otherwise
 
 // set up rate limiter: maximum of five requests per minute
-var RateLimit = require('express-rate-limit');
-var limiter = RateLimit.rateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minute
-    max: 60 // limit each IP to 60 requests per windowMs Minute
-});
+// var RateLimit = require('express-rate-limit');
+// var limiter = RateLimit.rateLimit({
+//     windowMs: 1 * 60 * 1000, // 1 minute
+//     max: 60 // limit each IP to 60 requests per windowMs Minute
+// });
 
 // apply rate limiter to all requests
-app.use(limiter);
+// app.use(limiter);
 
 let FILE_PATH;
 if (process.env.NODE_ENV == undefined) {
