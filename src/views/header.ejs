@@ -38,9 +38,9 @@
 
     <script>
       // Stop user from being able to scroll
-      addEventListener('touchmove', (e) => { e.preventDefault(); });
+      addEventListener('touchmove', (e) => { e.preventDefault(); }, { passive: false });
       // Stop user from going back by swiping (TODO)
-      addEventListener("touchstart", (e) => { if (e.pageX > 10 && e.pageX < window.innerWidth - 10) { return; } e.preventDefault(); }, { passive: false });
+      // addEventListener("touchstart", (e) => { if (e.pageX > 10 && e.pageX < window.innerWidth - 10) { return; } e.preventDefault(); }, { passive: false });
     </script>
     <!--Custom Element Script-->
     <script src="./public/javascripts/modules/ELEMENTS.js" defer></script>
