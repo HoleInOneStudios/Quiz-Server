@@ -98,8 +98,8 @@
 			}
 		],
 		"editor.codeActionsOnSave": {
-			"source.fixAll": true,
-			"source.organizeImports": true
+			"source.fixAll": "explicit",
+			"source.organizeImports": "explicit"
 		},
 		"editor.quickSuggestions": {
 			"other": "on",
@@ -128,7 +128,6 @@
 		"zenMode.centerLayout": false,
 		"zenMode.fullScreen": true,
 		"zenMode.hideActivityBar": false,
-		"zenMode.hideTabs": false,
 		"zenMode.hideStatusBar": false,
 		"zenMode.hideLineNumbers": false,
 		"zenMode.silentNotifications": true,
