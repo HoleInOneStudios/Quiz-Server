@@ -81,10 +81,15 @@ jobs:
       - name: Create new tag
         id: create_new_tag
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag ${{ env.NEW_VERSION }}
-          git push origin ${{ env.NEW_VERSION }}
+          git fetch --tags
+          if git rev-parse ${{ env.NEW_VERSION }} >/dev/null 2>&1; then
+            echo "Tag ${{ env.NEW_VERSION }} already exists."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag ${{ env.NEW_VERSION }}
+            git push origin ${{ env.NEW_VERSION }}
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -94,7 +99,7 @@ jobs:
           echo "Generating release notes..."
           LAST_TAG=$(git describe --tags --abbrev=0 HEAD^)
           echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
-          RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)")
+          RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)" --reverse)
           echo "RELEASE_NOTES=${RELEASE_NOTES}" >> $GITHUB_ENV
 
       - name: Create Release
@@ -105,13 +110,16 @@ jobs:
         with:
           tag_name: ${{ env.NEW_VERSION }}
           release_name: Release ${{ env.NEW_VERSION }}
-          body: ${{ env.RELEASE_NOTES }}
+          body: |
+            ## Changes
+            ${{ env.RELEASE_NOTES }}
           draft: false
           prerelease: false
 
       - name: Update latest tag
         run: |
-          git tag -f latest
+          git fetch --tags
+          git tag -f latest ${{ env.NEW_VERSION }}
           git push origin -f latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
