@@ -97,9 +97,12 @@ jobs:
         id: generate_release_notes
         run: |
           echo "Generating release notes..."
-          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^)
-          echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
-          RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)" --reverse)
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$LAST_TAG" ]; then
+            RELEASE_NOTES="Initial release."
+          else
+            RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)" --reverse)
+          fi
           echo "RELEASE_NOTES=${RELEASE_NOTES}" >> $GITHUB_ENV
 
       - name: Create Release
