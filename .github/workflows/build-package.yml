@@ -3,11 +3,11 @@ name: Build and Release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
   workflow_dispatch:
 
 env:
-  NODE_VERSION: "16"
+  NODE_VERSION: '16'
   DIST_DIR: dist
   RELEASE_DIR: release
   WIN_ARTIFACT: quiz-app-win.zip
@@ -29,62 +29,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build scripts with pkg
-        run: npm run build:scripts
-
-      - name: Build assets
+      - name: Build project
         run: |
+          npm run build:scripts
           mkdir -p ${{ env.DIST_DIR }}/data
           cp src/data/data.xlsx ${{ env.DIST_DIR }}/data.xlsx
           cp -r src/img ${{ env.DIST_DIR }}/img
-
-      - name: Copy environment file
-        run: |
           cp .env ${{ env.DIST_DIR }}/.env
           sed -i 's/^NODE_ENV=0$/NODE_ENV=production/' ${{ env.DIST_DIR }}/.env
           sed -i 's/^FILE_PATH=.*$/FILE_PATH="data.xlsx"/' ${{ env.DIST_DIR }}/.env
 
-      - name: Package for Windows
+      - name: Package artifacts
         run: |
           mkdir -p ${{ env.DIST_DIR }}/release
           zip -r ${{ env.DIST_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.DIST_DIR }}/*
-
-      - name: Package for Linux
-        run: |
-          mkdir -p ${{ env.DIST_DIR }}/release
           zip -r ${{ env.DIST_DIR }}/release/${{ env.LINUX_ARTIFACT }} ${{ env.DIST_DIR }}/*
-
-      - name: Package for macOS
-        run: |
-          mkdir -p ${{ env.DIST_DIR }}/release
           zip -r ${{ env.DIST_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.DIST_DIR }}/*
 
-      - name: Cache build artifacts
-        uses: actions/cache@v3
-        with:
-          path: |
-            **/${{ env.DIST_DIR }}
-          key: ${{ runner.os }}-build-${{ hashFiles('**/${{ env.DIST_DIR }}/**') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-
-      - name: Upload Windows artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.WIN_ARTIFACT }}
-          path: ${{ env.DIST_DIR }}/${{ env.RELEASE_DIR }}/${{ env.WIN_ARTIFACT }}
-
-      - name: Upload Linux artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.LINUX_ARTIFACT }}
-          path: ${{ env.DIST_DIR }}/${{ env.RELEASE_DIR }}/${{ env.LINUX_ARTIFACT }}
-
-      - name: Upload macOS artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.MACOS_ARTIFACT }}
-          path: ${{ env.DIST_DIR }}/${{ env.RELEASE_DIR }}/${{ env.MACOS_ARTIFACT }}
+          name: build-artifacts
+          path: ${{ env.DIST_DIR }}/release
 
   release:
     runs-on: ubuntu-latest
@@ -93,22 +59,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download Windows artifact
+      - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          name: ${{ env.WIN_ARTIFACT }}
-          path: temp/${{ env.RELEASE_DIR }}
-
-      - name: Download Linux artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.LINUX_ARTIFACT }}
-          path: temp/${{ env.RELEASE_DIR }}
-
-      - name: Download macOS artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.MACOS_ARTIFACT }}
+          name: build-artifacts
           path: temp/${{ env.RELEASE_DIR }}
 
       - name: Create Release
@@ -117,8 +71,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
 
