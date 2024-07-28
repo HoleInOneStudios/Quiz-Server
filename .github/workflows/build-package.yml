@@ -72,7 +72,8 @@ jobs:
           LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
           if [[ "$LATEST_TAG" =~ ^v[0-9]+.[0-9]+.[0-9]+$ ]]; then
             VERSION_PARTS=(${LATEST_TAG//./ })
-            NEW_VERSION="v${VERSION_PARTS[0]:1}.$((VERSION_PARTS[1]+1)).0"
+            PATCH_VERSION=$((VERSION_PARTS[2] + 1))
+            NEW_VERSION="v${VERSION_PARTS[0]:1}.${VERSION_PARTS[1]}.${PATCH_VERSION}"
           else
             NEW_VERSION="v1.0.0"
           fi
