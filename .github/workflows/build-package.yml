@@ -96,24 +96,28 @@ jobs:
           name: build-artifacts
           path: ${{ env.TEMP_RELEASE_DIR }}/release
 
-      - name: Determine next version
-        id: determine_next_version
+      - name: Determine next version and previous tag
+        id: determine_versions
         run: |
           git fetch --tags
           TAGS=$(git tag -l "v*.*.*")
           if [ -z "$TAGS" ]; then
             NEW_VERSION="v1.0.0"
+            PREVIOUS_TAG=""
           else
             LATEST_TAG=$(echo "$TAGS" | sort -V | tail -n 1)
             if [[ "$LATEST_TAG" =~ ^v[0-9]+.[0-9]+.[0-9]+$ ]]; then
               VERSION_PARTS=(${LATEST_TAG//./ })
               PATCH_VERSION=$((VERSION_PARTS[2] + 1))
               NEW_VERSION="v${VERSION_PARTS[0]:1}.${VERSION_PARTS[1]}.${PATCH_VERSION}"
+              PREVIOUS_TAG=$LATEST_TAG
             else
               NEW_VERSION="v1.0.0"
+              PREVIOUS_TAG=""
             fi
           fi
           echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
+          echo "PREVIOUS_TAG=${PREVIOUS_TAG}" >> $GITHUB_ENV
 
       - name: Create new tag
         id: create_new_tag
@@ -136,7 +140,12 @@ jobs:
       - name: Generate release notes
         id: generate_release_notes
         run: |
-          echo "::set-output name=notes::$(gh api -X POST repos/${{ github.repository }}/releases/generate-notes -f tag_name=${{ env.NEW_VERSION }} -f target_commitish=${{ github.sha }} | jq -r .body)"
+          if [ -z "${{ env.PREVIOUS_TAG }}" ]; then
+            gh api -X POST repos/${{ github.repository }}/releases/generate-notes -f tag_name=${{ env.NEW_VERSION }} -f target_commitish=${{ github.sha }} > release_notes.json
+          else
+            gh api -X POST repos/${{ github.repository }}/releases/generate-notes -f tag_name=${{ env.NEW_VERSION }} -f target_commitish=${{ github.sha }} -f previous_tag_name=${{ env.PREVIOUS_TAG }} > release_notes.json
+          fi
+          cat release_notes.json | jq -r .body > release_notes.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -148,7 +157,7 @@ jobs:
         with:
           tag_name: ${{ env.NEW_VERSION }}
           release_name: Release ${{ env.NEW_VERSION }}
-          body: ${{ steps.generate_release_notes.outputs.notes }}
+          body_path: release_notes.md
           draft: false
           prerelease: false
 
