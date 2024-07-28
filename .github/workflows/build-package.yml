@@ -69,13 +69,18 @@ jobs:
         id: determine_next_version
         run: |
           git fetch --tags
-          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
-          if [[ "$LATEST_TAG" =~ ^v[0-9]+.[0-9]+.[0-9]+$ ]]; then
-            VERSION_PARTS=(${LATEST_TAG//./ })
-            PATCH_VERSION=$((VERSION_PARTS[2] + 1))
-            NEW_VERSION="v${VERSION_PARTS[0]:1}.${VERSION_PARTS[1]}.${PATCH_VERSION}"
-          else
+          TAG_EXISTS=$(git tag -l "v*.*.*")
+          if [ -z "$TAG_EXISTS" ]; then
             NEW_VERSION="v1.0.0"
+          else
+            LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+            if [[ "$LATEST_TAG" =~ ^v[0-9]+.[0-9]+.[0-9]+$ ]]; then
+              VERSION_PARTS=(${LATEST_TAG//./ })
+              PATCH_VERSION=$((VERSION_PARTS[2] + 1))
+              NEW_VERSION="v${VERSION_PARTS[0]:1}.${VERSION_PARTS[1]}.${PATCH_VERSION}"
+            else
+              NEW_VERSION="v1.0.0"
+            fi
           fi
           echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
 
@@ -98,11 +103,16 @@ jobs:
         id: generate_release_notes
         run: |
           echo "Generating release notes..."
-          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
-          if [ -z "$LAST_TAG" ]; then
+          TAG_EXISTS=$(git tag -l "v*.*.*")
+          if [ -z "$TAG_EXISTS" ]; then
             RELEASE_NOTES="Initial release."
           else
-            RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)" --reverse)
+            LAST_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+            if [ -z "$LAST_TAG" ]; then
+              RELEASE_NOTES="Initial release."
+            else
+              RELEASE_NOTES=$(git log ${LAST_TAG}..HEAD --pretty=format:"%h - %s (%an)" --reverse)
+            fi
           fi
           echo "RELEASE_NOTES=${RELEASE_NOTES}" >> $GITHUB_ENV
 
