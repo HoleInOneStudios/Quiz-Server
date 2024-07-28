@@ -13,11 +13,11 @@
     "dev": " nodemon ./src/bin/www",
     "build": "npm run build:scripts && npm run build:assets",
     "build:scripts": "pkg package.json",
-    "build:assets": "@powershell copy src/data/data.xlsx dist/data.xlsx && @powershell Copy-Item -Path src/img -Destination dist -Recurse -Force",
+    "build:assets": "powershell copy src/data/data.xlsx dist/data.xlsx && powershell Copy-Item -Path src/img -Destination dist -Recurse -Force",
     "package": "npm run package:win && npm run package:macos && npm run package:linux",
-    "package:win": "@powershell Compress-Archive -Path dist/quiz-app-win.exe, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-win.zip -Update",
-    "package:linux": "@powershell Compress-Archive -Path dist/quiz-app-linux, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-linux.zip -Update",
-    "package:macos": "@powershell Compress-Archive -Path dist/quiz-app-macos, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-macos.zip -Update",
+    "package:win": "powershell Compress-Archive -Path dist/quiz-app-win.exe, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-win.zip -Update",
+    "package:linux": "powershell Compress-Archive -Path dist/quiz-app-linux, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-linux.zip -Update",
+    "package:macos": "powershell Compress-Archive -Path dist/quiz-app-macos, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-macos.zip -Update",
     "build-package": "npm run build && npm run package"
   },
   "repository": {
