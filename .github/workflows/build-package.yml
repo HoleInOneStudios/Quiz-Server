@@ -32,7 +32,6 @@ jobs:
         run: |
           npm run build:scripts
           mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
-          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/data
           cp src/data/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/data.xlsx
           cp -r src/img ${{ env.TEMP_RELEASE_DIR }}/img
           cp .env ${{ env.TEMP_RELEASE_DIR }}/.env
@@ -41,7 +40,7 @@ jobs:
 
       - name: Package Windows artifact
         run: |
-          cp dist/quiz-app-win ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
+          cp dist/quiz-app-win.exe ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
           zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
 
