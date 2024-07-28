@@ -10,15 +10,15 @@
   "scripts": {
     "test": "jest --colors",
     "start": "node ./src/bin/www",
-    "dev": " nodemon ./src/bin/www",
-    "build": "npm run build:scripts && npm run build:assets  && npm run copy-env",
+    "dev": "nodemon ./src/bin/www",
+    "build": "npm run build:scripts && npm run build:assets && npm run copy-env",
     "build:scripts": "pkg package.json",
-    "build:assets": "powershell copy src/data/data.xlsx dist/data.xlsx && powershell Copy-Item -Path src/img -Destination dist -Recurse -Force",
+    "build:assets": "powershell -Command \"Copy-Item -Path src/data/data.xlsx -Destination dist/data.xlsx; Copy-Item -Path src/img -Destination dist -Recurse -Force\"",
     "copy-env": "powershell -Command \"Copy-Item -Path .env -Destination dist/.env; (Get-Content -Path dist/.env | Where-Object { $_ -notmatch '^NODE_ENV=0$' }) | ForEach-Object { $_ -replace '^FILE_PATH=.*$', 'FILE_PATH=''data.xlsx''' } | Set-Content -Path dist/.env\"",
     "package": "npm run package:win && npm run package:macos && npm run package:linux",
-    "package:win": "powershell Compress-Archive -Path dist/quiz-app-win.exe, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-win.zip -Update",
-    "package:linux": "powershell Compress-Archive -Path dist/quiz-app-linux, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-linux.zip -Update",
-    "package:macos": "powershell Compress-Archive -Path dist/quiz-app-macos, dist/data.xlsx, dist/.env, dist/img -DestinationPath dist/release/quiz-app-macos.zip -Update",
+    "package:win": "powershell -Command \"New-Item -ItemType Directory -Path dist/release -Force; Compress-Archive -Path dist/quiz-app-win.exe,dist/data.xlsx,dist/.env,dist/img -DestinationPath dist/release/quiz-app-win.zip -Update\"",
+    "package:linux": "powershell -Command \"New-Item -ItemType Directory -Path dist/release -Force; Compress-Archive -Path dist/quiz-app-linux,dist/data.xlsx,dist/.env,dist/img -DestinationPath dist/release/quiz-app-linux.zip -Update\"",
+    "package:macos": "powershell -Command \"New-Item -ItemType Directory -Path dist/release -Force; Compress-Archive -Path dist/quiz-app-macos,dist/data.xlsx,dist/.env,dist/img -DestinationPath dist/release/quiz-app-macos.zip -Update\"",
     "build-package": "npm run build && npm run package"
   },
   "repository": {
