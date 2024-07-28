@@ -31,12 +31,33 @@ jobs:
       - name: Build project
         run: |
           npm run build:scripts
-          mkdir -p ${{ env.TEMP_RELEASE_DIR }}
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
           cp src/data/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/data.xlsx
           cp -r src/img ${{ env.TEMP_RELEASE_DIR }}/img
           cp .env ${{ env.TEMP_RELEASE_DIR }}/.env
           sed -i '/^NODE_ENV=/d' ${{ env.TEMP_RELEASE_DIR }}/.env
           sed -i 's/^FILE_PATH=.*$/FILE_PATH="data.xlsx"/' ${{ env.TEMP_RELEASE_DIR }}/.env
+
+      - name: Verify Windows build
+        run: |
+          if [ ! -f dist/quiz-app-win.exe ]; then
+            echo "Windows build not found!"
+            exit 1
+          fi
+
+      - name: Verify Linux build
+        run: |
+          if [ ! -f dist/quiz-app-linux ]; then
+            echo "Linux build not found!"
+            exit 1
+          fi
+
+      - name: Verify macOS build
+        run: |
+          if [ ! -f dist/quiz-app-macos ]; then
+            echo "macOS build not found!"
+            exit 1
+          fi
 
       - name: Package Windows artifact
         run: |
