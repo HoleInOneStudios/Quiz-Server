@@ -65,16 +65,49 @@ jobs:
           name: build-artifacts
           path: temp/${{ env.RELEASE_DIR }}
 
+      - name: Delete all old tags
+        run: |
+          git fetch --tags
+          for tag in $(git tag); do
+            git tag -d $tag
+            git push origin :refs/tags/$tag
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine next version
+        id: determine_next_version
+        run: |
+          NEW_VERSION="v1.0.0"
+          echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
+
+      - name: Create new tag
+        id: create_new_tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag ${{ env.NEW_VERSION }}
+          git push origin ${{ env.NEW_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: ${{ env.NEW_VERSION }}
+          release_name: Release ${{ env.NEW_VERSION }}
           draft: false
           prerelease: false
+
+      - name: Update latest tag
+        run: |
+          git tag -f latest
+          git push origin -f latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Windows asset
         uses: actions/upload-release-asset@v1
