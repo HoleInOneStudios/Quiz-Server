@@ -8,8 +8,7 @@ on:
 
 env:
   NODE_VERSION: "20"
-  DIST_DIR: dist
-  RELEASE_DIR: release
+  TEMP_RELEASE_DIR: temp_release
   WIN_ARTIFACT: quiz-app-win.zip
   LINUX_ARTIFACT: quiz-app-linux.zip
   MACOS_ARTIFACT: quiz-app-macos.zip
@@ -32,25 +31,39 @@ jobs:
       - name: Build project
         run: |
           npm run build:scripts
-          mkdir -p ${{ env.DIST_DIR }}/data
-          cp src/data/data.xlsx ${{ env.DIST_DIR }}/data.xlsx
-          cp -r src/img ${{ env.DIST_DIR }}/img
-          cp .env ${{ env.DIST_DIR }}/.env
-          sed -i 's/^NODE_ENV=0$/NODE_ENV=production/' ${{ env.DIST_DIR }}/.env
-          sed -i 's/^FILE_PATH=.*$/FILE_PATH="data.xlsx"/' ${{ env.DIST_DIR }}/.env
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/data
+          cp src/data/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/data.xlsx
+          cp -r src/img ${{ env.TEMP_RELEASE_DIR }}/img
+          cp .env ${{ env.TEMP_RELEASE_DIR }}/.env
+          sed -i 's/^NODE_ENV=0$/NODE_ENV=production/' ${{ env.TEMP_RELEASE_DIR }}/.env
+          sed -i 's/^FILE_PATH=.*$/FILE_PATH="data.xlsx"/' ${{ env.TEMP_RELEASE_DIR }}/.env
 
-      - name: Package artifacts
+      - name: Package Windows artifact
         run: |
-          mkdir -p ${{ env.DIST_DIR }}/release
-          zip -r ${{ env.DIST_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.DIST_DIR }}/*
-          zip -r ${{ env.DIST_DIR }}/release/${{ env.LINUX_ARTIFACT }} ${{ env.DIST_DIR }}/*
-          zip -r ${{ env.DIST_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.DIST_DIR }}/*
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
+          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-win ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
+
+      - name: Package Linux artifact
+        run: |
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
+          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-linux ${{ env.TEMP_RELEASE_DIR }}/quiz-app
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
+
+      - name: Package macOS artifact
+        run: |
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
+          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-macos ${{ env.TEMP_RELEASE_DIR }}/quiz-app
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: ${{ env.DIST_DIR }}/release
+          path: ${{ env.TEMP_RELEASE_DIR }}/release
 
   release:
     runs-on: ubuntu-latest
@@ -63,7 +76,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-          path: temp/${{ env.RELEASE_DIR }}
+          path: ${{ env.TEMP_RELEASE_DIR }}/release
 
       - name: Determine next version
         id: determine_next_version
@@ -125,7 +138,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: temp/${{ env.RELEASE_DIR }}/${{ env.WIN_ARTIFACT }}
+          asset_path: ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }}
           asset_name: ${{ env.WIN_ARTIFACT }}
           asset_content_type: application/zip
         env:
@@ -135,7 +148,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: temp/${{ env.RELEASE_DIR }}/${{ env.LINUX_ARTIFACT }}
+          asset_path: ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }}
           asset_name: ${{ env.LINUX_ARTIFACT }}
           asset_content_type: application/zip
         env:
@@ -145,7 +158,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: temp/${{ env.RELEASE_DIR }}/${{ env.MACOS_ARTIFACT }}
+          asset_path: ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }}
           asset_name: ${{ env.MACOS_ARTIFACT }}
           asset_content_type: application/zip
         env:
