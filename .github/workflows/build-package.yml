@@ -7,7 +7,7 @@ on:
       - "v*.*.*"
 
 env:
-  NODE_VERSION: "16"
+  NODE_VERSION: "20"
   DIST_DIR: dist
   RELEASE_DIR: release
   WIN_ARTIFACT: quiz-app-win.zip
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -47,7 +47,7 @@ jobs:
           zip -r ${{ env.DIST_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.DIST_DIR }}/*
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: ${{ env.DIST_DIR }}/release
@@ -60,7 +60,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifacts
           path: temp/${{ env.RELEASE_DIR }}
@@ -107,7 +107,7 @@ jobs:
         with:
           tag_name: ${{ env.NEW_VERSION }}
           release_name: Release ${{ env.NEW_VERSION }}
-          generate_release_notes: true
+          body: "Automated release by GitHub Actions"
           draft: false
           prerelease: false
 
