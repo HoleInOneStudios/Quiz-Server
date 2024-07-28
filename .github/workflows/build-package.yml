@@ -31,6 +31,7 @@ jobs:
       - name: Build project
         run: |
           npm run build:scripts
+          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
           mkdir -p ${{ env.TEMP_RELEASE_DIR }}/data
           cp src/data/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/data.xlsx
           cp -r src/img ${{ env.TEMP_RELEASE_DIR }}/img
@@ -40,23 +41,20 @@ jobs:
 
       - name: Package Windows artifact
         run: |
-          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
-          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-win ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
-          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          cp dist/quiz-app-win ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
 
       - name: Package Linux artifact
         run: |
-          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
-          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-linux ${{ env.TEMP_RELEASE_DIR }}/quiz-app
-          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          cp dist/quiz-app-linux ${{ env.TEMP_RELEASE_DIR }}/quiz-app
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
 
       - name: Package macOS artifact
         run: |
-          mkdir -p ${{ env.TEMP_RELEASE_DIR }}/release
-          mv ${{ env.TEMP_RELEASE_DIR }}/quiz-app-macos ${{ env.TEMP_RELEASE_DIR }}/quiz-app
-          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }} -j ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
+          cp dist/quiz-app-macos ${{ env.TEMP_RELEASE_DIR }}/quiz-app
+          zip -r ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
 
       - name: Upload artifacts
