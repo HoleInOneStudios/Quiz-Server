@@ -13,7 +13,12 @@
 
 ## Getting Started
 
-### Manual
+1. Download the correct version from the latest release.
+2. extract it.
+3. inside is a `temp_release` folder, inside of that is the files for the quiz.
+4. ALl you have to do is double click and it should open.
+
+### Manual to Compile
 
 1. Download and extract the repository
 2. Install Node.js.  Search, download and install.
