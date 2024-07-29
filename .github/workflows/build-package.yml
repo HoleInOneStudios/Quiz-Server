@@ -62,19 +62,19 @@ jobs:
       - name: Package Windows artifact
         run: |
           cp dist/quiz-app-win.exe ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
-          zip -j ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
+          zip ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.WIN_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app.exe
 
       - name: Package Linux artifact
         run: |
           cp dist/quiz-app-linux ${{ env.TEMP_RELEASE_DIR }}/quiz-app
-          zip -j ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
+          zip ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.LINUX_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
 
       - name: Package macOS artifact
         run: |
           cp dist/quiz-app-macos ${{ env.TEMP_RELEASE_DIR }}/quiz-app
-          zip -j ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
+          zip ${{ env.TEMP_RELEASE_DIR }}/release/${{ env.MACOS_ARTIFACT }} ${{ env.TEMP_RELEASE_DIR }}/quiz-app ${{ env.TEMP_RELEASE_DIR }}/data.xlsx ${{ env.TEMP_RELEASE_DIR }}/.env ${{ env.TEMP_RELEASE_DIR }}/img/*
           rm ${{ env.TEMP_RELEASE_DIR }}/quiz-app
 
       - name: Upload artifacts
