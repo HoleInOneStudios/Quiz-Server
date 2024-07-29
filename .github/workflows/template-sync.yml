@@ -26,3 +26,5 @@ jobs:
 
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
+          with:
+          - source_repo_path: HoleInOneStudios/Repo-Template
