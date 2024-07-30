@@ -6,7 +6,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: ""
+  - package-ecosystem: "npm"
     directory: "/src" # Location of package manifests for Maven
     schedule:
       interval: "weekly" # Update dependencies weekly
