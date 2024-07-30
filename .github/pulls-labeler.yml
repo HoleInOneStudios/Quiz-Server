@@ -1,8 +1,9 @@
-security:
-  - "(security|vulnerability)"
+# .github/labeler.yml
 
-feature:
-  - "(feature|enhancement)"
-
-bug:
-  - "(bug|issue)"
+pulls:
+  # Add your label rules here
+  # Example:
+  # - label: "bug"
+  #   paths:
+  #     - "**/*bug*"
+  #     - "**/*fix*"
